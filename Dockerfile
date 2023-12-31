@@ -1,4 +1,4 @@
 FROM node:lts-iron as deps
-WORKDIR /src
+WORKDIR /portfolio-website
 COPY . .
 RUN npm install

@@ -18,3 +18,7 @@ ps:
 
 exec:
 	docker-compose exec portfolio-website $(args)
+
+lint:
+	docker-compose exec portfolio-website npm run lint
+	docker-compose exec portfolio-website npm run format
