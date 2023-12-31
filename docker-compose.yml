@@ -1,0 +1,12 @@
+version: '3.7'
+
+services:
+  portfolio-website:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/src
+    command: npm run dev
