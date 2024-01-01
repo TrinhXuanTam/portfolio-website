@@ -26,9 +26,6 @@ function ResponsiveAppBar() {
                 {page}
               </Button>
             ))}
-          </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
             <RoundedButton
               variant="contained"
               sx={{

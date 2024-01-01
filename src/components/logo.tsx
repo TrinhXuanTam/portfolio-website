@@ -10,6 +10,7 @@ export default function Logo() {
         noWrap
         sx={{
           fontWeight: 'bold',
+          userSelect: 'none',
         }}
       >
         TXT
@@ -20,6 +21,7 @@ export default function Logo() {
         noWrap
         sx={{
           fontWeight: 'bold',
+          userSelect: 'none',
         }}
         color="primary"
       >
