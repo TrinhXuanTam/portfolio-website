@@ -1,9 +1,11 @@
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
 import RoundedButton from '@/components/buttons/rounded-button';
+import AppContainer from '@/components/app-container';
 import Logo from '@/components/logo';
 
 const pages = ['Home', 'About', 'Resume', 'Services', 'Projects', 'Blogs'];
@@ -11,7 +13,7 @@ const pages = ['Home', 'About', 'Resume', 'Services', 'Projects', 'Blogs'];
 function ResponsiveAppBar() {
   return (
     <AppBar position="static">
-      <Container maxWidth="xl">
+      <AppContainer>
         <Toolbar disableGutters sx={{ display: 'flex' }}>
           <Logo />
           <Box
@@ -22,7 +24,7 @@ function ResponsiveAppBar() {
             }}
           >
             {pages.map((page) => (
-              <Button variant="text" key={page} sx={{ mx: 1, color: 'white' }}>
+              <Button variant="text" color="inherit" key={page} sx={{ mx: 1 }}>
                 {page}
               </Button>
             ))}
@@ -37,8 +39,19 @@ function ResponsiveAppBar() {
               Get in touch
             </RoundedButton>
           </Box>
+          <Box
+            sx={{
+              flexGrow: 1,
+              justifyContent: 'end',
+              display: { xs: 'flex', md: 'none' },
+            }}
+          >
+            <IconButton size="large" color="inherit">
+              <MenuIcon />
+            </IconButton>
+          </Box>
         </Toolbar>
-      </Container>
+      </AppContainer>
     </AppBar>
   );
 }

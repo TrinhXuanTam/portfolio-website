@@ -12,8 +12,9 @@ export default function Logo() {
           fontWeight: 'bold',
           userSelect: 'none',
         }}
+        color="primary"
       >
-        TXT
+        .
       </Typography>
       <Typography
         fontFamily={oswald.style.fontFamily}
@@ -23,9 +24,8 @@ export default function Logo() {
           fontWeight: 'bold',
           userSelect: 'none',
         }}
-        color="primary"
       >
-        .
+        TXT
       </Typography>
     </>
   );
