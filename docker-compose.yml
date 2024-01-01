@@ -8,7 +8,7 @@ services:
     ports:
       - $PORT:$PORT
     volumes:
-      - ./src/app:/portfolio-website/src/app
+      - ./src:/portfolio-website/src
     env_file:
       - .env
     command: npm run dev
