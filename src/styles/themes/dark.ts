@@ -7,7 +7,13 @@ const theme = createTheme(commonTheme, {
     primary: {
       main: '#16b573',
       light: '#10e08a',
-      dark: '#088c56',
+      dark: '#00663c',
+      contrastText: 'white',
+    },
+    secondary: {
+      main: '#1a28af',
+      light: '#1a28af',
+      dark: '#1a28af',
       contrastText: 'white',
     },
     background: {
@@ -17,6 +23,11 @@ const theme = createTheme(commonTheme, {
     text: {
       primary: '#ffffff',
       main: '#ffffff',
+    },
+  },
+  typography: {
+    subtitle1: {
+      color: '#959ca3',
     },
   },
   components: {

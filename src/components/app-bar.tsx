@@ -36,7 +36,7 @@ function ResponsiveAppBar() {
                 display: 'block',
               }}
             >
-              Get in touch
+              Contact
             </RoundedButton>
           </Box>
           <Box
