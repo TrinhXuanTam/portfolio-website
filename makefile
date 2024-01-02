@@ -21,4 +21,8 @@ exec:
 
 lint:
 	docker-compose exec portfolio-website npm run lint
+
+format:
 	docker-compose exec portfolio-website npm run format
+
+code-check: lint format
