@@ -5,6 +5,9 @@ import Box from '@mui/material/Box';
 import { SxProps } from '@mui/material';
 import RoundedButton from '@/components/buttons/rounded-button';
 import introImage from '@/assets/images/intro-picture.png';
+import IconButton from '@mui/material/IconButton';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import Image from 'next/image';
 
 export default function Intro({ sx }: { sx?: SxProps }) {
@@ -50,10 +53,37 @@ export default function Intro({ sx }: { sx?: SxProps }) {
             </Typography>
           </Stack>
         </Box>
-        <Stack direction="row">
-          <RoundedButton variant="contained" size="large" sx={{ mt: 4 }}>
+        <Stack direction="row" spacing={2} sx={{ mt: 4 }}>
+          <RoundedButton variant="contained" size="large">
             Get in touch
           </RoundedButton>
+          <RoundedButton variant="outlined" size="large">
+            Download CV
+          </RoundedButton>
+        </Stack>
+        <Stack direction="row" spacing={2} sx={{ mt: 4 }}>
+          <IconButton
+            size="large"
+            href={process.env.LINKEDIN_URL!}
+            sx={{
+              color: 'text.primary',
+              padding: 0,
+              '&:hover': { color: 'primary.main' },
+            }}
+          >
+            <LinkedInIcon fontSize="inherit" />
+          </IconButton>
+          <IconButton
+            size="large"
+            href={process.env.GITHUB_URL!}
+            sx={{
+              color: 'text.primary',
+              padding: 0,
+              '&:hover': { color: 'primary.main' },
+            }}
+          >
+            <GitHubIcon fontSize="inherit" />
+          </IconButton>
         </Stack>
       </Stack>
       <Box

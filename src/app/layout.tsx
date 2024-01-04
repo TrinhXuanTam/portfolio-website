@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import ThemeProvider from '@/providers/theme/theme-provider';
-import Container from '@mui/material/Container';
 import AppBar from '@/components/app-bar';
 import '@/styles/globals.css';
 
@@ -24,9 +23,7 @@ export default function RootLayout({
           </header>
 
           <main>
-            <AppRouterCacheProvider>
-              <Container maxWidth="lg">{children}</Container>
-            </AppRouterCacheProvider>
+            <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
           </main>
 
           <footer></footer>

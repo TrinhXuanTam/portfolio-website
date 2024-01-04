@@ -8,11 +8,11 @@ import RoundedButton from '@/components/buttons/rounded-button';
 import Container from '@mui/material/Container';
 import Logo from '@/components/logo';
 
-const pages = ['Home', 'About', 'Resume', 'Services', 'Projects', 'Blogs'];
+const pages = ['Home', 'About', 'Resume', 'Projects', 'Blogs'];
 
 function ResponsiveAppBar() {
   return (
-    <AppBar position="static">
+    <AppBar position="fixed" sx={{ backdropFilter: 'blur(40px)' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{ display: 'flex' }}>
           <Logo />
