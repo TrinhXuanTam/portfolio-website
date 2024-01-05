@@ -4,16 +4,26 @@ import Container from '@mui/material/Container';
 import Technologies from '@/components/technologies';
 import DevelopmentProcess from '@/components/development-process';
 import Services from '@/components/services';
+import FullScreenContainer from '@/components/full-screen-container';
 
 export default function LandingPage() {
   return (
-    <Stack sx={{ my: 15 }}>
-      <Container sx={{ my: 15 }} maxWidth="lg">
-        <Intro />
-      </Container>
-      <DevelopmentProcess sx={{ my: 15 }} />
-      <Services sx={{ my: 15 }} />
-      <Technologies sx={{ my: 15 }} />
+    <Stack>
+      <FullScreenContainer>
+        <Container maxWidth="lg">
+          <Intro />
+        </Container>
+      </FullScreenContainer>
+
+      <FullScreenContainer>
+        <DevelopmentProcess />
+      </FullScreenContainer>
+
+      <FullScreenContainer>
+        <Services />
+      </FullScreenContainer>
+
+      <Technologies />
     </Stack>
   );
 }

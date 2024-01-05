@@ -6,7 +6,6 @@ import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 import DesignServicesIcon from '@mui/icons-material/DesignServices';
 import HandymanIcon from '@mui/icons-material/Handyman';
 import FlareIcon from '@mui/icons-material/Flare';
-import RoundedButton from '@/components/buttons/rounded-button';
 import Grid from '@mui/material/Grid';
 import { SxProps } from '@mui/system';
 import React from 'react';
