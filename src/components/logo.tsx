@@ -1,9 +1,10 @@
 import Typography from '@mui/material/Typography';
 import oswald from '@/styles/fonts/oswald';
+import Stack from '@mui/material/Stack';
 
 export default function Logo() {
   return (
-    <>
+    <Stack direction="row">
       <Typography
         fontFamily={oswald.style.fontFamily}
         variant="h4"
@@ -27,6 +28,6 @@ export default function Logo() {
       >
         TXT
       </Typography>
-    </>
+    </Stack>
   );
 }

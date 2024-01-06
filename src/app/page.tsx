@@ -1,12 +1,12 @@
 import Stack from '@mui/material/Stack';
-import Intro from '@/components/intro';
+import Intro from '@/components/landing-page/intro';
 import Container from '@mui/material/Container';
-import Technologies from '@/components/technologies';
-import DevelopmentProcess from '@/components/development-process';
-import Services from '@/components/services';
+import Technologies from '@/components/landing-page/technologies';
+import DevelopmentProcess from '@/components/landing-page/development-process';
+import Services from '@/components/landing-page/services';
 import FullScreenContainer from '@/components/full-screen-container';
-import LatestWork from '@/components/latest-work';
-import CallToAction from '@/components/call-to-action';
+import LatestWork from '@/components/landing-page/latest-work';
+import CallToAction from '@/components/landing-page/call-to-action';
 
 export default function LandingPage() {
   return (
