@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
+import ApolloProvider from '@/providers/graphql/apollo-provider';
 import ThemeProvider from '@/providers/theme/theme-provider';
 import AppBar from '@/components/app-bar';
 import '@/styles/globals.css';
@@ -23,7 +24,9 @@ export default function RootLayout({
           </header>
 
           <main>
-            <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
+            <ApolloProvider>
+              <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
+            </ApolloProvider>
           </main>
 
           <footer></footer>

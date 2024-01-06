@@ -5,6 +5,7 @@ import Technologies from '@/components/technologies';
 import DevelopmentProcess from '@/components/development-process';
 import Services from '@/components/services';
 import FullScreenContainer from '@/components/full-screen-container';
+import LatestWork from '@/components/latest-work';
 
 export default function LandingPage() {
   return (
@@ -23,7 +24,11 @@ export default function LandingPage() {
         <Services />
       </FullScreenContainer>
 
-      <Technologies />
+      <Technologies sx={{ my: 10 }} />
+
+      <FullScreenContainer>
+        <LatestWork />
+      </FullScreenContainer>
     </Stack>
   );
 }

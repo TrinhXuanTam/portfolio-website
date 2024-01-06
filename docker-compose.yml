@@ -2,6 +2,8 @@ version: '3.7'
 
 services:
   portfolio-website:
+    env_file:
+      - .env
     build:
       context: .
       dockerfile: Dockerfile
@@ -9,6 +11,4 @@ services:
       - $PORT:$PORT
     volumes:
       - ./src:/portfolio-website/src
-    env_file:
-      - .env
     command: npm run dev
