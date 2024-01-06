@@ -2,13 +2,12 @@ version: '3.7'
 
 services:
   portfolio-website:
+    network_mode: host
+    env_file:
+      - .env
     build:
       context: .
       dockerfile: Dockerfile
-    ports:
-      - $PORT:$PORT
     volumes:
       - ./src:/portfolio-website/src
-    env_file:
-      - .env
     command: npm run dev

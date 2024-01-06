@@ -5,15 +5,15 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import RoundedButton from '@/components/buttons/rounded-button';
-import AppContainer from '@/components/app-container';
+import Container from '@mui/material/Container';
 import Logo from '@/components/logo';
 
-const pages = ['Home', 'About', 'Resume', 'Services', 'Projects', 'Blogs'];
+const pages = ['Home', 'About', 'Resume', 'Projects', 'Blogs'];
 
 function ResponsiveAppBar() {
   return (
-    <AppBar position="static">
-      <AppContainer>
+    <AppBar position="fixed" sx={{ backdropFilter: 'blur(40px)' }}>
+      <Container maxWidth="xl">
         <Toolbar disableGutters sx={{ display: 'flex' }}>
           <Logo />
           <Box
@@ -51,7 +51,7 @@ function ResponsiveAppBar() {
             </IconButton>
           </Box>
         </Toolbar>
-      </AppContainer>
+      </Container>
     </AppBar>
   );
 }
