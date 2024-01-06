@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';
 import ApolloProvider from '@/providers/graphql/apollo-provider';
 import ThemeProvider from '@/providers/theme/theme-provider';
+import PageFooter from '@/components/page-footer';
 import AppBar from '@/components/app-bar';
 import '@/styles/globals.css';
 
@@ -29,7 +30,9 @@ export default function RootLayout({
             </ApolloProvider>
           </main>
 
-          <footer></footer>
+          <footer>
+            <PageFooter />
+          </footer>
         </body>
       </ThemeProvider>
     </html>

@@ -10,7 +10,7 @@ export default function FullScreenContainer({
 }) {
   return (
     <Box sx={{ ...sx, height: '100vh', display: 'flex', alignItems: 'center' }}>
-      {children}{' '}
+      {children}
     </Box>
   );
 }
