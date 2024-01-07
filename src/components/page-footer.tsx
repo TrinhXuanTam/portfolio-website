@@ -27,7 +27,6 @@ export default function PageFooter() {
                   fontFamily={oswald.style.fontFamily}
                   variant="h5"
                   fontWeight="bold"
-                  color="primary"
                 >
                   Menu
                 </Typography>
@@ -48,7 +47,6 @@ export default function PageFooter() {
                   fontFamily={oswald.style.fontFamily}
                   variant="h5"
                   fontWeight="bold"
-                  color="primary"
                 >
                   Contact
                 </Typography>

@@ -9,6 +9,7 @@ import FlareIcon from '@mui/icons-material/Flare';
 import Grid from '@mui/material/Grid';
 import { SxProps } from '@mui/system';
 import React from 'react';
+import FadeIn from '@/components/transitions/fade-in';
 
 type DevelopmentProcessPhase = {
   title: React.ReactNode;
@@ -81,50 +82,56 @@ const phases: DevelopmentProcessPhase[] = [
 export default function DevelopmentProcess({ sx }: { sx?: SxProps }) {
   return (
     <Container sx={sx} maxWidth="lg">
-      <Typography
-        fontFamily={oswald.style.fontFamily}
-        variant="h6"
-        fontWeight="bold"
-        color="primary"
-      >
-        How I work
-      </Typography>
+      <FadeIn direction="left">
+        <Typography
+          fontFamily={oswald.style.fontFamily}
+          variant="h6"
+          fontWeight="bold"
+          color="primary"
+        >
+          How I work
+        </Typography>
+      </FadeIn>
       <Grid container>
         <Grid item xs={6}>
-          <Stack>
-            <Typography
-              fontFamily={oswald.style.fontFamily}
-              variant="h3"
-              fontWeight="bold"
-              textTransform="uppercase"
-            >
-              Better design, <br /> better experiences
-            </Typography>
-          </Stack>
+          <FadeIn direction="left">
+            <Stack>
+              <Typography
+                fontFamily={oswald.style.fontFamily}
+                variant="h3"
+                fontWeight="bold"
+                textTransform="uppercase"
+              >
+                Better design, <br /> better experiences
+              </Typography>
+            </Stack>
+          </FadeIn>
         </Grid>
 
         <Grid item xs={6}>
           <Stack spacing={8}>
             {phases.map((phase, index) => (
-              <Stack key={index}>
-                <Typography
-                  fontFamily={oswald.style.fontFamily}
-                  variant="h4"
-                  fontWeight="bold"
-                  color="primary"
-                >
-                  {phase.title}
-                </Typography>
+              <FadeIn key={index} direction="right" delay={index * 0.2}>
+                <Stack>
+                  <Typography
+                    fontFamily={oswald.style.fontFamily}
+                    variant="h4"
+                    fontWeight="bold"
+                    color="primary"
+                  >
+                    {phase.title}
+                  </Typography>
 
-                <Typography
-                  variant="body1"
-                  sx={{ mt: 2 }}
-                  textAlign="justify"
-                  fontWeight="Regular"
-                >
-                  {phase.description}
-                </Typography>
-              </Stack>
+                  <Typography
+                    variant="body1"
+                    sx={{ mt: 2 }}
+                    textAlign="justify"
+                    fontWeight="Regular"
+                  >
+                    {phase.description}
+                  </Typography>
+                </Stack>
+              </FadeIn>
             ))}
           </Stack>
         </Grid>
