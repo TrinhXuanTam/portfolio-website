@@ -7,6 +7,7 @@ import PageFooter from '@/components/page-footer';
 import AppBar from '@/components/app-bar';
 import Cursor from '@/components/cursor';
 import '@/styles/css/globals.css';
+import ScrollIndicator from '@/components/scroll-indicator';
 
 export const metadata: Metadata = {
   title: 'Trinh Xuan Tam - Full Stack Software Engineer',
@@ -37,6 +38,8 @@ export default function RootLayout({
           <footer>
             <PageFooter />
           </footer>
+
+          <ScrollIndicator />
           <Cursor />
         </body>
       </ThemeProvider>
