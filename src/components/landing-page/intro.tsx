@@ -9,6 +9,7 @@ import IconButton from '@mui/material/IconButton';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Image from 'next/image';
+import RhombusBox from '@/components/boxes/rhombus-box';
 
 export default function Intro({ sx }: { sx?: SxProps }) {
   return (
@@ -86,11 +87,10 @@ export default function Intro({ sx }: { sx?: SxProps }) {
           </IconButton>
         </Stack>
       </Stack>
-      <Box
+      <RhombusBox
         sx={{
           height: 500,
           width: 500,
-          backgroundColor: 'primary.dark',
           borderTopLeftRadius: '50%',
           borderBottomLeftRadius: '50%',
           borderBottomRightRadius: '50%',
@@ -98,7 +98,7 @@ export default function Intro({ sx }: { sx?: SxProps }) {
         }}
       >
         <Image src={introImage} alt="Intro image" height={500} />
-      </Box>
+      </RhombusBox>
     </Stack>
   );
 }
