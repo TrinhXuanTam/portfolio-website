@@ -38,7 +38,7 @@ export default function CallToAction({ sx }: { sx?: SxProps }) {
 
           <Stack direction="row" spacing={3}>
             <RoundedButton variant="contained" color="primary" size="large">
-              Contact me
+              Get started
             </RoundedButton>
 
             <RoundedButton variant="outlined" color="primary" size="large">
