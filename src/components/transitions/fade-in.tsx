@@ -34,7 +34,7 @@ export default function FadeIn({
       initial="hidden"
       whileInView="visible"
       viewport={{ once }}
-      transition={{ duration, delay: delay + 0.5 }}
+      transition={{ duration, delay: delay }}
       variants={variants}
     >
       {children}
