@@ -35,6 +35,7 @@ import figma from '@/assets/images/logos/figma.svg';
 import gitlab from '@/assets/images/logos/gitlab.svg';
 import github from '@/assets/images/logos/github.svg';
 import jira from '@/assets/images/logos/jira.svg';
+import FadeIn from '@/components/transitions/fade-in';
 
 export default function Technologies({ sx }: { sx?: SxProps }) {
   const theme = useTheme();
@@ -72,39 +73,41 @@ export default function Technologies({ sx }: { sx?: SxProps }) {
   ];
 
   return (
-    <Stack sx={sx} spacing={5} alignItems="center">
-      <Stack direction="row" spacing={2}>
-        <Typography
-          fontFamily={oswald.style.fontFamily}
-          variant="h3"
-          fontWeight="medium"
-        >
-          I love to work with a wide range of
-        </Typography>
+    <FadeIn>
+      <Stack sx={sx} spacing={5} alignItems="center">
+        <Stack direction="row" spacing={2}>
+          <Typography
+            fontFamily={oswald.style.fontFamily}
+            variant="h3"
+            fontWeight="medium"
+          >
+            I love to work with a wide range of
+          </Typography>
 
-        <Typography
-          fontFamily={oswald.style.fontFamily}
-          variant="h3"
-          fontWeight="bold"
-          color="primary"
-        >
-          Technologies
-        </Typography>
-      </Stack>
-
-      <Marquee
-        direction="left"
-        gradient={true}
-        gradientColor={theme.palette.background.default}
-        gradientWidth="50%"
-        speed={20}
-      >
-        <Stack direction="row" spacing={8} sx={{ ml: 8 }}>
-          {images.map((image, index) => (
-            <Image key={index} src={image} alt="javascript" height={50} />
-          ))}
+          <Typography
+            fontFamily={oswald.style.fontFamily}
+            variant="h3"
+            fontWeight="bold"
+            color="primary"
+          >
+            Technologies
+          </Typography>
         </Stack>
-      </Marquee>
-    </Stack>
+
+        <Marquee
+          direction="left"
+          gradient={true}
+          gradientColor={theme.palette.background.default}
+          gradientWidth="50%"
+          speed={20}
+        >
+          <Stack direction="row" spacing={8} sx={{ ml: 8 }}>
+            {images.map((image, index) => (
+              <Image key={index} src={image} alt="javascript" height={50} />
+            ))}
+          </Stack>
+        </Marquee>
+      </Stack>
+    </FadeIn>
   );
 }
