@@ -10,14 +10,14 @@ export default function AnimatedNavigationLink({
   children: React.ReactNode;
 }) {
   const { navigate } = useAnimatedNavigation();
+
+  function handleNavigation(e: React.MouseEvent<HTMLAnchorElement>) {
+    e.preventDefault();
+    navigate(href);
+  }
+
   return (
-    <a
-      href={href}
-      onClick={(e) => {
-        e.preventDefault();
-        navigate(href);
-      }}
-    >
+    <a href={href} onClick={handleNavigation}>
       {children}
     </a>
   );

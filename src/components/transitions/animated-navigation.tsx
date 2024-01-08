@@ -23,17 +23,17 @@ export default function AnimatedNavigation({
   const theme = useTheme();
   const router = useRouter();
   const [isAnimating, setIsAnimating] = React.useState(false);
-
+  500;
   const navigate = (href: string) => {
     setIsAnimating(true);
 
     setTimeout(() => {
       router.push(href);
-    }, 900);
+    }, 300);
 
     setTimeout(() => {
       setIsAnimating(false);
-    }, 1000);
+    }, 500);
   };
 
   const transitionSpringPhysics: Spring = {
