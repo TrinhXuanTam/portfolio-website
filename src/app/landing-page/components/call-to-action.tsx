@@ -5,6 +5,8 @@ import RoundedButton from '@/components/buttons/rounded-button';
 import Container from '@mui/material/Container';
 import { SxProps } from '@mui/material';
 import FadeIn from '@/components/transitions/fade-in';
+import AnimatedNavigationLink from '@/components/transitions/animated-navigation-link';
+import Routes from '@/utils/routes';
 
 export default function CallToAction({ sx }: { sx?: SxProps }) {
   return (
@@ -41,9 +43,11 @@ export default function CallToAction({ sx }: { sx?: SxProps }) {
               Get started
             </RoundedButton>
 
-            <RoundedButton variant="outlined" color="primary" size="large">
-              More about me
-            </RoundedButton>
+            <AnimatedNavigationLink href={Routes.About}>
+              <RoundedButton variant="outlined" color="primary" size="large">
+                More about me
+              </RoundedButton>
+            </AnimatedNavigationLink>
 
             <RoundedButton variant="outlined" color="primary" size="large">
               See my resume

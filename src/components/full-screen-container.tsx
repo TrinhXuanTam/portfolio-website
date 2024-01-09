@@ -3,13 +3,18 @@ import { SxProps } from '@mui/system';
 
 export default function FullScreenContainer({
   children,
+  className,
   sx,
 }: {
   children: React.ReactNode;
   sx?: SxProps;
+  className?: string;
 }) {
   return (
-    <Box sx={{ ...sx, height: '100vh', display: 'flex', alignItems: 'center' }}>
+    <Box
+      className={className}
+      sx={{ ...sx, height: '100vh', display: 'flex', alignItems: 'center' }}
+    >
       {children}
     </Box>
   );

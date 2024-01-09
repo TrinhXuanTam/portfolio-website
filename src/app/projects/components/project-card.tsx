@@ -39,7 +39,18 @@ export default function ProjectCard({
               height: '100%',
             }}
           >
-            <CardMedia component="img" image={thumbnailUrl} alt={name} />
+            <CardMedia
+              component="img"
+              image={thumbnailUrl}
+              alt={name}
+              sx={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+              }}
+            />
             <motion.div
               initial={{ opacity: 0 }}
               whileHover={{ opacity: 0.8 }}
@@ -49,7 +60,7 @@ export default function ProjectCard({
                 left: 0,
                 width: '100%',
                 height: '100%',
-                backgroundColor: theme.palette.primary.main,
+                backgroundColor: theme.palette.primary.dark,
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',

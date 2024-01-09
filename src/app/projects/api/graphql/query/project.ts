@@ -11,8 +11,6 @@ export const projectsOverview = gql`
             data {
               attributes {
                 url
-                name
-                ext
               }
             }
           }

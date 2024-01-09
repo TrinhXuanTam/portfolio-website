@@ -37,7 +37,13 @@ import github from '@/assets/images/logos/github.svg';
 import jira from '@/assets/images/logos/jira.svg';
 import FadeIn from '@/components/transitions/fade-in';
 
-export default function Technologies({ sx }: { sx?: SxProps }) {
+export default function Technologies({
+  sx,
+  className,
+}: {
+  sx?: SxProps;
+  className?: string;
+}) {
   const theme = useTheme();
 
   const images = [
@@ -74,7 +80,7 @@ export default function Technologies({ sx }: { sx?: SxProps }) {
 
   return (
     <FadeIn>
-      <Stack sx={sx} spacing={5} alignItems="center">
+      <Stack sx={sx} spacing={5} alignItems="center" className={className}>
         <Stack direction="row" spacing={2}>
           <Typography
             fontFamily={oswald.style.fontFamily}

@@ -23,13 +23,12 @@ export default function AnimatedNavigation({
   const theme = useTheme();
   const router = useRouter();
   const [isAnimating, setIsAnimating] = React.useState(false);
-  500;
   const navigate = (href: string) => {
     setIsAnimating(true);
 
     setTimeout(() => {
       router.push(href);
-    }, 300);
+    }, 200);
 
     setTimeout(() => {
       setIsAnimating(false);

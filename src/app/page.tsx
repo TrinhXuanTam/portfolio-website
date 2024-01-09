@@ -11,27 +11,27 @@ import CallToAction from '@/app/landing-page/components/call-to-action';
 export default function LandingPage() {
   return (
     <Stack>
-      <FullScreenContainer>
+      <FullScreenContainer className="snap-y">
         <Container maxWidth="lg">
           <Intro />
         </Container>
       </FullScreenContainer>
 
-      <FullScreenContainer>
+      <FullScreenContainer className="snap-y">
         <DevelopmentProcess />
       </FullScreenContainer>
 
-      <FullScreenContainer>
+      <FullScreenContainer className="snap-y">
         <Services />
       </FullScreenContainer>
 
-      <Technologies sx={{ mt: 15, mb: 30 }} />
+      <Technologies sx={{ pt: '25vh', pb: '25vh' }} className="snap-y" />
 
-      <FullScreenContainer>
+      <FullScreenContainer className="snap-y">
         <LatestWork />
       </FullScreenContainer>
 
-      <FullScreenContainer>
+      <FullScreenContainer className="snap-y">
         <CallToAction />
       </FullScreenContainer>
     </Stack>
