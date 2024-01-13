@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 
 export default function ScrollTransition({
   children,
+  direction = 'up',
 }: {
   children?: React.ReactNode;
   direction?: 'up' | 'down';
@@ -15,7 +16,11 @@ export default function ScrollTransition({
     target: ref,
     offset: ['start start', 'end start'],
   });
-  const translateY = useTransform(scrollY, [0, 500], ['0vh', '25rem']);
+  const translateY = useTransform(
+    scrollY,
+    [0, 500],
+    ['0vh', `${direction === 'up' ? 25 : -25}rem`]
+  );
   const opacity = useTransform(scrollY, [0, 500], [1, 0]);
   return (
     <motion.div ref={ref} style={{ translateY, opacity }}>

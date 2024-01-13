@@ -1,9 +1,7 @@
 enum Routes {
   Home = '/',
   About = '/about',
-  Resume = '/resume',
   Projects = '/projects',
-  Blog = '/blog',
   Contact = '/contact',
 }
 

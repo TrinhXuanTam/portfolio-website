@@ -32,17 +32,30 @@ export default function Logo() {
           repeatType: 'reverse',
         }}
       >
-        <Typography
-          fontFamily={pacifico.style.fontFamily}
-          variant="h4"
-          noWrap
-          sx={{
-            fontWeight: 'bold',
-            userSelect: 'none',
-          }}
-        >
-          .
-        </Typography>
+        <Stack direction="row">
+          <Typography
+            fontFamily={pacifico.style.fontFamily}
+            variant="h4"
+            noWrap
+            sx={{
+              fontWeight: 'bold',
+              userSelect: 'none',
+            }}
+          >
+            .
+          </Typography>
+          <Typography
+            fontFamily={pacifico.style.fontFamily}
+            variant="h4"
+            noWrap
+            sx={{
+              fontWeight: 'bold',
+              userSelect: 'none',
+            }}
+          >
+            xt
+          </Typography>
+        </Stack>
       </motion.span>
     </Stack>
   );

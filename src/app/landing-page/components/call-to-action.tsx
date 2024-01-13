@@ -49,10 +49,6 @@ export default function CallToAction({ sx }: { sx?: SxProps }) {
                 More about me
               </RoundedButton>
             </AnimatedNavigationLink>
-
-            <RoundedButton variant="outlined" color="primary" size="large">
-              See my resume
-            </RoundedButton>
           </Stack>
         </Stack>
       </FadeIn>
