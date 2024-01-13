@@ -84,17 +84,36 @@ export default function Technologies({
         <Stack direction="row" spacing={2}>
           <Typography
             fontFamily={oswald.style.fontFamily}
-            variant="h3"
+            variant="h2"
             fontWeight="medium"
           >
-            I love to work with a wide range of
+            I
           </Typography>
 
           <Typography
             fontFamily={oswald.style.fontFamily}
-            variant="h3"
+            variant="h2"
+            fontWeight="bold"
+            color="secondary"
+            textTransform="uppercase"
+          >
+            love
+          </Typography>
+
+          <Typography
+            fontFamily={oswald.style.fontFamily}
+            variant="h2"
+            fontWeight="medium"
+          >
+            to work with a wide range of
+          </Typography>
+
+          <Typography
+            fontFamily={oswald.style.fontFamily}
+            variant="h2"
             fontWeight="bold"
             color="primary"
+            textTransform="uppercase"
           >
             Technologies
           </Typography>
@@ -109,7 +128,7 @@ export default function Technologies({
         >
           <Stack direction="row" spacing={8} sx={{ ml: 8 }}>
             {images.map((image, index) => (
-              <Image key={index} src={image} alt="javascript" height={50} />
+              <Image key={index} src={image} alt="javascript" height={70} />
             ))}
           </Stack>
         </Marquee>

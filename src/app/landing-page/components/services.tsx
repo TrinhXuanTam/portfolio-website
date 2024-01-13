@@ -38,13 +38,13 @@ const services: Service[] = [
 
 export default function Services({ sx }: { sx?: SxProps }) {
   return (
-    <Container maxWidth="lg">
+    <Container maxWidth="xl">
       <Stack sx={sx} spacing={10}>
         <FadeIn direction="up">
           <Stack direction="row" spacing={2} justifyContent="center">
             <Typography
               fontFamily={oswald.style.fontFamily}
-              variant="h3"
+              variant="h2"
               fontWeight="bold"
               textTransform="uppercase"
             >
@@ -52,7 +52,7 @@ export default function Services({ sx }: { sx?: SxProps }) {
             </Typography>
             <Typography
               fontFamily={oswald.style.fontFamily}
-              variant="h3"
+              variant="h2"
               fontWeight="bold"
               textTransform="uppercase"
               color="primary"
@@ -61,7 +61,7 @@ export default function Services({ sx }: { sx?: SxProps }) {
             </Typography>
             <Typography
               fontFamily={oswald.style.fontFamily}
-              variant="h3"
+              variant="h2"
               fontWeight="bold"
               textTransform="uppercase"
             >
@@ -78,7 +78,7 @@ export default function Services({ sx }: { sx?: SxProps }) {
                   fontFamily={oswald.style.fontFamily}
                   variant="h5"
                   fontWeight="bold"
-                  color="primary"
+                  color="secondary"
                   sx={{ mt: 2 }}
                 >
                   {service.title}
@@ -88,7 +88,8 @@ export default function Services({ sx }: { sx?: SxProps }) {
                   variant="body1"
                   sx={{ mt: 2 }}
                   textAlign="center"
-                  fontWeight="Regular"
+                  fontWeight="lighter"
+                  px={5}
                 >
                   {service.description}
                 </Typography>

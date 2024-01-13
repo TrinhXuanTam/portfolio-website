@@ -2,80 +2,73 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import oswald from '@/styles/fonts/oswald';
 import Container from '@mui/material/Container';
-import TravelExploreIcon from '@mui/icons-material/TravelExplore';
-import DesignServicesIcon from '@mui/icons-material/DesignServices';
-import HandymanIcon from '@mui/icons-material/Handyman';
-import FlareIcon from '@mui/icons-material/Flare';
 import Grid from '@mui/material/Grid';
 import { SxProps } from '@mui/system';
 import React from 'react';
 import FadeIn from '@/components/transitions/fade-in';
+import Box from '@mui/material/Box';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
 
-type DevelopmentProcessPhase = {
-  title: React.ReactNode;
-  description: React.ReactNode;
+type Service = {
+  title: string;
+  activites: string[];
 };
 
-const phases: DevelopmentProcessPhase[] = [
+const services: Service[] = [
   {
-    title: (
-      <>
-        <TravelExploreIcon fontSize="large" /> Analyze
-      </>
-    ),
-    description: (
-      <>
-        Ensuring every project starts on the right foot, I take time to look
-        into deep market research, competitive analysis, and strategic planning.
-        It&apos;s about laying a solid foundation of understanding to guide
-        every creative choice.
-      </>
-    ),
+    title: 'Analysis',
+    activites: [
+      'Domain Research',
+      'Requirements Engineering',
+      'Planning & Estimation',
+      'Product Specification & Strategy',
+    ],
   },
   {
-    title: (
-      <>
-        <DesignServicesIcon fontSize="large" /> Design
-      </>
-    ),
-    description: (
-      <>
-        With a&nbsp;solid understanding of the project&apos;s goals, I&nbsp;can
-        start crafting a&nbsp;design that will help you achieve them. I&apos;ll
-        create wireframes, mockups, and prototypes to test ideas and iterate
-        towards the perfect solution.
-      </>
-    ),
+    title: 'Design',
+    activites: [
+      'Architecture & Infrastructure Design',
+      'Database Modelling',
+      'Wireframing & Prototyping',
+      'UI/UX Design',
+    ],
   },
   {
-    title: (
-      <>
-        <HandymanIcon fontSize="large" /> Develop
-      </>
-    ),
-    description: (
-      <>
-        I&nbsp;develop solutions with a&nbsp;focus on good design, scalable
-        systems, and new technologies, always keeping the end user and business
-        goals in mind.&nbsp;I believe in the power of working together and am
-        always excited to learn and grow.
-      </>
-    ),
+    title: 'Development',
+    activites: [
+      'Full-Stack Development',
+      'Agile Methodologies',
+      'Collaboration & Leadership',
+      'Technical Documentation',
+    ],
   },
   {
-    title: (
-      <>
-        <FlareIcon fontSize="large" /> Quality Assurance
-      </>
-    ),
-    description: (
-      <>
-        I&apos;ll make sure that your project is ready for the real world.
-        I&nbsp;test across multiple environments and devices to ensure that your
-        product looks and functions as intended. I&apos;ll also work with you to
-        establish a&nbsp;plan for ongoing maintenance and future updates.
-      </>
-    ),
+    title: 'Deployment',
+    activites: [
+      'DevOps',
+      'Continuous Integration',
+      'Continuous Deployment',
+      'Monitoring',
+    ],
+  },
+  {
+    title: 'Testing',
+    activites: [
+      'Unit Testing',
+      'Integration Testing',
+      'End-to-end Testing',
+      'Usability Testing',
+    ],
+  },
+  {
+    title: 'Maintenance',
+    activites: [
+      'Bug Fixing',
+      'Feature Enhancements',
+      'Performance Optimizations',
+      'Security Updates',
+    ],
   },
 ];
 
@@ -85,56 +78,67 @@ export default function DevelopmentProcess({ sx }: { sx?: SxProps }) {
       <FadeIn direction="left">
         <Typography
           fontFamily={oswald.style.fontFamily}
-          variant="h6"
+          variant="h5"
           fontWeight="bold"
           color="primary"
         >
           How I work
         </Typography>
       </FadeIn>
-      <Grid container>
-        <Grid item xs={6}>
-          <FadeIn direction="left">
-            <Stack>
-              <Typography
-                fontFamily={oswald.style.fontFamily}
-                variant="h3"
-                fontWeight="bold"
-                textTransform="uppercase"
-              >
-                Better design, <br /> better experiences
-              </Typography>
-            </Stack>
-          </FadeIn>
-        </Grid>
+      <FadeIn direction="left">
+        <Stack>
+          <Typography
+            fontFamily={oswald.style.fontFamily}
+            variant="h3"
+            fontWeight="bold"
+            textTransform="uppercase"
+          >
+            Better strategy, <br /> better experiences
+          </Typography>
+        </Stack>
+      </FadeIn>
 
-        <Grid item xs={6}>
-          <Stack spacing={8}>
-            {phases.map((phase, index) => (
-              <FadeIn key={index} direction="right" delay={index * 0.2}>
-                <Stack>
-                  <Typography
-                    fontFamily={oswald.style.fontFamily}
-                    variant="h4"
-                    fontWeight="bold"
-                    color="primary"
-                  >
-                    {phase.title}
-                  </Typography>
-
-                  <Typography
-                    variant="body1"
-                    sx={{ mt: 2 }}
-                    textAlign="justify"
-                    fontWeight="Regular"
-                  >
-                    {phase.description}
-                  </Typography>
-                </Stack>
-              </FadeIn>
-            ))}
-          </Stack>
-        </Grid>
+      <Grid container mt={1} spacing={5}>
+        {services.map((service, index) => (
+          <Grid item key={index} xs={4}>
+            <FadeIn delay={index * 0.2} once={true}>
+              <Box position="relative">
+                <Typography
+                  fontFamily={oswald.style.fontFamily}
+                  variant="h1"
+                  fontWeight="bold"
+                  textTransform="uppercase"
+                  color="secondary.light"
+                  sx={{
+                    opacity: 0.2,
+                  }}
+                >
+                  0{index + 1}
+                </Typography>
+                <Typography
+                  fontFamily={oswald.style.fontFamily}
+                  variant="h4"
+                  fontWeight="bold"
+                  position="absolute"
+                  sx={{
+                    top: '50%',
+                    left: '4rem',
+                    transform: 'translateY(-50%)',
+                  }}
+                >
+                  {service.title}
+                </Typography>
+              </Box>
+              <List sx={{ pl: '4rem', py: 0 }}>
+                {service.activites.map((activity, index) => (
+                  <ListItem key={index} sx={{ pl: 0 }}>
+                    <Typography fontWeight="lighter">{activity}</Typography>
+                  </ListItem>
+                ))}
+              </List>
+            </FadeIn>
+          </Grid>
+        ))}
       </Grid>
     </Container>
   );

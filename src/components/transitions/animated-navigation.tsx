@@ -43,9 +43,9 @@ export default function AnimatedNavigation({
   };
 
   const animationVariants = {
-    hidden: { y: '-100%' }, // Start from above the screen
+    hidden: { y: '-100%', backgroundColor: theme.palette.primary.main }, // Start from above the screen
     visible: { y: 0 }, // Slide down to cover the screen
-    exit: { y: '100%' }, // Slide down out of the screen
+    exit: { y: '100%', backgroundColor: theme.palette.secondary.main }, // Slide down out of the screen
   };
 
   return (
@@ -64,7 +64,6 @@ export default function AnimatedNavigation({
               left: 0,
               width: '100%',
               height: '100%',
-              backgroundColor: theme.palette.primary.main,
               zIndex: 10000,
             }}
           />

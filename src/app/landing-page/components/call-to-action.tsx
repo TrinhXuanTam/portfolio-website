@@ -10,36 +10,37 @@ import Routes from '@/utils/routes';
 
 export default function CallToAction({ sx }: { sx?: SxProps }) {
   return (
-    <Container sx={sx} maxWidth="lg">
+    <Container sx={sx} maxWidth="xl">
       <FadeIn>
-        <Stack alignItems="center" spacing={3}>
-          <Stack direction="row">
+        <Stack alignItems="center" spacing={7}>
+          <Stack justifyContent="center" alignItems="center">
             <Typography
               fontFamily={oswald.style.fontFamily}
-              variant="h3"
+              variant="h1"
               fontWeight="bold"
+              textTransform="uppercase"
               sx={{ mr: 2 }}
             >
-              Ready to start your project?
+              Let&apos;s build
             </Typography>
             <Typography
               fontFamily={oswald.style.fontFamily}
-              variant="h3"
+              variant="h1"
               fontWeight="bold"
               textTransform="uppercase"
               color="primary"
             >
-              Let&apos; s talk
+              something together
             </Typography>
           </Stack>
 
-          <Typography variant="subtitle1">
+          <Typography variant="h6" fontWeight="lighter">
             If you have a project that you want to get started, think you need
             my help with something or just fancy saying hey, then get in touch.
           </Typography>
 
           <Stack direction="row" spacing={3}>
-            <RoundedButton variant="contained" color="primary" size="large">
+            <RoundedButton variant="contained" color="secondary" size="large">
               Get started
             </RoundedButton>
 

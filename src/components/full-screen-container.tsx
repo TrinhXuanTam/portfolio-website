@@ -13,7 +13,7 @@ export default function FullScreenContainer({
   return (
     <Box
       className={className}
-      sx={{ ...sx, height: '100vh', display: 'flex', alignItems: 'center' }}
+      sx={{ ...sx, minHeight: '100vh', display: 'flex', alignItems: 'center' }}
     >
       {children}
     </Box>

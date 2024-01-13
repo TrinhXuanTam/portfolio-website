@@ -3,13 +3,16 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Box from '@mui/material/Box';
+import { SxProps } from '@mui/system';
 
 export default function ParalaxImage({
+  sx,
   src,
   alt,
 }: {
   src: string;
   alt?: string;
+  sx?: SxProps;
 }) {
   const ref = useRef(null);
   const { scrollY } = useScroll({
@@ -20,7 +23,7 @@ export default function ParalaxImage({
   return (
     <Box
       ref={ref}
-      sx={{ overflow: 'hidden', height: '30rem', position: 'relative' }}
+      sx={{ overflow: 'hidden', height: '35rem', position: 'relative', ...sx }}
     >
       <motion.img
         src={src}

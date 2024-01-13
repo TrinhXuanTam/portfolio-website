@@ -24,14 +24,14 @@ export default function LatestWork({ sx }: { sx?: SxProps }) {
           <Stack justifyContent="center">
             <Typography
               fontFamily={oswald.style.fontFamily}
-              variant="h4"
+              variant="h3"
               fontWeight="bold"
             >
               Check out some of my
             </Typography>
             <Typography
               fontFamily={oswald.style.fontFamily}
-              variant="h3"
+              variant="h2"
               fontWeight="bold"
               textTransform="uppercase"
               color="primary"

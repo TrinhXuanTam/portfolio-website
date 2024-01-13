@@ -42,11 +42,11 @@ export default function Intro({ sx }: { sx?: SxProps }) {
         </FadeIn>
         <FadeIn direction="down" delay={0.3}>
           <Box sx={{ mt: 3 }}>
-            <Typography variant="subtitle1">
+            <Typography variant="subtitle1" fontWeight="lighter">
               Full-Stack Software Engineer based in Prague, Czech Republic.
             </Typography>
             <Stack direction="row" spacing={1}>
-              <Typography variant="subtitle1">
+              <Typography variant="subtitle1" fontWeight="lighter">
                 Need assistance with your project?
               </Typography>
               <Typography
@@ -62,7 +62,7 @@ export default function Intro({ sx }: { sx?: SxProps }) {
 
         <FadeIn direction="down" delay={0.5}>
           <Stack direction="row" spacing={2} sx={{ mt: 4 }}>
-            <RoundedButton variant="contained" size="large">
+            <RoundedButton color="secondary" variant="contained" size="large">
               Get in touch
             </RoundedButton>
             <RoundedButton variant="outlined" size="large">

@@ -40,6 +40,7 @@ function ResponsiveAppBar() {
                   ml: 2,
                   display: 'block',
                 }}
+                color="secondary"
               >
                 Contact
               </RoundedButton>

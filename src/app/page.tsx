@@ -7,6 +7,7 @@ import Services from '@/app/landing-page/components/services';
 import FullScreenContainer from '@/components/full-screen-container';
 import LatestWork from '@/app/landing-page/components/latest-work';
 import CallToAction from '@/app/landing-page/components/call-to-action';
+import Philosophy from '@/app/landing-page/components/philosophy';
 
 export default function LandingPage() {
   return (
@@ -18,14 +19,20 @@ export default function LandingPage() {
       </FullScreenContainer>
 
       <FullScreenContainer className="snap-y">
+        <Services />
+      </FullScreenContainer>
+
+      <FullScreenContainer className="snap-y">
         <DevelopmentProcess />
       </FullScreenContainer>
 
       <FullScreenContainer className="snap-y">
-        <Services />
+        <Technologies sx={{ width: '100vw' }} />
       </FullScreenContainer>
 
-      <Technologies sx={{ pt: '25vh', pb: '25vh' }} className="snap-y" />
+      <FullScreenContainer>
+        <Philosophy />
+      </FullScreenContainer>
 
       <FullScreenContainer className="snap-y">
         <LatestWork />

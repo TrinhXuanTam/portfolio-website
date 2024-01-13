@@ -60,7 +60,7 @@ export default function ProjectCard({
                 left: 0,
                 width: '100%',
                 height: '100%',
-                backgroundColor: theme.palette.primary.dark,
+                backgroundColor: theme.palette.secondary.dark,
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
