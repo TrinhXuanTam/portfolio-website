@@ -27,6 +27,8 @@ export type Scalars = {
   Boolean: { input: boolean; output: boolean };
   Int: { input: number; output: number };
   Float: { input: number; output: number };
+  /** A date string, such as 2007-12-03, compliant with the `full-date` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar. */
+  Date: { input: any; output: any };
   /** A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar. */
   DateTime: { input: any; output: any };
   /** A string used to identify an i18n locale */
@@ -39,16 +41,37 @@ export type Scalars = {
 
 export type About = {
   __typename?: 'About';
-  CV: UploadFileEntityResponse;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
+  cv: UploadFileEntityResponse;
+  education?: Maybe<Array<Maybe<ComponentAboutEducation>>>;
+  extra?: Maybe<Array<Maybe<ComponentAboutExtra>>>;
   locale?: Maybe<Scalars['String']['output']>;
   localizations?: Maybe<AboutRelationResponseCollection>;
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
+  workExperience?: Maybe<Array<Maybe<ComponentAboutWorkExperience>>>;
+};
+
+export type AboutEducationArgs = {
+  filters?: InputMaybe<ComponentAboutEducationFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type AboutExtraArgs = {
+  filters?: InputMaybe<ComponentAboutExtraFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type AboutLocalizationsArgs = {
   publicationState?: InputMaybe<PublicationState>;
+};
+
+export type AboutWorkExperienceArgs = {
+  filters?: InputMaybe<ComponentAboutWorkExperienceFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
 export type AboutEntity = {
@@ -63,8 +86,13 @@ export type AboutEntityResponse = {
 };
 
 export type AboutInput = {
-  CV?: InputMaybe<Scalars['ID']['input']>;
+  cv?: InputMaybe<Scalars['ID']['input']>;
+  education?: InputMaybe<Array<InputMaybe<ComponentAboutEducationInput>>>;
+  extra?: InputMaybe<Array<InputMaybe<ComponentAboutExtraInput>>>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  workExperience?: InputMaybe<
+    Array<InputMaybe<ComponentAboutWorkExperienceInput>>
+  >;
 };
 
 export type AboutRelationResponseCollection = {
@@ -97,14 +125,94 @@ export type BooleanFilterInput = {
   startsWith?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
+export type ComponentAboutEducation = {
+  __typename?: 'ComponentAboutEducation';
+  from: Scalars['Date']['output'];
+  id: Scalars['ID']['output'];
+  institution: Scalars['String']['output'];
+  location: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+  to?: Maybe<Scalars['Date']['output']>;
+};
+
+export type ComponentAboutEducationFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentAboutEducationFiltersInput>>>;
+  from?: InputMaybe<DateFilterInput>;
+  institution?: InputMaybe<StringFilterInput>;
+  location?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ComponentAboutEducationFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentAboutEducationFiltersInput>>>;
+  title?: InputMaybe<StringFilterInput>;
+  to?: InputMaybe<DateFilterInput>;
+};
+
+export type ComponentAboutEducationInput = {
+  from?: InputMaybe<Scalars['Date']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  institution?: InputMaybe<Scalars['String']['input']>;
+  location?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  to?: InputMaybe<Scalars['Date']['input']>;
+};
+
+export type ComponentAboutExtra = {
+  __typename?: 'ComponentAboutExtra';
+  id: Scalars['ID']['output'];
+  text: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+};
+
+export type ComponentAboutExtraFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentAboutExtraFiltersInput>>>;
+  not?: InputMaybe<ComponentAboutExtraFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentAboutExtraFiltersInput>>>;
+  text?: InputMaybe<StringFilterInput>;
+  title?: InputMaybe<StringFilterInput>;
+};
+
+export type ComponentAboutExtraInput = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+  text?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+};
+
+export type ComponentAboutWorkExperience = {
+  __typename?: 'ComponentAboutWorkExperience';
+  company: Scalars['String']['output'];
+  from: Scalars['Date']['output'];
+  id: Scalars['ID']['output'];
+  location: Scalars['String']['output'];
+  title: Scalars['String']['output'];
+  to?: Maybe<Scalars['Date']['output']>;
+};
+
+export type ComponentAboutWorkExperienceFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentAboutWorkExperienceFiltersInput>>>;
+  company?: InputMaybe<StringFilterInput>;
+  from?: InputMaybe<DateFilterInput>;
+  location?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ComponentAboutWorkExperienceFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentAboutWorkExperienceFiltersInput>>>;
+  title?: InputMaybe<StringFilterInput>;
+  to?: InputMaybe<DateFilterInput>;
+};
+
+export type ComponentAboutWorkExperienceInput = {
+  company?: InputMaybe<Scalars['String']['input']>;
+  from?: InputMaybe<Scalars['Date']['input']>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  location?: InputMaybe<Scalars['String']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  to?: InputMaybe<Scalars['Date']['input']>;
+};
+
 export type ComponentRolesResponsibilities = {
   __typename?: 'ComponentRolesResponsibilities';
-  Value: Scalars['String']['output'];
   id: Scalars['ID']['output'];
+  value: Scalars['String']['output'];
 };
 
 export type ComponentRolesResponsibilitiesFiltersInput = {
-  Value?: InputMaybe<StringFilterInput>;
   and?: InputMaybe<
     Array<InputMaybe<ComponentRolesResponsibilitiesFiltersInput>>
   >;
@@ -112,29 +220,30 @@ export type ComponentRolesResponsibilitiesFiltersInput = {
   or?: InputMaybe<
     Array<InputMaybe<ComponentRolesResponsibilitiesFiltersInput>>
   >;
+  value?: InputMaybe<StringFilterInput>;
 };
 
 export type ComponentRolesResponsibilitiesInput = {
-  Value?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['ID']['input']>;
+  value?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type ComponentRolesRole = {
   __typename?: 'ComponentRolesRole';
-  Value: Scalars['String']['output'];
   id: Scalars['ID']['output'];
+  value: Scalars['String']['output'];
 };
 
 export type ComponentRolesRoleFiltersInput = {
-  Value?: InputMaybe<StringFilterInput>;
   and?: InputMaybe<Array<InputMaybe<ComponentRolesRoleFiltersInput>>>;
   not?: InputMaybe<ComponentRolesRoleFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<ComponentRolesRoleFiltersInput>>>;
+  value?: InputMaybe<StringFilterInput>;
 };
 
 export type ComponentRolesRoleInput = {
-  Value?: InputMaybe<Scalars['String']['input']>;
   id?: InputMaybe<Scalars['ID']['input']>;
+  value?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type ContentReleasesRelease = {
@@ -237,6 +346,31 @@ export type ContentReleasesReleaseInput = {
   releasedAt?: InputMaybe<Scalars['DateTime']['input']>;
 };
 
+export type DateFilterInput = {
+  and?: InputMaybe<Array<InputMaybe<Scalars['Date']['input']>>>;
+  between?: InputMaybe<Array<InputMaybe<Scalars['Date']['input']>>>;
+  contains?: InputMaybe<Scalars['Date']['input']>;
+  containsi?: InputMaybe<Scalars['Date']['input']>;
+  endsWith?: InputMaybe<Scalars['Date']['input']>;
+  eq?: InputMaybe<Scalars['Date']['input']>;
+  eqi?: InputMaybe<Scalars['Date']['input']>;
+  gt?: InputMaybe<Scalars['Date']['input']>;
+  gte?: InputMaybe<Scalars['Date']['input']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['Date']['input']>>>;
+  lt?: InputMaybe<Scalars['Date']['input']>;
+  lte?: InputMaybe<Scalars['Date']['input']>;
+  ne?: InputMaybe<Scalars['Date']['input']>;
+  nei?: InputMaybe<Scalars['Date']['input']>;
+  not?: InputMaybe<DateFilterInput>;
+  notContains?: InputMaybe<Scalars['Date']['input']>;
+  notContainsi?: InputMaybe<Scalars['Date']['input']>;
+  notIn?: InputMaybe<Array<InputMaybe<Scalars['Date']['input']>>>;
+  notNull?: InputMaybe<Scalars['Boolean']['input']>;
+  null?: InputMaybe<Scalars['Boolean']['input']>;
+  or?: InputMaybe<Array<InputMaybe<Scalars['Date']['input']>>>;
+  startsWith?: InputMaybe<Scalars['Date']['input']>;
+};
+
 export type DateTimeFilterInput = {
   and?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
   between?: InputMaybe<Array<InputMaybe<Scalars['DateTime']['input']>>>;
@@ -300,6 +434,9 @@ export type FloatFilterInput = {
 
 export type GenericMorph =
   | About
+  | ComponentAboutEducation
+  | ComponentAboutExtra
+  | ComponentAboutWorkExperience
   | ComponentRolesResponsibilities
   | ComponentRolesRole
   | ContentReleasesRelease
@@ -657,23 +794,30 @@ export type PaginationArg = {
 
 export type Project = {
   __typename?: 'Project';
-  Description: Scalars['String']['output'];
-  Images: UploadFileRelationResponseCollection;
-  Name: Scalars['String']['output'];
-  Responsibilities: Array<Maybe<ComponentRolesResponsibilities>>;
-  Roles: Array<Maybe<ComponentRolesRole>>;
-  Thumbnail: UploadFileEntityResponse;
-  URL?: Maybe<Scalars['String']['output']>;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
+  description: Scalars['String']['output'];
+  images: UploadFileRelationResponseCollection;
   locale?: Maybe<Scalars['String']['output']>;
   localizations?: Maybe<ProjectRelationResponseCollection>;
+  name: Scalars['String']['output'];
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  responsibilities: Array<Maybe<ComponentRolesResponsibilities>>;
+  roles: Array<Maybe<ComponentRolesRole>>;
+  thumbnail: UploadFileEntityResponse;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
+  url?: Maybe<Scalars['String']['output']>;
 };
 
 export type ProjectImagesArgs = {
   filters?: InputMaybe<UploadFileFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ProjectLocalizationsArgs = {
+  filters?: InputMaybe<ProjectFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  publicationState?: InputMaybe<PublicationState>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
@@ -686,13 +830,6 @@ export type ProjectResponsibilitiesArgs = {
 export type ProjectRolesArgs = {
   filters?: InputMaybe<ComponentRolesRoleFiltersInput>;
   pagination?: InputMaybe<PaginationArg>;
-  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-};
-
-export type ProjectLocalizationsArgs = {
-  filters?: InputMaybe<ProjectFiltersInput>;
-  pagination?: InputMaybe<PaginationArg>;
-  publicationState?: InputMaybe<PublicationState>;
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
@@ -714,33 +851,33 @@ export type ProjectEntityResponseCollection = {
 };
 
 export type ProjectFiltersInput = {
-  Description?: InputMaybe<StringFilterInput>;
-  Name?: InputMaybe<StringFilterInput>;
-  Responsibilities?: InputMaybe<ComponentRolesResponsibilitiesFiltersInput>;
-  Roles?: InputMaybe<ComponentRolesRoleFiltersInput>;
-  URL?: InputMaybe<StringFilterInput>;
   and?: InputMaybe<Array<InputMaybe<ProjectFiltersInput>>>;
   createdAt?: InputMaybe<DateTimeFilterInput>;
+  description?: InputMaybe<StringFilterInput>;
   id?: InputMaybe<IdFilterInput>;
   locale?: InputMaybe<StringFilterInput>;
   localizations?: InputMaybe<ProjectFiltersInput>;
+  name?: InputMaybe<StringFilterInput>;
   not?: InputMaybe<ProjectFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<ProjectFiltersInput>>>;
   publishedAt?: InputMaybe<DateTimeFilterInput>;
+  responsibilities?: InputMaybe<ComponentRolesResponsibilitiesFiltersInput>;
+  roles?: InputMaybe<ComponentRolesRoleFiltersInput>;
   updatedAt?: InputMaybe<DateTimeFilterInput>;
+  url?: InputMaybe<StringFilterInput>;
 };
 
 export type ProjectInput = {
-  Description?: InputMaybe<Scalars['String']['input']>;
-  Images?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
-  Name?: InputMaybe<Scalars['String']['input']>;
-  Responsibilities?: InputMaybe<
+  description?: InputMaybe<Scalars['String']['input']>;
+  images?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
+  name?: InputMaybe<Scalars['String']['input']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  responsibilities?: InputMaybe<
     Array<InputMaybe<ComponentRolesResponsibilitiesInput>>
   >;
-  Roles?: InputMaybe<Array<InputMaybe<ComponentRolesRoleInput>>>;
-  Thumbnail?: InputMaybe<Scalars['ID']['input']>;
-  URL?: InputMaybe<Scalars['String']['input']>;
-  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+  roles?: InputMaybe<Array<InputMaybe<ComponentRolesRoleInput>>>;
+  thumbnail?: InputMaybe<Scalars['ID']['input']>;
+  url?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type ProjectRelationResponseCollection = {
@@ -1272,7 +1409,7 @@ export type CvFileQuery = {
       __typename?: 'AboutEntity';
       attributes?: {
         __typename?: 'About';
-        CV: {
+        cv: {
           __typename?: 'UploadFileEntityResponse';
           data?: {
             __typename?: 'UploadFileEntity';
@@ -1283,6 +1420,72 @@ export type CvFileQuery = {
             } | null;
           } | null;
         };
+      } | null;
+    } | null;
+  } | null;
+};
+
+export type EducationQueryVariables = Exact<{ [key: string]: never }>;
+
+export type EducationQuery = {
+  __typename?: 'Query';
+  about?: {
+    __typename?: 'AboutEntityResponse';
+    data?: {
+      __typename?: 'AboutEntity';
+      attributes?: {
+        __typename?: 'About';
+        education?: Array<{
+          __typename?: 'ComponentAboutEducation';
+          title: string;
+          institution: string;
+          location: string;
+          from: any;
+          to?: any | null;
+        } | null> | null;
+      } | null;
+    } | null;
+  } | null;
+};
+
+export type WorkExperiencesQueryVariables = Exact<{ [key: string]: never }>;
+
+export type WorkExperiencesQuery = {
+  __typename?: 'Query';
+  about?: {
+    __typename?: 'AboutEntityResponse';
+    data?: {
+      __typename?: 'AboutEntity';
+      attributes?: {
+        __typename?: 'About';
+        workExperience?: Array<{
+          __typename?: 'ComponentAboutWorkExperience';
+          title: string;
+          company: string;
+          location: string;
+          from: any;
+          to?: any | null;
+        } | null> | null;
+      } | null;
+    } | null;
+  } | null;
+};
+
+export type ExtrasQueryVariables = Exact<{ [key: string]: never }>;
+
+export type ExtrasQuery = {
+  __typename?: 'Query';
+  about?: {
+    __typename?: 'AboutEntityResponse';
+    data?: {
+      __typename?: 'AboutEntity';
+      attributes?: {
+        __typename?: 'About';
+        extra?: Array<{
+          __typename?: 'ComponentAboutExtra';
+          title: string;
+          text: string;
+        } | null> | null;
       } | null;
     } | null;
   } | null;
@@ -1299,17 +1502,17 @@ export type ProjectsOverviewQuery = {
       id?: string | null;
       attributes?: {
         __typename?: 'Project';
-        Name: string;
-        Thumbnail: {
+        name: string;
+        thumbnail: {
           __typename?: 'UploadFileEntityResponse';
           data?: {
             __typename?: 'UploadFileEntity';
             attributes?: { __typename?: 'UploadFile'; url: string } | null;
           } | null;
         };
-        Roles: Array<{
+        roles: Array<{
           __typename?: 'ComponentRolesRole';
-          Value: string;
+          value: string;
         } | null>;
       } | null;
     }>;
@@ -1346,7 +1549,7 @@ export const CvFileDocument = {
                           selections: [
                             {
                               kind: 'Field',
-                              name: { kind: 'Name', value: 'CV' },
+                              name: { kind: 'Name', value: 'cv' },
                               selectionSet: {
                                 kind: 'SelectionSet',
                                 selections: [
@@ -1402,6 +1605,235 @@ export const CvFileDocument = {
     },
   ],
 } as unknown as DocumentNode<CvFileQuery, CvFileQueryVariables>;
+export const EducationDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: { kind: 'Name', value: 'education' },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'about' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'Field',
+                  name: { kind: 'Name', value: 'data' },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'Field',
+                        name: { kind: 'Name', value: 'attributes' },
+                        selectionSet: {
+                          kind: 'SelectionSet',
+                          selections: [
+                            {
+                              kind: 'Field',
+                              name: { kind: 'Name', value: 'education' },
+                              arguments: [
+                                {
+                                  kind: 'Argument',
+                                  name: { kind: 'Name', value: 'sort' },
+                                  value: {
+                                    kind: 'StringValue',
+                                    value: 'to:desc',
+                                    block: false,
+                                  },
+                                },
+                              ],
+                              selectionSet: {
+                                kind: 'SelectionSet',
+                                selections: [
+                                  {
+                                    kind: 'Field',
+                                    name: { kind: 'Name', value: 'title' },
+                                  },
+                                  {
+                                    kind: 'Field',
+                                    name: {
+                                      kind: 'Name',
+                                      value: 'institution',
+                                    },
+                                  },
+                                  {
+                                    kind: 'Field',
+                                    name: { kind: 'Name', value: 'location' },
+                                  },
+                                  {
+                                    kind: 'Field',
+                                    name: { kind: 'Name', value: 'from' },
+                                  },
+                                  {
+                                    kind: 'Field',
+                                    name: { kind: 'Name', value: 'to' },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<EducationQuery, EducationQueryVariables>;
+export const WorkExperiencesDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: { kind: 'Name', value: 'workExperiences' },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'about' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'Field',
+                  name: { kind: 'Name', value: 'data' },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'Field',
+                        name: { kind: 'Name', value: 'attributes' },
+                        selectionSet: {
+                          kind: 'SelectionSet',
+                          selections: [
+                            {
+                              kind: 'Field',
+                              name: { kind: 'Name', value: 'workExperience' },
+                              arguments: [
+                                {
+                                  kind: 'Argument',
+                                  name: { kind: 'Name', value: 'sort' },
+                                  value: {
+                                    kind: 'StringValue',
+                                    value: 'to:desc',
+                                    block: false,
+                                  },
+                                },
+                              ],
+                              selectionSet: {
+                                kind: 'SelectionSet',
+                                selections: [
+                                  {
+                                    kind: 'Field',
+                                    name: { kind: 'Name', value: 'title' },
+                                  },
+                                  {
+                                    kind: 'Field',
+                                    name: { kind: 'Name', value: 'company' },
+                                  },
+                                  {
+                                    kind: 'Field',
+                                    name: { kind: 'Name', value: 'location' },
+                                  },
+                                  {
+                                    kind: 'Field',
+                                    name: { kind: 'Name', value: 'from' },
+                                  },
+                                  {
+                                    kind: 'Field',
+                                    name: { kind: 'Name', value: 'to' },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<
+  WorkExperiencesQuery,
+  WorkExperiencesQueryVariables
+>;
+export const ExtrasDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: { kind: 'Name', value: 'extras' },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'about' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'Field',
+                  name: { kind: 'Name', value: 'data' },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'Field',
+                        name: { kind: 'Name', value: 'attributes' },
+                        selectionSet: {
+                          kind: 'SelectionSet',
+                          selections: [
+                            {
+                              kind: 'Field',
+                              name: { kind: 'Name', value: 'extra' },
+                              selectionSet: {
+                                kind: 'SelectionSet',
+                                selections: [
+                                  {
+                                    kind: 'Field',
+                                    name: { kind: 'Name', value: 'title' },
+                                  },
+                                  {
+                                    kind: 'Field',
+                                    name: { kind: 'Name', value: 'text' },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<ExtrasQuery, ExtrasQueryVariables>;
 export const ProjectsOverviewDocument = {
   kind: 'Document',
   definitions: [
@@ -1433,11 +1865,11 @@ export const ProjectsOverviewDocument = {
                           selections: [
                             {
                               kind: 'Field',
-                              name: { kind: 'Name', value: 'Name' },
+                              name: { kind: 'Name', value: 'name' },
                             },
                             {
                               kind: 'Field',
-                              name: { kind: 'Name', value: 'Thumbnail' },
+                              name: { kind: 'Name', value: 'thumbnail' },
                               selectionSet: {
                                 kind: 'SelectionSet',
                                 selections: [
@@ -1474,13 +1906,13 @@ export const ProjectsOverviewDocument = {
                             },
                             {
                               kind: 'Field',
-                              name: { kind: 'Name', value: 'Roles' },
+                              name: { kind: 'Name', value: 'roles' },
                               selectionSet: {
                                 kind: 'SelectionSet',
                                 selections: [
                                   {
                                     kind: 'Field',
-                                    name: { kind: 'Name', value: 'Value' },
+                                    name: { kind: 'Name', value: 'value' },
                                   },
                                 ],
                               },

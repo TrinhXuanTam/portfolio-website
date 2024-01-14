@@ -4,40 +4,11 @@ import oswald from '@/styles/fonts/oswald';
 import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';
 import FadeIn from '@/components/transitions/fade-in';
+import { getEducation } from '@/app/about/api/education';
+import { shortFormat } from '@/utils/date';
 
-type Education = {
-  title: string;
-  institution: string;
-  location: string;
-  from: string;
-  to: string;
-};
-
-const education: Education[] = [
-  {
-    institution: 'CTU in Prague, Faculty of Information Technology',
-    title: "Master's Degree in Software Engineering",
-    location: 'Prague, Czech Republic',
-    from: 'Sep 2021',
-    to: 'Jun 2023',
-  },
-  {
-    institution: 'KU Leuven, Faculty of Engineering Science',
-    title: 'Erasmus Exchange in Soft Robotics',
-    location: 'Leuven, Belgium',
-    from: 'Feb 2023',
-    to: 'Mar 2023',
-  },
-  {
-    institution: 'CTU in Prague, Faculty of Information Technology',
-    title: "Bachelor's Degree in Software Engineering",
-    location: 'Prague, Czech Republic',
-    from: 'Sep 2018',
-    to: 'Jul 2021',
-  },
-];
-
-export default function Experience() {
+export default async function Experience() {
+  const education = await getEducation();
   return (
     <Stack my={15}>
       <FadeIn direction="left">
@@ -77,7 +48,7 @@ export default function Experience() {
                     variant="h4"
                     textTransform="uppercase"
                   >
-                    {education.to}
+                    {education.to ? shortFormat(education.to) : 'Present'}
                   </Typography>
                   <Typography
                     fontFamily={oswald.style.fontFamily}
@@ -85,7 +56,7 @@ export default function Experience() {
                     variant="h4"
                     textTransform="uppercase"
                   >
-                    {education.from}
+                    {shortFormat(education.from)}
                   </Typography>
                 </Stack>
 

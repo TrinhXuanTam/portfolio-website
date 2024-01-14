@@ -5,54 +5,14 @@ import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';
 import RoundedButton from '@/components/buttons/rounded-button';
 import FadeIn from '@/components/transitions/fade-in';
+import { getCvUrl } from '@/app/about/api/cv';
+import { getWorkExperience } from '@/app/about/api/experience';
+import { shortFormat } from '@/utils/date';
 
-type Experience = {
-  title: string;
-  company: string;
-  location: string;
-  from: string;
-  to: string;
-};
+export default async function Experience() {
+  const cvUrl = await getCvUrl();
+  const workExperience = await getWorkExperience();
 
-const experiences: Experience[] = [
-  {
-    company: 'Iterates',
-    title: 'AI Full-Stack Developer',
-    location: 'Brussels, Belgium',
-    from: 'Oct 2023',
-    to: 'Present',
-  },
-  {
-    company: 'DevCity',
-    title: 'JavaScript Full-Stack Developer',
-    location: 'Prague, Czech Republic',
-    from: 'Jul 2022',
-    to: 'Jan 2024',
-  },
-  {
-    company: 'Unicorn',
-    title: 'JavaScript Backend Developer',
-    location: 'Prague, Czech Republic',
-    from: 'Apr 2022',
-    to: 'Apr 2023',
-  },
-  {
-    company: 'Betrian',
-    title: 'Lead Flutter mobile app developer',
-    location: 'Brno, Czech Republic',
-    from: 'Jul 2021',
-    to: 'Mar 2023',
-  },
-  {
-    company: 'Aviette',
-    title: 'Lead Python Full-Stack Developer',
-    location: 'Prague, Czech Republic',
-    from: 'Apr 2020',
-    to: 'Aug 2022',
-  },
-];
-
-export default function Experience() {
   return (
     <Stack my={15}>
       <FadeIn direction="left">
@@ -75,9 +35,11 @@ export default function Experience() {
             with these companies
           </Typography>
           <RoundedButton
+            component="a"
             variant="outlined"
             color="secondary"
             size="large"
+            href={cvUrl}
             sx={{ mt: 4 }}
           >
             View Full CV
@@ -85,7 +47,7 @@ export default function Experience() {
         </Container>
       </FadeIn>
 
-      {experiences.map((experience, index) => (
+      {workExperience.map((experience, index) => (
         <FadeIn key={index} direction="down" delay={index * 0.15}>
           <Stack>
             <Divider
@@ -101,7 +63,7 @@ export default function Experience() {
                     variant="h4"
                     textTransform="uppercase"
                   >
-                    {experience.to}
+                    {experience.to ? shortFormat(experience.to) : 'Present'}
                   </Typography>
                   <Typography
                     fontFamily={oswald.style.fontFamily}
@@ -109,7 +71,7 @@ export default function Experience() {
                     variant="h4"
                     textTransform="uppercase"
                   >
-                    {experience.from}
+                    {shortFormat(experience.from)}
                   </Typography>
                 </Stack>
 

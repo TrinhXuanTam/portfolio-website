@@ -5,7 +5,7 @@ export const getCvFile = gql`
     about {
       data {
         attributes {
-          CV {
+          cv {
             data {
               attributes {
                 url

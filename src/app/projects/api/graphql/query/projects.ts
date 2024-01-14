@@ -6,16 +6,16 @@ export const projectsOverview = gql`
       data {
         id
         attributes {
-          Name
-          Thumbnail {
+          name
+          thumbnail {
             data {
               attributes {
                 url
               }
             }
           }
-          Roles {
-            Value
+          roles {
+            value
           }
         }
       }

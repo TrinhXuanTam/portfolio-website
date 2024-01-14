@@ -9,9 +9,9 @@ export async function getProjectsOverview(): Promise<ProjectOverview[]> {
   });
   return data?.projects!.data.map((project) => ({
     id: project.id!,
-    name: project.attributes!.Name,
+    name: project.attributes!.name,
     thumbnailUrl: `${process.env.NEXT_PUBLIC_CRM_URL}${
-      project.attributes!.Thumbnail?.data?.attributes?.url
+      project.attributes!.thumbnail?.data?.attributes?.url
     }`,
   }));
 }
