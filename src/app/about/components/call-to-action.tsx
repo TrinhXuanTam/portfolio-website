@@ -43,6 +43,14 @@ export default function CallToAction({ sx }: { sx?: SxProps }) {
               <RoundedButton variant="contained" color="secondary" size="large">
                 Send me a message
               </RoundedButton>
+
+              <RoundedButton variant="outlined" color="primary" size="large">
+                View Full CV
+              </RoundedButton>
+
+              <RoundedButton variant="outlined" color="primary" size="large">
+                See my projects
+              </RoundedButton>
             </Stack>
           </Stack>
         </FadeIn>

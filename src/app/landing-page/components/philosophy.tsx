@@ -74,7 +74,11 @@ export default function Philosophy() {
               My values
             </Typography>
           </FadeIn>
-          <Stack direction="row" justifyContent="space-between">
+          <Stack
+            direction="row"
+            justifyContent="space-between"
+            alignItems="end"
+          >
             <ScrollIn>
               <FadeIn direction="up">
                 <Typography
@@ -97,7 +101,7 @@ export default function Philosophy() {
                   textTransform="uppercase"
                   textAlign="right"
                 >
-                  to <br /> work <br /> with me ?
+                  working <br /> with <br /> me
                 </Typography>
               </FadeIn>
             </ScrollIn>
