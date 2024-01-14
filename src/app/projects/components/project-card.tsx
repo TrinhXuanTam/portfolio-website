@@ -6,7 +6,6 @@ import Typography from '@mui/material/Typography';
 import oswald from '@/styles/fonts/oswald';
 import Card from '@mui/material/Card';
 import CardActionArea from '@mui/material/CardActionArea';
-import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import { useTheme } from '@mui/material';
 import { useRef } from 'react';
@@ -15,10 +14,14 @@ export default function ProjectCard({
   sx,
   thumbnailUrl,
   name,
+  damping = 15,
+  scale = 1.05,
 }: {
   sx?: SxProps;
   thumbnailUrl: string;
   name: string;
+  damping?: number;
+  scale?: number;
 }) {
   const ref = useRef(null);
   const theme = useTheme();
@@ -31,8 +34,8 @@ export default function ProjectCard({
   return (
     <motion.div
       ref={ref}
-      whileHover={{ scale: 1.05 }}
-      transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+      whileHover={{ scale: scale }}
+      transition={{ type: 'spring', stiffness: 400, damping: damping }}
     >
       <Card sx={sx}>
         <CardActionArea sx={{ position: 'relative', height: '100%' }}>
