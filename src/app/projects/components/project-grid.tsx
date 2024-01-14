@@ -14,12 +14,7 @@ export default async function ProjectsGrid() {
     <Grid container spacing={5} padding={5}>
       {projects.map((project, index) => (
         <Grid key={index} item xs={getGridSize(index)}>
-          <ProjectCard
-            sx={{ height: '70vh' }}
-            thumbnailUrl={project.thumbnailUrl}
-            name={project.name}
-            scale={1.01}
-          />
+          <ProjectCard project={project} sx={{ height: '70vh' }} scale={1.01} />
         </Grid>
       ))}
     </Grid>

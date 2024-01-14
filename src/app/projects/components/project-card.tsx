@@ -9,17 +9,18 @@ import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
 import { useTheme } from '@mui/material';
 import { useRef } from 'react';
+import { ProjectOverview } from '@/app/projects/schemas/projects';
+import AnimatedNavigationLink from '@/components/transitions/animated-navigation-link';
+import Routes from '@/utils/routes';
 
 export default function ProjectCard({
   sx,
-  thumbnailUrl,
-  name,
+  project,
   damping = 15,
   scale = 1.05,
 }: {
   sx?: SxProps;
-  thumbnailUrl: string;
-  name: string;
+  project: ProjectOverview;
   damping?: number;
   scale?: number;
 }) {
@@ -32,63 +33,65 @@ export default function ProjectCard({
   const translateY = useTransform(scrollYProgress, [0, 1], ['-20%', '0%']);
 
   return (
-    <motion.div
-      ref={ref}
-      whileHover={{ scale: scale }}
-      transition={{ type: 'spring', stiffness: 400, damping: damping }}
-    >
-      <Card sx={sx}>
-        <CardActionArea sx={{ position: 'relative', height: '100%' }}>
-          <motion.div
-            initial={{ scale: 1 }}
-            whileHover={{ scale: 1.1 }}
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%',
-            }}
-          >
-            <motion.img
-              src={thumbnailUrl}
-              alt={name}
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                translateY,
-              }}
-            ></motion.img>
+    <AnimatedNavigationLink href={`${Routes.Projects}/${project.id}`}>
+      <motion.div
+        ref={ref}
+        whileHover={{ scale: scale }}
+        transition={{ type: 'spring', stiffness: 400, damping: damping }}
+      >
+        <Card sx={sx}>
+          <CardActionArea sx={{ position: 'relative', height: '100%' }}>
             <motion.div
-              initial={{ opacity: 0 }}
-              whileHover={{ opacity: 0.8 }}
+              initial={{ scale: 1 }}
+              whileHover={{ scale: 1.1 }}
               style={{
                 position: 'absolute',
                 top: 0,
                 left: 0,
                 width: '100%',
                 height: '100%',
-                backgroundColor: theme.palette.secondary.dark,
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
               }}
             >
-              <CardContent>
-                <Typography
-                  fontFamily={oswald.style.fontFamily}
-                  gutterBottom
-                  variant="h4"
-                  fontWeight="medium"
-                >
-                  {name}
-                </Typography>
-              </CardContent>
+              <motion.img
+                src={project.thumbnailUrl}
+                alt={project.name}
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  translateY,
+                }}
+              ></motion.img>
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: 0.8 }}
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: '100%',
+                  backgroundColor: theme.palette.secondary.dark,
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+              >
+                <CardContent>
+                  <Typography
+                    fontFamily={oswald.style.fontFamily}
+                    gutterBottom
+                    variant="h4"
+                    fontWeight="medium"
+                  >
+                    {project.name}
+                  </Typography>
+                </CardContent>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        </CardActionArea>
-      </Card>
-    </motion.div>
+          </CardActionArea>
+        </Card>
+      </motion.div>
+    </AnimatedNavigationLink>
   );
 }
