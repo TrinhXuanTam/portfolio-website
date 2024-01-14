@@ -7,8 +7,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import RoundedButton from '@/components/buttons/rounded-button';
 import Container from '@mui/material/Container';
 import Logo from '@/components/logo';
-
-const pages = ['Home', 'About', 'Resume', 'Projects', 'Blogs'];
+import AnimatedNavigationLink from '@/components/transitions/animated-navigation-link';
+import Routes, { getRouteObjects } from '@/utils/routes';
 
 function ResponsiveAppBar() {
   return (
@@ -23,21 +23,28 @@ function ResponsiveAppBar() {
               display: { xs: 'none', md: 'flex' },
             }}
           >
-            {pages.map((page) => (
-              <Button variant="text" color="inherit" key={page} sx={{ mx: 1 }}>
-                {page}
-              </Button>
-            ))}
-            <RoundedButton
-              variant="contained"
-              sx={{
-                px: 3,
-                ml: 2,
-                display: 'block',
-              }}
-            >
-              Contact
-            </RoundedButton>
+            {getRouteObjects()
+              .filter((route) => route.path !== Routes.Contact)
+              .map((route) => (
+                <AnimatedNavigationLink key={route.name} href={route.path}>
+                  <Button variant="text" color="inherit" sx={{ mx: 1 }}>
+                    {route.name}
+                  </Button>
+                </AnimatedNavigationLink>
+              ))}
+            <AnimatedNavigationLink href={Routes.Contact}>
+              <RoundedButton
+                variant="contained"
+                sx={{
+                  px: 3,
+                  ml: 2,
+                  display: 'block',
+                }}
+                color="secondary"
+              >
+                Contact
+              </RoundedButton>
+            </AnimatedNavigationLink>
           </Box>
           <Box
             sx={{

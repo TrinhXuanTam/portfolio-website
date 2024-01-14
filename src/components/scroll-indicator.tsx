@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { motion, useSpring, useScroll } from 'framer-motion';
 import { useTheme } from '@mui/material/styles';
@@ -9,7 +9,7 @@ export default function ScrollIndicator() {
   const scaleY = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
-    restDelta: 0.001
+    restDelta: 0.001,
   });
 
   return (

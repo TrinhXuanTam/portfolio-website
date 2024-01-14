@@ -1,37 +1,44 @@
 import Stack from '@mui/material/Stack';
-import Intro from '@/components/landing-page/intro';
+import Intro from '@/app/landing-page/components/intro';
 import Container from '@mui/material/Container';
-import Technologies from '@/components/landing-page/technologies';
-import DevelopmentProcess from '@/components/landing-page/development-process';
-import Services from '@/components/landing-page/services';
+import Technologies from '@/app/landing-page/components/technologies';
+import DevelopmentProcess from '@/app/landing-page/components/development-process';
+import Services from '@/app/landing-page/components/services';
 import FullScreenContainer from '@/components/full-screen-container';
-import LatestWork from '@/components/landing-page/latest-work';
-import CallToAction from '@/components/landing-page/call-to-action';
+import LatestWork from '@/app/landing-page/components/latest-work';
+import CallToAction from '@/app/landing-page/components/call-to-action';
+import Philosophy from '@/app/landing-page/components/philosophy';
 
 export default function LandingPage() {
   return (
     <Stack>
-      <FullScreenContainer>
+      <FullScreenContainer className="snap-y">
         <Container maxWidth="lg">
           <Intro />
         </Container>
       </FullScreenContainer>
 
-      <FullScreenContainer>
-        <DevelopmentProcess />
-      </FullScreenContainer>
-
-      <FullScreenContainer>
+      <FullScreenContainer className="snap-y">
         <Services />
       </FullScreenContainer>
 
-      <Technologies sx={{ mt: 15, mb: 30 }} />
+      <FullScreenContainer className="snap-y">
+        <DevelopmentProcess />
+      </FullScreenContainer>
 
-      <FullScreenContainer>
-        <LatestWork />
+      <FullScreenContainer className="snap-y">
+        <Technologies sx={{ width: '100vw' }} />
       </FullScreenContainer>
 
       <FullScreenContainer>
+        <Philosophy />
+      </FullScreenContainer>
+
+      <FullScreenContainer className="snap-y">
+        <LatestWork />
+      </FullScreenContainer>
+
+      <FullScreenContainer className="snap-y">
         <CallToAction />
       </FullScreenContainer>
     </Stack>

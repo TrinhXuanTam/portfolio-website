@@ -1,6 +1,6 @@
 overwrite: true
 schema: "http://localhost:1337/graphql"
-documents: "src/api/graphql"
+documents: "src/**/api/graphql/**/*.ts"
 generates:
   src/schemas/graphql/generated/:
     preset: "client"

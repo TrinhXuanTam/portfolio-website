@@ -11,9 +11,9 @@ const theme = createTheme(commonTheme, {
       contrastText: 'white',
     },
     secondary: {
-      main: '#1a28af',
-      light: '#1a28af',
-      dark: '#1a28af',
+      main: '#f3632d',
+      light: '#f55114',
+      dark: '#873d22',
       contrastText: 'white',
     },
     background: {

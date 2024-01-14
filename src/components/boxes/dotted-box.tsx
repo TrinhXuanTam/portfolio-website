@@ -11,7 +11,7 @@ export default function RhombusBox(props: BoxProps) {
       sx={{
         ...props.sx,
         backgroundColor: 'background.default',
-        backgroundImage: `radial-gradient(${theme.palette.background.paper} 7%, transparent 0)`,
+        backgroundImage: `radial-gradient(${theme.palette.background.paper} 9%, transparent 0)`,
         backgroundSize: '35px 35px',
       }}
     ></Box>

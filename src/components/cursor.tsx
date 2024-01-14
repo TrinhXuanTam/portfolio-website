@@ -4,7 +4,7 @@ import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { useEffect } from 'react';
 import { useTheme } from '@mui/material/styles';
 
-const CustomCursor = () => {
+export default function CustomCursor() {
   const theme = useTheme();
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
@@ -41,6 +41,4 @@ const CustomCursor = () => {
       }}
     />
   );
-};
-
-export default CustomCursor;
+}

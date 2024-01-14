@@ -37,6 +37,39 @@ export type Scalars = {
   Upload: { input: any; output: any };
 };
 
+export type About = {
+  __typename?: 'About';
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  locale?: Maybe<Scalars['String']['output']>;
+  localizations?: Maybe<AboutRelationResponseCollection>;
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+export type AboutLocalizationsArgs = {
+  publicationState?: InputMaybe<PublicationState>;
+};
+
+export type AboutEntity = {
+  __typename?: 'AboutEntity';
+  attributes?: Maybe<About>;
+  id?: Maybe<Scalars['ID']['output']>;
+};
+
+export type AboutEntityResponse = {
+  __typename?: 'AboutEntityResponse';
+  data?: Maybe<AboutEntity>;
+};
+
+export type AboutInput = {
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
+export type AboutRelationResponseCollection = {
+  __typename?: 'AboutRelationResponseCollection';
+  data: Array<AboutEntity>;
+};
+
 export type BooleanFilterInput = {
   and?: InputMaybe<Array<InputMaybe<Scalars['Boolean']['input']>>>;
   between?: InputMaybe<Array<InputMaybe<Scalars['Boolean']['input']>>>;
@@ -264,6 +297,7 @@ export type FloatFilterInput = {
 };
 
 export type GenericMorph =
+  | About
   | ComponentRolesResponsibilities
   | ComponentRolesRole
   | ContentReleasesRelease
@@ -391,6 +425,7 @@ export type Mutation = {
   __typename?: 'Mutation';
   /** Change user password. Confirm with the current password. */
   changePassword?: Maybe<UsersPermissionsLoginPayload>;
+  createAboutLocalization?: Maybe<AboutEntityResponse>;
   createContentReleasesRelease?: Maybe<ContentReleasesReleaseEntityResponse>;
   createContentReleasesReleaseAction?: Maybe<ContentReleasesReleaseActionEntityResponse>;
   createProject?: Maybe<ProjectEntityResponse>;
@@ -401,6 +436,7 @@ export type Mutation = {
   createUsersPermissionsRole?: Maybe<UsersPermissionsCreateRolePayload>;
   /** Create a new user */
   createUsersPermissionsUser: UsersPermissionsUserEntityResponse;
+  deleteAbout?: Maybe<AboutEntityResponse>;
   deleteContentReleasesRelease?: Maybe<ContentReleasesReleaseEntityResponse>;
   deleteContentReleasesReleaseAction?: Maybe<ContentReleasesReleaseActionEntityResponse>;
   deleteProject?: Maybe<ProjectEntityResponse>;
@@ -421,6 +457,7 @@ export type Mutation = {
   removeFile?: Maybe<UploadFileEntityResponse>;
   /** Reset user password. Confirm with a code (resetToken from forgotPassword) */
   resetPassword?: Maybe<UsersPermissionsLoginPayload>;
+  updateAbout?: Maybe<AboutEntityResponse>;
   updateContentReleasesRelease?: Maybe<ContentReleasesReleaseEntityResponse>;
   updateContentReleasesReleaseAction?: Maybe<ContentReleasesReleaseActionEntityResponse>;
   updateFileInfo: UploadFileEntityResponse;
@@ -438,6 +475,12 @@ export type MutationChangePasswordArgs = {
   currentPassword: Scalars['String']['input'];
   password: Scalars['String']['input'];
   passwordConfirmation: Scalars['String']['input'];
+};
+
+export type MutationCreateAboutLocalizationArgs = {
+  data?: InputMaybe<AboutInput>;
+  id?: InputMaybe<Scalars['ID']['input']>;
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
 
 export type MutationCreateContentReleasesReleaseArgs = {
@@ -473,6 +516,10 @@ export type MutationCreateUsersPermissionsRoleArgs = {
 
 export type MutationCreateUsersPermissionsUserArgs = {
   data: UsersPermissionsUserInput;
+};
+
+export type MutationDeleteAboutArgs = {
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
 
 export type MutationDeleteContentReleasesReleaseArgs = {
@@ -535,6 +582,11 @@ export type MutationResetPasswordArgs = {
   code: Scalars['String']['input'];
   password: Scalars['String']['input'];
   passwordConfirmation: Scalars['String']['input'];
+};
+
+export type MutationUpdateAboutArgs = {
+  data: AboutInput;
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
 };
 
 export type MutationUpdateContentReleasesReleaseArgs = {
@@ -701,6 +753,7 @@ export enum PublicationState {
 
 export type Query = {
   __typename?: 'Query';
+  about?: Maybe<AboutEntityResponse>;
   contentReleasesRelease?: Maybe<ContentReleasesReleaseEntityResponse>;
   contentReleasesReleaseAction?: Maybe<ContentReleasesReleaseActionEntityResponse>;
   contentReleasesReleaseActions?: Maybe<ContentReleasesReleaseActionEntityResponseCollection>;
@@ -718,6 +771,11 @@ export type Query = {
   usersPermissionsRoles?: Maybe<UsersPermissionsRoleEntityResponseCollection>;
   usersPermissionsUser?: Maybe<UsersPermissionsUserEntityResponse>;
   usersPermissionsUsers?: Maybe<UsersPermissionsUserEntityResponseCollection>;
+};
+
+export type QueryAboutArgs = {
+  locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+  publicationState?: InputMaybe<PublicationState>;
 };
 
 export type QueryContentReleasesReleaseArgs = {
@@ -1218,12 +1276,7 @@ export type ProjectsOverviewQuery = {
           __typename?: 'UploadFileEntityResponse';
           data?: {
             __typename?: 'UploadFileEntity';
-            attributes?: {
-              __typename?: 'UploadFile';
-              url: string;
-              name: string;
-              ext?: string | null;
-            } | null;
+            attributes?: { __typename?: 'UploadFile'; url: string } | null;
           } | null;
         };
         Roles: Array<{
@@ -1294,20 +1347,6 @@ export const ProjectsOverviewDocument = {
                                                 name: {
                                                   kind: 'Name',
                                                   value: 'url',
-                                                },
-                                              },
-                                              {
-                                                kind: 'Field',
-                                                name: {
-                                                  kind: 'Name',
-                                                  value: 'name',
-                                                },
-                                              },
-                                              {
-                                                kind: 'Field',
-                                                name: {
-                                                  kind: 'Name',
-                                                  value: 'ext',
                                                 },
                                               },
                                             ],
