@@ -1,7 +1,7 @@
 'use client';
 
 import { SxProps } from '@mui/system';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import Typography from '@mui/material/Typography';
 import oswald from '@/styles/fonts/oswald';
 import Card from '@mui/material/Card';
@@ -9,6 +9,7 @@ import CardActionArea from '@mui/material/CardActionArea';
 import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import { useTheme } from '@mui/material';
+import { useRef } from 'react';
 
 export default function ProjectCard({
   sx,
@@ -19,10 +20,17 @@ export default function ProjectCard({
   thumbnailUrl: string;
   name: string;
 }) {
+  const ref = useRef(null);
   const theme = useTheme();
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start end', 'end end'],
+  });
+  const translateY = useTransform(scrollYProgress, [0, 1], ['-20%', '0%']);
 
   return (
     <motion.div
+      ref={ref}
       whileHover={{ scale: 1.05 }}
       transition={{ type: 'spring', stiffness: 400, damping: 15 }}
     >
@@ -39,18 +47,16 @@ export default function ProjectCard({
               height: '100%',
             }}
           >
-            <CardMedia
-              component="img"
-              image={thumbnailUrl}
+            <motion.img
+              src={thumbnailUrl}
               alt={name}
-              sx={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
+              style={{
                 width: '100%',
                 height: '100%',
+                objectFit: 'cover',
+                translateY,
               }}
-            />
+            ></motion.img>
             <motion.div
               initial={{ opacity: 0 }}
               whileHover={{ opacity: 0.8 }}

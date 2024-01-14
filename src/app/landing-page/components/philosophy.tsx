@@ -110,7 +110,7 @@ export default function Philosophy() {
       </FullScreenContainer>
 
       <Container maxWidth="lg">
-        <Stack mt={10} className="snap-y">
+        <Stack mt={10} className="snap-y" mb="30vh">
           {values.map((value, index) => (
             <Stack key={index}>
               <Divider

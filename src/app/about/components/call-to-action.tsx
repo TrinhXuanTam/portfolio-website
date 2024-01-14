@@ -7,6 +7,8 @@ import { SxProps } from '@mui/material';
 import FadeIn from '@/components/transitions/fade-in';
 import FullScreenContainer from '@/components/full-screen-container';
 import { getCvUrl } from '@/app/about/api/cv';
+import AnimatedNavigationLink from '@/components/transitions/animated-navigation-link';
+import Routes from '@/utils/routes';
 
 export default async function CallToAction({ sx }: { sx?: SxProps }) {
   const cvUrl = await getCvUrl();
@@ -57,9 +59,11 @@ export default async function CallToAction({ sx }: { sx?: SxProps }) {
                 View Full CV
               </RoundedButton>
 
-              <RoundedButton variant="outlined" color="primary" size="large">
-                See my projects
-              </RoundedButton>
+              <AnimatedNavigationLink href={Routes.Projects}>
+                <RoundedButton variant="outlined" color="primary" size="large">
+                  See my projects
+                </RoundedButton>
+              </AnimatedNavigationLink>
             </Stack>
           </Stack>
         </FadeIn>

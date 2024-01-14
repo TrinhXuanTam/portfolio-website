@@ -34,9 +34,7 @@ export default function LandingPage() {
         <Philosophy />
       </FullScreenContainer>
 
-      <FullScreenContainer className="snap-y">
-        <LatestWork />
-      </FullScreenContainer>
+      <LatestWork />
 
       <FullScreenContainer className="snap-y">
         <CallToAction />
