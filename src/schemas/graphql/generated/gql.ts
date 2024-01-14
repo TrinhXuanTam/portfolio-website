@@ -13,6 +13,8 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
+  '\n  query cvFile {\n    about {\n      data {\n        attributes {\n          CV {\n            data {\n              attributes {\n                url\n                updatedAt\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n':
+    types.CvFileDocument,
   '\n  query projectsOverview {\n    projects {\n      data {\n        id\n        attributes {\n          Name\n          Thumbnail {\n            data {\n              attributes {\n                url\n              }\n            }\n          }\n          Roles {\n            Value\n          }\n        }\n      }\n    }\n  }\n':
     types.ProjectsOverviewDocument,
 };
@@ -31,6 +33,12 @@ const documents = {
  */
 export function graphql(source: string): unknown;
 
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(
+  source: '\n  query cvFile {\n    about {\n      data {\n        attributes {\n          CV {\n            data {\n              attributes {\n                url\n                updatedAt\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n'
+): (typeof documents)['\n  query cvFile {\n    about {\n      data {\n        attributes {\n          CV {\n            data {\n              attributes {\n                url\n                updatedAt\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n'];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

@@ -39,6 +39,7 @@ export type Scalars = {
 
 export type About = {
   __typename?: 'About';
+  CV: UploadFileEntityResponse;
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   locale?: Maybe<Scalars['String']['output']>;
   localizations?: Maybe<AboutRelationResponseCollection>;
@@ -62,6 +63,7 @@ export type AboutEntityResponse = {
 };
 
 export type AboutInput = {
+  CV?: InputMaybe<Scalars['ID']['input']>;
   publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
 };
 
@@ -1260,6 +1262,32 @@ export type UsersPermissionsUserRelationResponseCollection = {
   data: Array<UsersPermissionsUserEntity>;
 };
 
+export type CvFileQueryVariables = Exact<{ [key: string]: never }>;
+
+export type CvFileQuery = {
+  __typename?: 'Query';
+  about?: {
+    __typename?: 'AboutEntityResponse';
+    data?: {
+      __typename?: 'AboutEntity';
+      attributes?: {
+        __typename?: 'About';
+        CV: {
+          __typename?: 'UploadFileEntityResponse';
+          data?: {
+            __typename?: 'UploadFileEntity';
+            attributes?: {
+              __typename?: 'UploadFile';
+              url: string;
+              updatedAt?: any | null;
+            } | null;
+          } | null;
+        };
+      } | null;
+    } | null;
+  } | null;
+};
+
 export type ProjectsOverviewQueryVariables = Exact<{ [key: string]: never }>;
 
 export type ProjectsOverviewQuery = {
@@ -1288,6 +1316,92 @@ export type ProjectsOverviewQuery = {
   } | null;
 };
 
+export const CvFileDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: { kind: 'Name', value: 'cvFile' },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'about' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'Field',
+                  name: { kind: 'Name', value: 'data' },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'Field',
+                        name: { kind: 'Name', value: 'attributes' },
+                        selectionSet: {
+                          kind: 'SelectionSet',
+                          selections: [
+                            {
+                              kind: 'Field',
+                              name: { kind: 'Name', value: 'CV' },
+                              selectionSet: {
+                                kind: 'SelectionSet',
+                                selections: [
+                                  {
+                                    kind: 'Field',
+                                    name: { kind: 'Name', value: 'data' },
+                                    selectionSet: {
+                                      kind: 'SelectionSet',
+                                      selections: [
+                                        {
+                                          kind: 'Field',
+                                          name: {
+                                            kind: 'Name',
+                                            value: 'attributes',
+                                          },
+                                          selectionSet: {
+                                            kind: 'SelectionSet',
+                                            selections: [
+                                              {
+                                                kind: 'Field',
+                                                name: {
+                                                  kind: 'Name',
+                                                  value: 'url',
+                                                },
+                                              },
+                                              {
+                                                kind: 'Field',
+                                                name: {
+                                                  kind: 'Name',
+                                                  value: 'updatedAt',
+                                                },
+                                              },
+                                            ],
+                                          },
+                                        },
+                                      ],
+                                    },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<CvFileQuery, CvFileQueryVariables>;
 export const ProjectsOverviewDocument = {
   kind: 'Document',
   definitions: [

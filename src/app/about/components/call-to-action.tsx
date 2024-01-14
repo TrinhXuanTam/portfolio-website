@@ -6,8 +6,11 @@ import Container from '@mui/material/Container';
 import { SxProps } from '@mui/material';
 import FadeIn from '@/components/transitions/fade-in';
 import FullScreenContainer from '@/components/full-screen-container';
+import { getCvUrl } from '@/app/about/api/cv';
 
-export default function CallToAction({ sx }: { sx?: SxProps }) {
+export default async function CallToAction({ sx }: { sx?: SxProps }) {
+  const cvUrl = await getCvUrl();
+
   return (
     <FullScreenContainer className="snap-y">
       <Container sx={sx} maxWidth="xl">
@@ -44,7 +47,13 @@ export default function CallToAction({ sx }: { sx?: SxProps }) {
                 Send me a message
               </RoundedButton>
 
-              <RoundedButton variant="outlined" color="primary" size="large">
+              <RoundedButton
+                component="a"
+                variant="outlined"
+                color="primary"
+                size="large"
+                href={cvUrl}
+              >
                 View Full CV
               </RoundedButton>
 

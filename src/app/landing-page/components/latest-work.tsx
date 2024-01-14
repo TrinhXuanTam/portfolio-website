@@ -1,21 +1,16 @@
-'use client';
-
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
-import Skeleton from '@mui/material/Skeleton';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import oswald from '@/styles/fonts/oswald';
 import RoundedButton from '@/components/buttons/rounded-button';
 import { SxProps } from '@mui/material';
-import { useQuery } from '@apollo/experimental-nextjs-app-support/ssr';
-import { projectsOverview } from '@/app/projects/api/graphql/query/project';
-import { ProjectsOverviewQuery } from '@/schemas/graphql/generated/graphql';
 import FadeIn from '@/components/transitions/fade-in';
 import ProjectCard from '@/app/projects/components/project-card';
+import { getProjectsOverview } from '@/app/projects/api/projects';
 
-export default function LatestWork({ sx }: { sx?: SxProps }) {
-  const { data, loading } = useQuery<ProjectsOverviewQuery>(projectsOverview);
+export default async function LatestWork({ sx }: { sx?: SxProps }) {
+  const projects = await getProjectsOverview();
 
   return (
     <Container sx={sx} maxWidth="lg">
@@ -49,25 +44,17 @@ export default function LatestWork({ sx }: { sx?: SxProps }) {
       </Stack>
 
       <Grid container spacing={5} sx={{ mt: 1 }}>
-        {loading
-          ? Array.from(Array(4).keys()).map((value, index) => (
-              <Grid key={value} item xs={6}>
-                <FadeIn delay={index * 0.2}>
-                  <Skeleton variant="rounded" height="32vh" />
-                </FadeIn>
-              </Grid>
-            ))
-          : data?.projects?.data.slice(0, 4).map((project, index) => (
-              <Grid key={project.id} item xs={6}>
-                <FadeIn delay={index * 0.2}>
-                  <ProjectCard
-                    sx={{ height: '32vh' }}
-                    thumbnailUrl={`${process.env.NEXT_PUBLIC_CRM_URL}${project.attributes?.Thumbnail.data?.attributes?.url}`}
-                    name={`${project.attributes?.Name}`}
-                  />
-                </FadeIn>
-              </Grid>
-            ))}
+        {projects.slice(0, 4).map((project, index) => (
+          <Grid key={project.id} item xs={6}>
+            <FadeIn delay={index * 0.2}>
+              <ProjectCard
+                sx={{ height: '32vh' }}
+                thumbnailUrl={project.thumbnailUrl}
+                name={project.name}
+              />
+            </FadeIn>
+          </Grid>
+        ))}
       </Grid>
     </Container>
   );

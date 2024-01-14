@@ -11,8 +11,11 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import Image from 'next/image';
 import RhombusBox from '@/components/boxes/rhombus-box';
 import FadeIn from '@/components/transitions/fade-in';
+import { getCvUrl } from '@/app/about/api/cv';
 
-export default function Intro({ sx }: { sx?: SxProps }) {
+export default async function Intro({ sx }: { sx?: SxProps }) {
+  const cvUrl = await getCvUrl();
+
   return (
     <Stack sx={sx} direction="row" justifyContent="space-between">
       <Stack>
@@ -65,8 +68,13 @@ export default function Intro({ sx }: { sx?: SxProps }) {
             <RoundedButton color="secondary" variant="contained" size="large">
               Get in touch
             </RoundedButton>
-            <RoundedButton variant="outlined" size="large">
-              Download CV
+            <RoundedButton
+              component="a"
+              variant="outlined"
+              size="large"
+              href={cvUrl}
+            >
+              See my CV
             </RoundedButton>
           </Stack>
           <Stack direction="row" spacing={2} sx={{ mt: 4 }}>
