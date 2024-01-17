@@ -21,7 +21,9 @@ const documents = {
     types.WorkExperiencesDocument,
   '\n  query extras {\n    about {\n      data {\n        attributes {\n          extra {\n            title\n            text\n          }\n        }\n      }\n    }\n  }\n':
     types.ExtrasDocument,
-  '\n  query projectsOverview {\n    projects {\n      data {\n        id\n        attributes {\n          name\n          thumbnail {\n            data {\n              attributes {\n                url\n              }\n            }\n          }\n          roles {\n            value\n          }\n        }\n      }\n    }\n  }\n':
+  '\n  query projectDetail($id: ID!) {\n    project(id: $id) {\n      data {\n        attributes {\n          name\n          description\n          briefDescription\n          roles {\n            name\n          }\n          responsibilities {\n            name\n          }\n          technologies {\n            name\n          }\n          thumbnail {\n            data {\n              attributes {\n                url\n              }\n            }\n          }\n          images {\n            data {\n              attributes {\n                url\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n':
+    types.ProjectDetailDocument,
+  '\n  query projectsOverview {\n    projects {\n      data {\n        id\n        attributes {\n          name\n          briefDescription\n          thumbnail {\n            data {\n              attributes {\n                url\n              }\n            }\n          }\n          roles {\n            name\n          }\n        }\n      }\n    }\n  }\n':
     types.ProjectsOverviewDocument,
 };
 
@@ -67,8 +69,14 @@ export function graphql(
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(
-  source: '\n  query projectsOverview {\n    projects {\n      data {\n        id\n        attributes {\n          name\n          thumbnail {\n            data {\n              attributes {\n                url\n              }\n            }\n          }\n          roles {\n            value\n          }\n        }\n      }\n    }\n  }\n'
-): (typeof documents)['\n  query projectsOverview {\n    projects {\n      data {\n        id\n        attributes {\n          name\n          thumbnail {\n            data {\n              attributes {\n                url\n              }\n            }\n          }\n          roles {\n            value\n          }\n        }\n      }\n    }\n  }\n'];
+  source: '\n  query projectDetail($id: ID!) {\n    project(id: $id) {\n      data {\n        attributes {\n          name\n          description\n          briefDescription\n          roles {\n            name\n          }\n          responsibilities {\n            name\n          }\n          technologies {\n            name\n          }\n          thumbnail {\n            data {\n              attributes {\n                url\n              }\n            }\n          }\n          images {\n            data {\n              attributes {\n                url\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n'
+): (typeof documents)['\n  query projectDetail($id: ID!) {\n    project(id: $id) {\n      data {\n        attributes {\n          name\n          description\n          briefDescription\n          roles {\n            name\n          }\n          responsibilities {\n            name\n          }\n          technologies {\n            name\n          }\n          thumbnail {\n            data {\n              attributes {\n                url\n              }\n            }\n          }\n          images {\n            data {\n              attributes {\n                url\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n'];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(
+  source: '\n  query projectsOverview {\n    projects {\n      data {\n        id\n        attributes {\n          name\n          briefDescription\n          thumbnail {\n            data {\n              attributes {\n                url\n              }\n            }\n          }\n          roles {\n            name\n          }\n        }\n      }\n    }\n  }\n'
+): (typeof documents)['\n  query projectsOverview {\n    projects {\n      data {\n        id\n        attributes {\n          name\n          briefDescription\n          thumbnail {\n            data {\n              attributes {\n                url\n              }\n            }\n          }\n          roles {\n            name\n          }\n        }\n      }\n    }\n  }\n'];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};

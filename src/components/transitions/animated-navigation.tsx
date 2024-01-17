@@ -1,8 +1,8 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname, useSearchParams } from 'next/navigation';
 import { motion, Spring, AnimatePresence } from 'framer-motion';
 import { useTheme } from '@mui/material/styles';
 
@@ -22,18 +22,19 @@ export default function AnimatedNavigation({
 }) {
   const theme = useTheme();
   const router = useRouter();
+  const pathName = usePathname();
+  const searchParams = useSearchParams();
   const [isAnimating, setIsAnimating] = React.useState(false);
   const navigate = (href: string) => {
     setIsAnimating(true);
+    router.push(href);
+  };
 
-    setTimeout(() => {
-      router.push(href);
-    }, 200);
-
+  useEffect(() => {
     setTimeout(() => {
       setIsAnimating(false);
-    }, 500);
-  };
+    }, 200);
+  }, [pathName, searchParams]);
 
   const transitionSpringPhysics: Spring = {
     type: 'spring',
@@ -43,9 +44,9 @@ export default function AnimatedNavigation({
   };
 
   const animationVariants = {
-    hidden: { y: '-100%', backgroundColor: theme.palette.primary.main }, // Start from above the screen
+    hidden: { y: '-100%' }, // Start from above the screen
     visible: { y: 0 }, // Slide down to cover the screen
-    exit: { y: '100%', backgroundColor: theme.palette.secondary.main }, // Slide down out of the screen
+    exit: { y: '100%' }, // Slide down out of the screen
   };
 
   return (
@@ -65,6 +66,7 @@ export default function AnimatedNavigation({
               width: '100%',
               height: '100%',
               zIndex: 10000,
+              backgroundColor: theme.palette.primary.main,
             }}
           />
         )}

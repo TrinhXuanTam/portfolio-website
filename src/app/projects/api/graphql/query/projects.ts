@@ -7,6 +7,7 @@ export const projectsOverview = gql`
         id
         attributes {
           name
+          briefDescription
           thumbnail {
             data {
               attributes {
@@ -15,7 +16,7 @@ export const projectsOverview = gql`
             }
           }
           roles {
-            value
+            name
           }
         }
       }

@@ -77,14 +77,31 @@ export default function ProjectCard({
                   alignItems: 'center',
                 }}
               >
-                <CardContent>
+                <CardContent
+                  sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    padding: 10,
+                  }}
+                >
                   <Typography
                     fontFamily={oswald.style.fontFamily}
                     gutterBottom
                     variant="h4"
                     fontWeight="medium"
+                    textAlign="center"
                   >
                     {project.name}
+                  </Typography>
+
+                  <Typography
+                    variant="subtitle2"
+                    fontWeight="lighter"
+                    textAlign="center"
+                  >
+                    {project.briefDescription}
                   </Typography>
                 </CardContent>
               </motion.div>

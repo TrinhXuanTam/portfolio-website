@@ -206,44 +206,62 @@ export type ComponentAboutWorkExperienceInput = {
   to?: InputMaybe<Scalars['Date']['input']>;
 };
 
+export type ComponentProjectsTechnology = {
+  __typename?: 'ComponentProjectsTechnology';
+  id: Scalars['ID']['output'];
+  name: Scalars['String']['output'];
+};
+
+export type ComponentProjectsTechnologyFiltersInput = {
+  and?: InputMaybe<Array<InputMaybe<ComponentProjectsTechnologyFiltersInput>>>;
+  name?: InputMaybe<StringFilterInput>;
+  not?: InputMaybe<ComponentProjectsTechnologyFiltersInput>;
+  or?: InputMaybe<Array<InputMaybe<ComponentProjectsTechnologyFiltersInput>>>;
+};
+
+export type ComponentProjectsTechnologyInput = {
+  id?: InputMaybe<Scalars['ID']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
+};
+
 export type ComponentRolesResponsibilities = {
   __typename?: 'ComponentRolesResponsibilities';
   id: Scalars['ID']['output'];
-  value: Scalars['String']['output'];
+  name: Scalars['String']['output'];
 };
 
 export type ComponentRolesResponsibilitiesFiltersInput = {
   and?: InputMaybe<
     Array<InputMaybe<ComponentRolesResponsibilitiesFiltersInput>>
   >;
+  name?: InputMaybe<StringFilterInput>;
   not?: InputMaybe<ComponentRolesResponsibilitiesFiltersInput>;
   or?: InputMaybe<
     Array<InputMaybe<ComponentRolesResponsibilitiesFiltersInput>>
   >;
-  value?: InputMaybe<StringFilterInput>;
 };
 
 export type ComponentRolesResponsibilitiesInput = {
   id?: InputMaybe<Scalars['ID']['input']>;
-  value?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type ComponentRolesRole = {
   __typename?: 'ComponentRolesRole';
   id: Scalars['ID']['output'];
-  value: Scalars['String']['output'];
+  name: Scalars['String']['output'];
 };
 
 export type ComponentRolesRoleFiltersInput = {
   and?: InputMaybe<Array<InputMaybe<ComponentRolesRoleFiltersInput>>>;
+  name?: InputMaybe<StringFilterInput>;
   not?: InputMaybe<ComponentRolesRoleFiltersInput>;
   or?: InputMaybe<Array<InputMaybe<ComponentRolesRoleFiltersInput>>>;
-  value?: InputMaybe<StringFilterInput>;
 };
 
 export type ComponentRolesRoleInput = {
   id?: InputMaybe<Scalars['ID']['input']>;
-  value?: InputMaybe<Scalars['String']['input']>;
+  name?: InputMaybe<Scalars['String']['input']>;
 };
 
 export type ContentReleasesRelease = {
@@ -437,6 +455,7 @@ export type GenericMorph =
   | ComponentAboutEducation
   | ComponentAboutExtra
   | ComponentAboutWorkExperience
+  | ComponentProjectsTechnology
   | ComponentRolesResponsibilities
   | ComponentRolesRole
   | ContentReleasesRelease
@@ -794,6 +813,7 @@ export type PaginationArg = {
 
 export type Project = {
   __typename?: 'Project';
+  briefDescription: Scalars['String']['output'];
   createdAt?: Maybe<Scalars['DateTime']['output']>;
   description: Scalars['String']['output'];
   images: UploadFileRelationResponseCollection;
@@ -803,6 +823,7 @@ export type Project = {
   publishedAt?: Maybe<Scalars['DateTime']['output']>;
   responsibilities: Array<Maybe<ComponentRolesResponsibilities>>;
   roles: Array<Maybe<ComponentRolesRole>>;
+  technologies: Array<Maybe<ComponentProjectsTechnology>>;
   thumbnail: UploadFileEntityResponse;
   updatedAt?: Maybe<Scalars['DateTime']['output']>;
   url?: Maybe<Scalars['String']['output']>;
@@ -833,6 +854,12 @@ export type ProjectRolesArgs = {
   sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
 };
 
+export type ProjectTechnologiesArgs = {
+  filters?: InputMaybe<ComponentProjectsTechnologyFiltersInput>;
+  pagination?: InputMaybe<PaginationArg>;
+  sort?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
 export type ProjectEntity = {
   __typename?: 'ProjectEntity';
   attributes?: Maybe<Project>;
@@ -852,6 +879,7 @@ export type ProjectEntityResponseCollection = {
 
 export type ProjectFiltersInput = {
   and?: InputMaybe<Array<InputMaybe<ProjectFiltersInput>>>;
+  briefDescription?: InputMaybe<StringFilterInput>;
   createdAt?: InputMaybe<DateTimeFilterInput>;
   description?: InputMaybe<StringFilterInput>;
   id?: InputMaybe<IdFilterInput>;
@@ -863,11 +891,13 @@ export type ProjectFiltersInput = {
   publishedAt?: InputMaybe<DateTimeFilterInput>;
   responsibilities?: InputMaybe<ComponentRolesResponsibilitiesFiltersInput>;
   roles?: InputMaybe<ComponentRolesRoleFiltersInput>;
+  technologies?: InputMaybe<ComponentProjectsTechnologyFiltersInput>;
   updatedAt?: InputMaybe<DateTimeFilterInput>;
   url?: InputMaybe<StringFilterInput>;
 };
 
 export type ProjectInput = {
+  briefDescription?: InputMaybe<Scalars['String']['input']>;
   description?: InputMaybe<Scalars['String']['input']>;
   images?: InputMaybe<Array<InputMaybe<Scalars['ID']['input']>>>;
   name?: InputMaybe<Scalars['String']['input']>;
@@ -876,6 +906,9 @@ export type ProjectInput = {
     Array<InputMaybe<ComponentRolesResponsibilitiesInput>>
   >;
   roles?: InputMaybe<Array<InputMaybe<ComponentRolesRoleInput>>>;
+  technologies?: InputMaybe<
+    Array<InputMaybe<ComponentProjectsTechnologyInput>>
+  >;
   thumbnail?: InputMaybe<Scalars['ID']['input']>;
   url?: InputMaybe<Scalars['String']['input']>;
 };
@@ -1491,6 +1524,52 @@ export type ExtrasQuery = {
   } | null;
 };
 
+export type ProjectDetailQueryVariables = Exact<{
+  id: Scalars['ID']['input'];
+}>;
+
+export type ProjectDetailQuery = {
+  __typename?: 'Query';
+  project?: {
+    __typename?: 'ProjectEntityResponse';
+    data?: {
+      __typename?: 'ProjectEntity';
+      attributes?: {
+        __typename?: 'Project';
+        name: string;
+        description: string;
+        briefDescription: string;
+        roles: Array<{
+          __typename?: 'ComponentRolesRole';
+          name: string;
+        } | null>;
+        responsibilities: Array<{
+          __typename?: 'ComponentRolesResponsibilities';
+          name: string;
+        } | null>;
+        technologies: Array<{
+          __typename?: 'ComponentProjectsTechnology';
+          name: string;
+        } | null>;
+        thumbnail: {
+          __typename?: 'UploadFileEntityResponse';
+          data?: {
+            __typename?: 'UploadFileEntity';
+            attributes?: { __typename?: 'UploadFile'; url: string } | null;
+          } | null;
+        };
+        images: {
+          __typename?: 'UploadFileRelationResponseCollection';
+          data: Array<{
+            __typename?: 'UploadFileEntity';
+            attributes?: { __typename?: 'UploadFile'; url: string } | null;
+          }>;
+        };
+      } | null;
+    } | null;
+  } | null;
+};
+
 export type ProjectsOverviewQueryVariables = Exact<{ [key: string]: never }>;
 
 export type ProjectsOverviewQuery = {
@@ -1503,6 +1582,7 @@ export type ProjectsOverviewQuery = {
       attributes?: {
         __typename?: 'Project';
         name: string;
+        briefDescription: string;
         thumbnail: {
           __typename?: 'UploadFileEntityResponse';
           data?: {
@@ -1512,7 +1592,7 @@ export type ProjectsOverviewQuery = {
         };
         roles: Array<{
           __typename?: 'ComponentRolesRole';
-          value: string;
+          name: string;
         } | null>;
       } | null;
     }>;
@@ -1834,6 +1914,193 @@ export const ExtrasDocument = {
     },
   ],
 } as unknown as DocumentNode<ExtrasQuery, ExtrasQueryVariables>;
+export const ProjectDetailDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: { kind: 'Name', value: 'projectDetail' },
+      variableDefinitions: [
+        {
+          kind: 'VariableDefinition',
+          variable: { kind: 'Variable', name: { kind: 'Name', value: 'id' } },
+          type: {
+            kind: 'NonNullType',
+            type: { kind: 'NamedType', name: { kind: 'Name', value: 'ID' } },
+          },
+        },
+      ],
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'project' },
+            arguments: [
+              {
+                kind: 'Argument',
+                name: { kind: 'Name', value: 'id' },
+                value: {
+                  kind: 'Variable',
+                  name: { kind: 'Name', value: 'id' },
+                },
+              },
+            ],
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'Field',
+                  name: { kind: 'Name', value: 'data' },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'Field',
+                        name: { kind: 'Name', value: 'attributes' },
+                        selectionSet: {
+                          kind: 'SelectionSet',
+                          selections: [
+                            {
+                              kind: 'Field',
+                              name: { kind: 'Name', value: 'name' },
+                            },
+                            {
+                              kind: 'Field',
+                              name: { kind: 'Name', value: 'description' },
+                            },
+                            {
+                              kind: 'Field',
+                              name: { kind: 'Name', value: 'briefDescription' },
+                            },
+                            {
+                              kind: 'Field',
+                              name: { kind: 'Name', value: 'roles' },
+                              selectionSet: {
+                                kind: 'SelectionSet',
+                                selections: [
+                                  {
+                                    kind: 'Field',
+                                    name: { kind: 'Name', value: 'name' },
+                                  },
+                                ],
+                              },
+                            },
+                            {
+                              kind: 'Field',
+                              name: { kind: 'Name', value: 'responsibilities' },
+                              selectionSet: {
+                                kind: 'SelectionSet',
+                                selections: [
+                                  {
+                                    kind: 'Field',
+                                    name: { kind: 'Name', value: 'name' },
+                                  },
+                                ],
+                              },
+                            },
+                            {
+                              kind: 'Field',
+                              name: { kind: 'Name', value: 'technologies' },
+                              selectionSet: {
+                                kind: 'SelectionSet',
+                                selections: [
+                                  {
+                                    kind: 'Field',
+                                    name: { kind: 'Name', value: 'name' },
+                                  },
+                                ],
+                              },
+                            },
+                            {
+                              kind: 'Field',
+                              name: { kind: 'Name', value: 'thumbnail' },
+                              selectionSet: {
+                                kind: 'SelectionSet',
+                                selections: [
+                                  {
+                                    kind: 'Field',
+                                    name: { kind: 'Name', value: 'data' },
+                                    selectionSet: {
+                                      kind: 'SelectionSet',
+                                      selections: [
+                                        {
+                                          kind: 'Field',
+                                          name: {
+                                            kind: 'Name',
+                                            value: 'attributes',
+                                          },
+                                          selectionSet: {
+                                            kind: 'SelectionSet',
+                                            selections: [
+                                              {
+                                                kind: 'Field',
+                                                name: {
+                                                  kind: 'Name',
+                                                  value: 'url',
+                                                },
+                                              },
+                                            ],
+                                          },
+                                        },
+                                      ],
+                                    },
+                                  },
+                                ],
+                              },
+                            },
+                            {
+                              kind: 'Field',
+                              name: { kind: 'Name', value: 'images' },
+                              selectionSet: {
+                                kind: 'SelectionSet',
+                                selections: [
+                                  {
+                                    kind: 'Field',
+                                    name: { kind: 'Name', value: 'data' },
+                                    selectionSet: {
+                                      kind: 'SelectionSet',
+                                      selections: [
+                                        {
+                                          kind: 'Field',
+                                          name: {
+                                            kind: 'Name',
+                                            value: 'attributes',
+                                          },
+                                          selectionSet: {
+                                            kind: 'SelectionSet',
+                                            selections: [
+                                              {
+                                                kind: 'Field',
+                                                name: {
+                                                  kind: 'Name',
+                                                  value: 'url',
+                                                },
+                                              },
+                                            ],
+                                          },
+                                        },
+                                      ],
+                                    },
+                                  },
+                                ],
+                              },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<ProjectDetailQuery, ProjectDetailQueryVariables>;
 export const ProjectsOverviewDocument = {
   kind: 'Document',
   definitions: [
@@ -1866,6 +2133,10 @@ export const ProjectsOverviewDocument = {
                             {
                               kind: 'Field',
                               name: { kind: 'Name', value: 'name' },
+                            },
+                            {
+                              kind: 'Field',
+                              name: { kind: 'Name', value: 'briefDescription' },
                             },
                             {
                               kind: 'Field',
@@ -1912,7 +2183,7 @@ export const ProjectsOverviewDocument = {
                                 selections: [
                                   {
                                     kind: 'Field',
-                                    name: { kind: 'Name', value: 'value' },
+                                    name: { kind: 'Name', value: 'name' },
                                   },
                                 ],
                               },
