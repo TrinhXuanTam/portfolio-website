@@ -6,13 +6,10 @@ import Container from '@mui/material/Container';
 import { SxProps } from '@mui/material';
 import FadeIn from '@/components/transitions/fade-in';
 import FullScreenContainer from '@/components/full-screen-container';
-import { getCvUrl } from '@/app/about/api/cv';
 import AnimatedNavigationLink from '@/components/transitions/animated-navigation-link';
 import Routes from '@/utils/routes';
 
 export default async function CallToAction({ sx }: { sx?: SxProps }) {
-  const cvUrl = await getCvUrl();
-
   return (
     <FullScreenContainer className="snap-y">
       <Container sx={sx} maxWidth="xl">
@@ -26,7 +23,7 @@ export default async function CallToAction({ sx }: { sx?: SxProps }) {
                 textTransform="uppercase"
                 sx={{ mr: 2 }}
               >
-                Want a quick chat?
+                Did anything catch your eye?
               </Typography>
               <Typography
                 fontFamily={oswald.style.fontFamily}
@@ -35,33 +32,23 @@ export default async function CallToAction({ sx }: { sx?: SxProps }) {
                 textTransform="uppercase"
                 color="primary"
               >
-                Let&apos;s grab a coffee
+                Let&apos;s have a discussion
               </Typography>
             </Stack>
 
             <Typography variant="h6" fontWeight="lighter">
-              If you have any questions or just want to say hi, feel free to
+              If you have something in mind or just want to say hi, feel free to
               send me a message.
             </Typography>
 
             <Stack direction="row" spacing={3}>
               <RoundedButton variant="contained" color="secondary" size="large">
-                Send me a message
+                Contact me
               </RoundedButton>
 
-              <RoundedButton
-                component="a"
-                variant="outlined"
-                color="primary"
-                size="large"
-                href={cvUrl}
-              >
-                View Full CV
-              </RoundedButton>
-
-              <AnimatedNavigationLink href={Routes.Projects}>
+              <AnimatedNavigationLink href={Routes.About}>
                 <RoundedButton variant="outlined" color="primary" size="large">
-                  See my projects
+                  Learn more about me
                 </RoundedButton>
               </AnimatedNavigationLink>
             </Stack>
