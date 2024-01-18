@@ -4,7 +4,6 @@ import Grid from '@mui/material/Grid';
 import Image from 'next/image';
 
 export default function ProjectImages({ data }: { data: ProjectDetail }) {
-
   const getGridSize = (index: number) => {
     const pattern = [12, 6, 6, 12];
     return pattern[index % pattern.length];
@@ -15,14 +14,14 @@ export default function ProjectImages({ data }: { data: ProjectDetail }) {
       <FullScreenContainer>
         <Grid container spacing={2}>
           {data.imageUrls.map((image, index) => (
-            <Grid key={index} item xs={ getGridSize(index) }>
+            <Grid key={index} item xs={getGridSize(index)}>
               <FullScreenContainer sx={{ position: 'relative' }}>
-              <Image
-                src={image}
-                alt={data.name}
-                fill={true}
-                objectFit='cover'
-              />
+                <Image
+                  src={image}
+                  alt={data.name}
+                  fill={true}
+                  objectFit="cover"
+                />
               </FullScreenContainer>
             </Grid>
           ))}

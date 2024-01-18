@@ -31,6 +31,13 @@ const theme = createTheme(commonTheme, {
     },
   },
   components: {
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          color: 'white',
+        },
+      },
+    },
     MuiTypography: {
       defaultProps: {
         color: 'text',
