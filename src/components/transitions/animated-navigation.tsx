@@ -31,9 +31,7 @@ export default function AnimatedNavigation({
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      setIsAnimating(false);
-    }, 200);
+    setIsAnimating(false);
   }, [pathName, searchParams]);
 
   const transitionSpringPhysics: Spring = {
