@@ -15,7 +15,8 @@ export default function ContactForm({ sx }: { sx?: SxProps }) {
           gap: '1rem',
         }}
       >
-        <TextField fullWidth label="Email" variant="outlined" />
+        <TextField fullWidth label="Name" />
+        <TextField fullWidth label="Email" />
         <TextField fullWidth label="Subject" />
         <TextField fullWidth label="Message" multiline minRows={15} />
         <RoundedButton variant="contained" size="large" color="primary">

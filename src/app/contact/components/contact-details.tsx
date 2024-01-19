@@ -5,10 +5,14 @@ import IconButton from '@mui/material/IconButton';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { SxProps } from '@mui/material';
+import { getContact, getProfiles } from '@/app/about/api/contact';
 
-export default function ContactDetails({ sx }: { sx?: SxProps }) {
+export default async function ContactDetails({ sx }: { sx?: SxProps }) {
+  const contact = await getContact();
+  const profiles = await getProfiles();
+
   return (
-    <Stack justifyContent="space-between" sx={sx}>
+    <Stack sx={sx} spacing={20}>
       <Stack spacing={3}>
         <Stack>
           <Typography
@@ -69,7 +73,7 @@ export default function ContactDetails({ sx }: { sx?: SxProps }) {
             </Typography>
 
             <Typography variant="body1" fontWeight="lighter">
-              {process.env.EMAIL}
+              {contact.email}
             </Typography>
           </Stack>
 
@@ -85,7 +89,7 @@ export default function ContactDetails({ sx }: { sx?: SxProps }) {
             </Typography>
 
             <Typography variant="body1" fontWeight="lighter">
-              {process.env.PHONE}
+              {contact.phone}
             </Typography>
           </Stack>
         </Stack>
@@ -103,7 +107,7 @@ export default function ContactDetails({ sx }: { sx?: SxProps }) {
 
           <Stack direction="row" spacing={2}>
             <IconButton
-              href={process.env.LINKEDIN_URL!}
+              href={profiles.linkedinUrl}
               sx={{
                 color: 'text.primary',
                 padding: 0,
@@ -113,7 +117,7 @@ export default function ContactDetails({ sx }: { sx?: SxProps }) {
               <LinkedInIcon fontSize="inherit" />
             </IconButton>
             <IconButton
-              href={process.env.GITHUB_URL!}
+              href={profiles.githubUrl}
               sx={{
                 color: 'text.primary',
                 padding: 0,

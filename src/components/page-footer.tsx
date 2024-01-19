@@ -9,11 +9,15 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import { getContact, getProfiles } from '@/app/about/api/contact';
+import { getRouteObjects } from '@/utils/routes';
+import AnimatedNavigationLink from '@/components/transitions/animated-navigation-link';
 
-const pages = ['Home', 'About', 'Resume', 'Projects', 'Blogs', 'Contact'];
-
-export default function PageFooter() {
+export default async function PageFooter() {
   const now = new Date();
+  const profiles = await getProfiles();
+  const contact = await getContact();
+  const routes = getRouteObjects();
 
   return (
     <Box sx={{ backgroundColor: 'background.paper' }}>
@@ -31,14 +35,12 @@ export default function PageFooter() {
                   Menu
                 </Typography>
 
-                {pages.map((page, index) => (
-                  <Typography
-                    variant="body2"
-                    key={index}
-                    sx={{ cursor: 'pointer' }}
-                  >
-                    {page}
-                  </Typography>
+                {routes.map((route, index) => (
+                  <AnimatedNavigationLink href={route.path} key={index}>
+                    <Typography variant="body2" sx={{ cursor: 'pointer' }}>
+                      {route.name}
+                    </Typography>
+                  </AnimatedNavigationLink>
                 ))}
               </Stack>
 
@@ -53,18 +55,18 @@ export default function PageFooter() {
 
                 <Stack direction="row" alignItems="center" spacing={2}>
                   <EmailIcon fontSize="small" />
-                  <Typography variant="body2">{process.env.EMAIL}</Typography>
+                  <Typography variant="body2">{contact.email}</Typography>
                 </Stack>
 
                 <Stack direction="row" alignItems="center" spacing={2}>
                   <PhoneIcon fontSize="small" />
-                  <Typography variant="body2">{process.env.PHONE}</Typography>
+                  <Typography variant="body2">{contact.phone}</Typography>
                 </Stack>
 
                 <Stack direction="row" spacing={2} sx={{ mt: 4 }}>
                   <IconButton
                     size="large"
-                    href={process.env.LINKEDIN_URL!}
+                    href={profiles.linkedinUrl}
                     sx={{
                       color: 'text.primary',
                       padding: 0,
@@ -74,7 +76,7 @@ export default function PageFooter() {
                   </IconButton>
                   <IconButton
                     size="large"
-                    href={process.env.GITHUB_URL!}
+                    href={profiles.githubUrl}
                     sx={{
                       color: 'text.primary',
                       padding: 0,

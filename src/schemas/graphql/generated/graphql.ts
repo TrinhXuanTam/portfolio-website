@@ -264,6 +264,36 @@ export type ComponentRolesRoleInput = {
   name?: InputMaybe<Scalars['String']['input']>;
 };
 
+export type Contact = {
+  __typename?: 'Contact';
+  createdAt?: Maybe<Scalars['DateTime']['output']>;
+  email: Scalars['String']['output'];
+  githubUrl: Scalars['String']['output'];
+  linkedinUrl: Scalars['String']['output'];
+  phone: Scalars['String']['output'];
+  publishedAt?: Maybe<Scalars['DateTime']['output']>;
+  updatedAt?: Maybe<Scalars['DateTime']['output']>;
+};
+
+export type ContactEntity = {
+  __typename?: 'ContactEntity';
+  attributes?: Maybe<Contact>;
+  id?: Maybe<Scalars['ID']['output']>;
+};
+
+export type ContactEntityResponse = {
+  __typename?: 'ContactEntityResponse';
+  data?: Maybe<ContactEntity>;
+};
+
+export type ContactInput = {
+  email?: InputMaybe<Scalars['String']['input']>;
+  githubUrl?: InputMaybe<Scalars['String']['input']>;
+  linkedinUrl?: InputMaybe<Scalars['String']['input']>;
+  phone?: InputMaybe<Scalars['String']['input']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']['input']>;
+};
+
 export type ContentReleasesRelease = {
   __typename?: 'ContentReleasesRelease';
   actions?: Maybe<ContentReleasesReleaseActionRelationResponseCollection>;
@@ -458,6 +488,7 @@ export type GenericMorph =
   | ComponentProjectsTechnology
   | ComponentRolesResponsibilities
   | ComponentRolesRole
+  | Contact
   | ContentReleasesRelease
   | ContentReleasesReleaseAction
   | I18NLocale
@@ -595,6 +626,7 @@ export type Mutation = {
   /** Create a new user */
   createUsersPermissionsUser: UsersPermissionsUserEntityResponse;
   deleteAbout?: Maybe<AboutEntityResponse>;
+  deleteContact?: Maybe<ContactEntityResponse>;
   deleteContentReleasesRelease?: Maybe<ContentReleasesReleaseEntityResponse>;
   deleteContentReleasesReleaseAction?: Maybe<ContentReleasesReleaseActionEntityResponse>;
   deleteProject?: Maybe<ProjectEntityResponse>;
@@ -616,6 +648,7 @@ export type Mutation = {
   /** Reset user password. Confirm with a code (resetToken from forgotPassword) */
   resetPassword?: Maybe<UsersPermissionsLoginPayload>;
   updateAbout?: Maybe<AboutEntityResponse>;
+  updateContact?: Maybe<ContactEntityResponse>;
   updateContentReleasesRelease?: Maybe<ContentReleasesReleaseEntityResponse>;
   updateContentReleasesReleaseAction?: Maybe<ContentReleasesReleaseActionEntityResponse>;
   updateFileInfo: UploadFileEntityResponse;
@@ -745,6 +778,10 @@ export type MutationResetPasswordArgs = {
 export type MutationUpdateAboutArgs = {
   data: AboutInput;
   locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+};
+
+export type MutationUpdateContactArgs = {
+  data: ContactInput;
 };
 
 export type MutationUpdateContentReleasesReleaseArgs = {
@@ -926,6 +963,7 @@ export enum PublicationState {
 export type Query = {
   __typename?: 'Query';
   about?: Maybe<AboutEntityResponse>;
+  contact?: Maybe<ContactEntityResponse>;
   contentReleasesRelease?: Maybe<ContentReleasesReleaseEntityResponse>;
   contentReleasesReleaseAction?: Maybe<ContentReleasesReleaseActionEntityResponse>;
   contentReleasesReleaseActions?: Maybe<ContentReleasesReleaseActionEntityResponseCollection>;
@@ -947,6 +985,10 @@ export type Query = {
 
 export type QueryAboutArgs = {
   locale?: InputMaybe<Scalars['I18NLocaleCode']['input']>;
+  publicationState?: InputMaybe<PublicationState>;
+};
+
+export type QueryContactArgs = {
   publicationState?: InputMaybe<PublicationState>;
 };
 
@@ -1432,6 +1474,40 @@ export type UsersPermissionsUserRelationResponseCollection = {
   data: Array<UsersPermissionsUserEntity>;
 };
 
+export type ContactQueryVariables = Exact<{ [key: string]: never }>;
+
+export type ContactQuery = {
+  __typename?: 'Query';
+  contact?: {
+    __typename?: 'ContactEntityResponse';
+    data?: {
+      __typename?: 'ContactEntity';
+      attributes?: {
+        __typename?: 'Contact';
+        email: string;
+        phone: string;
+      } | null;
+    } | null;
+  } | null;
+};
+
+export type ProfilesQueryVariables = Exact<{ [key: string]: never }>;
+
+export type ProfilesQuery = {
+  __typename?: 'Query';
+  contact?: {
+    __typename?: 'ContactEntityResponse';
+    data?: {
+      __typename?: 'ContactEntity';
+      attributes?: {
+        __typename?: 'Contact';
+        linkedinUrl: string;
+        githubUrl: string;
+      } | null;
+    } | null;
+  } | null;
+};
+
 export type CvFileQueryVariables = Exact<{ [key: string]: never }>;
 
 export type CvFileQuery = {
@@ -1599,6 +1675,106 @@ export type ProjectsOverviewQuery = {
   } | null;
 };
 
+export const ContactDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: { kind: 'Name', value: 'contact' },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'contact' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'Field',
+                  name: { kind: 'Name', value: 'data' },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'Field',
+                        name: { kind: 'Name', value: 'attributes' },
+                        selectionSet: {
+                          kind: 'SelectionSet',
+                          selections: [
+                            {
+                              kind: 'Field',
+                              name: { kind: 'Name', value: 'email' },
+                            },
+                            {
+                              kind: 'Field',
+                              name: { kind: 'Name', value: 'phone' },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<ContactQuery, ContactQueryVariables>;
+export const ProfilesDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: { kind: 'Name', value: 'profiles' },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'contact' },
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                {
+                  kind: 'Field',
+                  name: { kind: 'Name', value: 'data' },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      {
+                        kind: 'Field',
+                        name: { kind: 'Name', value: 'attributes' },
+                        selectionSet: {
+                          kind: 'SelectionSet',
+                          selections: [
+                            {
+                              kind: 'Field',
+                              name: { kind: 'Name', value: 'linkedinUrl' },
+                            },
+                            {
+                              kind: 'Field',
+                              name: { kind: 'Name', value: 'githubUrl' },
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<ProfilesQuery, ProfilesQueryVariables>;
 export const CvFileDocument = {
   kind: 'Document',
   definitions: [

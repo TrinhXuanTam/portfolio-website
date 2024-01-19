@@ -15,7 +15,9 @@ function ResponsiveAppBar() {
     <AppBar position="fixed" sx={{ backdropFilter: 'blur(40px)' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{ display: 'flex' }}>
-          <Logo />
+          <AnimatedNavigationLink href={Routes.Home}>
+            <Logo />
+          </AnimatedNavigationLink>
           <Box
             sx={{
               flexGrow: 1,

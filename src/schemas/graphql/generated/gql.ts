@@ -13,6 +13,10 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
+  '\n  query contact {\n    contact {\n      data {\n        attributes {\n          email\n          phone\n        }\n      }\n    }\n  }\n':
+    types.ContactDocument,
+  '\n  query profiles {\n    contact {\n      data {\n        attributes {\n          linkedinUrl\n          githubUrl\n        }\n      }\n    }\n  }\n':
+    types.ProfilesDocument,
   '\n  query cvFile {\n    about {\n      data {\n        attributes {\n          cv {\n            data {\n              attributes {\n                url\n                updatedAt\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n':
     types.CvFileDocument,
   '\n  query education {\n    about {\n      data {\n        attributes {\n          education(sort: "to:desc") {\n            title\n            institution\n            location\n            from\n            to\n          }\n        }\n      }\n    }\n  }\n':
@@ -41,6 +45,18 @@ const documents = {
  */
 export function graphql(source: string): unknown;
 
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(
+  source: '\n  query contact {\n    contact {\n      data {\n        attributes {\n          email\n          phone\n        }\n      }\n    }\n  }\n'
+): (typeof documents)['\n  query contact {\n    contact {\n      data {\n        attributes {\n          email\n          phone\n        }\n      }\n    }\n  }\n'];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(
+  source: '\n  query profiles {\n    contact {\n      data {\n        attributes {\n          linkedinUrl\n          githubUrl\n        }\n      }\n    }\n  }\n'
+): (typeof documents)['\n  query profiles {\n    contact {\n      data {\n        attributes {\n          linkedinUrl\n          githubUrl\n        }\n      }\n    }\n  }\n'];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
