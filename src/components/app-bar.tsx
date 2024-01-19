@@ -27,8 +27,8 @@ function ResponsiveAppBar() {
           >
             {getRouteObjects()
               .filter((route) => route.path !== Routes.Contact)
-              .map((route) => (
-                <AnimatedNavigationLink key={route.name} href={route.path}>
+              .map((route, index) => (
+                <AnimatedNavigationLink key={index} href={route.path}>
                   <Button variant="text" color="inherit" sx={{ mx: 1 }}>
                     {route.name}
                   </Button>

@@ -47,8 +47,8 @@ export default async function LatestWork({ sx }: { sx?: SxProps }) {
         </FadeIn>
       </Stack>
 
-      {projects.map((project) => (
-        <FadeIn key={project.id} once={true} direction="down">
+      {projects.map((project, index) => (
+        <FadeIn key={index} once={true} direction="down">
           <ProjectCard project={project} sx={{ height: '40vh', my: 5 }} />
         </FadeIn>
       ))}

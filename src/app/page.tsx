@@ -8,13 +8,14 @@ import FullScreenContainer from '@/components/full-screen-container';
 import LatestWork from '@/app/landing-page/components/latest-work';
 import CallToAction from '@/app/landing-page/components/call-to-action';
 import Philosophy from '@/app/landing-page/components/philosophy';
+import { Suspense } from 'react';
 
 export default function LandingPage() {
   return (
     <Stack>
       <FullScreenContainer className="snap-y">
         <Container maxWidth="lg">
-          <Intro />
+          <Suspense><Intro /></Suspense>
         </Container>
       </FullScreenContainer>
 
@@ -34,7 +35,7 @@ export default function LandingPage() {
         <Philosophy />
       </FullScreenContainer>
 
-      <LatestWork />
+      <Suspense><LatestWork /></Suspense>
 
       <FullScreenContainer className="snap-y">
         <CallToAction />

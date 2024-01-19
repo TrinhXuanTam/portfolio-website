@@ -3,7 +3,7 @@
 import Box, { BoxProps } from '@mui/material/Box';
 import useTheme from '@mui/material/styles/useTheme';
 
-export default function RhombusBox(props: BoxProps) {
+export default function DottedBox(props: BoxProps) {
   const theme = useTheme();
   return (
     <Box
@@ -14,6 +14,8 @@ export default function RhombusBox(props: BoxProps) {
         backgroundImage: `radial-gradient(${theme.palette.background.paper} 9%, transparent 0)`,
         backgroundSize: '35px 35px',
       }}
-    ></Box>
+    >
+      {props.children}
+    </Box>
   );
 }

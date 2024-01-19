@@ -23,6 +23,8 @@ export default function RhombusBox(props: BoxProps) {
         backgroundSize: '10px 10px',
         backgroundRepeat: 'repeat',
       }}
-    ></Box>
+    >
+      {props.children}
+    </Box>
   );
 }
