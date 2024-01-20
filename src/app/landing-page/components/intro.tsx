@@ -12,9 +12,11 @@ import Image from 'next/image';
 import RhombusBox from '@/components/boxes/rhombus-box';
 import FadeIn from '@/components/transitions/fade-in';
 import { getCvUrl } from '@/app/about/api/cv';
+import { getProfiles } from '@/app/about/api/contact';
 
 export default async function Intro({ sx }: { sx?: SxProps }) {
   const cvUrl = await getCvUrl();
+  const profiles = await getProfiles();
 
   return (
     <Stack sx={sx} direction="row" justifyContent="space-between">
@@ -80,7 +82,7 @@ export default async function Intro({ sx }: { sx?: SxProps }) {
           <Stack direction="row" spacing={2} sx={{ mt: 4 }}>
             <IconButton
               size="large"
-              href={process.env.LINKEDIN_URL!}
+              href={profiles.linkedinUrl}
               sx={{
                 color: 'text.primary',
                 padding: 0,
@@ -91,7 +93,7 @@ export default async function Intro({ sx }: { sx?: SxProps }) {
             </IconButton>
             <IconButton
               size="large"
-              href={process.env.GITHUB_URL!}
+              href={profiles.githubUrl}
               sx={{
                 color: 'text.primary',
                 padding: 0,

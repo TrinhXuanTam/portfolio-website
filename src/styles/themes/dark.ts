@@ -24,6 +24,10 @@ const theme = createTheme(commonTheme, {
       primary: '#ffffff',
       main: '#ffffff',
     },
+    action: {
+      disabled: '#873d22',
+      disabledBackground: '#f55114',
+    },
   },
   typography: {
     subtitle1: {
@@ -31,6 +35,16 @@ const theme = createTheme(commonTheme, {
     },
   },
   components: {
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          color: 'white',
+          '&.Mui-disabled': {
+            color: '#f55114 !important',
+          },
+        },
+      },
+    },
     MuiTypography: {
       defaultProps: {
         color: 'text',

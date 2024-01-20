@@ -15,7 +15,9 @@ function ResponsiveAppBar() {
     <AppBar position="fixed" sx={{ backdropFilter: 'blur(40px)' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{ display: 'flex' }}>
-          <Logo />
+          <AnimatedNavigationLink href={Routes.Home}>
+            <Logo />
+          </AnimatedNavigationLink>
           <Box
             sx={{
               flexGrow: 1,
@@ -25,8 +27,8 @@ function ResponsiveAppBar() {
           >
             {getRouteObjects()
               .filter((route) => route.path !== Routes.Contact)
-              .map((route) => (
-                <AnimatedNavigationLink key={route.name} href={route.path}>
+              .map((route, index) => (
+                <AnimatedNavigationLink key={index} href={route.path}>
                   <Button variant="text" color="inherit" sx={{ mx: 1 }}>
                     {route.name}
                   </Button>
