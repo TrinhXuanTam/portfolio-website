@@ -9,6 +9,7 @@ import FullScreenContainer from '@/components/full-screen-container';
 import { getCvUrl } from '@/app/about/api/cv';
 import AnimatedNavigationLink from '@/components/transitions/animated-navigation-link';
 import Routes from '@/utils/routes';
+import Box from '@mui/material/Box';
 
 export default async function CallToAction({ sx }: { sx?: SxProps }) {
   const cvUrl = await getCvUrl();
@@ -21,25 +22,41 @@ export default async function CallToAction({ sx }: { sx?: SxProps }) {
             <Stack justifyContent="center" alignItems="center">
               <Typography
                 fontFamily={oswald.style.fontFamily}
-                variant="h1"
                 fontWeight="bold"
                 textTransform="uppercase"
-                sx={{ mr: 2 }}
+                fontSize={{
+                  xs: '1.7rem',
+                  sm: '2.8rem',
+                  md: '4rem',
+                  lg: '5.5rem',
+                }}
               >
                 Want a quick chat?
               </Typography>
               <Typography
                 fontFamily={oswald.style.fontFamily}
-                variant="h1"
                 fontWeight="bold"
                 textTransform="uppercase"
                 color="primary"
+                fontSize={{
+                  xs: '1.7rem',
+                  sm: '2.8rem',
+                  md: '4rem',
+                  lg: '5.5rem',
+                }}
               >
                 Let&apos;s grab a coffee
               </Typography>
             </Stack>
 
-            <Typography variant="h6" fontWeight="lighter">
+            <Typography
+              fontWeight="lighter"
+              fontSize={{
+                xs: '1rem',
+                sm: '1.25rem',
+                md: '1.5rem',
+              }}
+            >
               If you have any questions or just want to say hi, feel free to
               send me a message.
             </Typography>
@@ -56,14 +73,25 @@ export default async function CallToAction({ sx }: { sx?: SxProps }) {
                 size="large"
                 href={cvUrl}
               >
-                View Full CV
+                View full CV
               </RoundedButton>
 
-              <AnimatedNavigationLink href={Routes.Projects}>
-                <RoundedButton variant="outlined" color="primary" size="large">
-                  See my projects
-                </RoundedButton>
-              </AnimatedNavigationLink>
+              <Box
+                display={{
+                  xs: 'none',
+                  sm: 'block',
+                }}
+              >
+                <AnimatedNavigationLink href={Routes.Projects}>
+                  <RoundedButton
+                    variant="outlined"
+                    color="primary"
+                    size="large"
+                  >
+                    See my projects
+                  </RoundedButton>
+                </AnimatedNavigationLink>
+              </Box>
             </Stack>
           </Stack>
         </FadeIn>

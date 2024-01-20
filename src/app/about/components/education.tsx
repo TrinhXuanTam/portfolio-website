@@ -16,16 +16,25 @@ export default async function Experience() {
           <Typography
             fontFamily={oswald.style.fontFamily}
             fontWeight="bold"
-            variant="h6"
+            fontSize={{
+              xs: '1.5rem',
+              sm: '2rem',
+              md: '2.5rem',
+            }}
           >
             Education
           </Typography>
           <Typography
             fontFamily={oswald.style.fontFamily}
             fontWeight="bold"
-            variant="h2"
             textTransform="uppercase"
             color="secondary"
+            lineHeight={1.2}
+            fontSize={{
+              xs: '2rem',
+              sm: '3rem',
+              md: '3.5rem',
+            }}
           >
             Where I studied
           </Typography>
@@ -45,38 +54,61 @@ export default async function Experience() {
                   <Typography
                     fontFamily={oswald.style.fontFamily}
                     fontWeight="bold"
-                    variant="h4"
                     textTransform="uppercase"
+                    fontSize={{
+                      xs: '1rem',
+                      sm: '2rem',
+                      md: '2.3rem',
+                    }}
                   >
                     {education.to ? shortFormat(education.to) : 'Present'}
                   </Typography>
                   <Typography
                     fontFamily={oswald.style.fontFamily}
                     fontWeight="bold"
-                    variant="h4"
                     textTransform="uppercase"
+                    fontSize={{
+                      xs: '1rem',
+                      sm: '2rem',
+                      md: '2.3rem',
+                    }}
                   >
                     {shortFormat(education.from)}
                   </Typography>
                 </Stack>
 
                 <Stack flex={2}>
-                  <Typography fontWeight="lighter" variant="subtitle1">
+                  <Typography
+                    fontWeight="lighter"
+                    variant="subtitle1"
+                    fontSize={{
+                      xs: '0.8rem',
+                      sm: '1rem',
+                    }}
+                  >
                     {education.location}
                   </Typography>
                   <Typography
                     fontFamily={oswald.style.fontFamily}
                     fontWeight="bold"
-                    variant="h5"
                     color="primary"
+                    fontSize={{
+                      xs: '1rem',
+                      sm: '1.2rem',
+                      md: '1.5rem',
+                    }}
                   >
                     {education.institution}
                   </Typography>
                   <Typography
                     fontFamily={oswald.style.fontFamily}
                     fontWeight="bold"
-                    variant="h4"
                     textTransform="uppercase"
+                    fontSize={{
+                      xs: '1rem',
+                      sm: '2rem',
+                      md: '2.3rem',
+                    }}
                   >
                     {education.title}
                   </Typography>
