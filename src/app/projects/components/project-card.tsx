@@ -89,17 +89,28 @@ export default function ProjectCard({
                   <Typography
                     fontFamily={oswald.style.fontFamily}
                     gutterBottom
-                    variant="h4"
                     fontWeight="medium"
                     textAlign="center"
+                    fontSize={{
+                      xs: '1.5rem',
+                      sm: '2rem',
+                      md: '2.5rem',
+                      lg: '3rem',
+                    }}
                   >
                     {project.name}
                   </Typography>
 
                   <Typography
-                    variant="subtitle2"
                     fontWeight="lighter"
                     textAlign="center"
+                    display={{
+                      xs: 'none',
+                      xl: 'block',
+                    }}
+                    fontSize={{
+                      xl: '1rem',
+                    }}
                   >
                     {project.briefDescription}
                   </Typography>

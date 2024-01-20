@@ -12,8 +12,13 @@ export default function ProjectsTitle() {
           <Typography
             fontFamily={oswald.style.fontFamily}
             fontWeight="bold"
-            variant="h1"
             textTransform="uppercase"
+            fontSize={{
+              xs: '2.5rem',
+              sm: '3.5rem',
+              md: '4.5rem',
+              lg: '5.5rem',
+            }}
           >
             Discover <br /> some of my projects <br />
           </Typography>
@@ -23,8 +28,13 @@ export default function ProjectsTitle() {
             <Typography
               fontFamily={oswald.style.fontFamily}
               fontWeight="bold"
-              variant="h1"
               textTransform="uppercase"
+              fontSize={{
+                xs: '2.5rem',
+                sm: '3.5rem',
+                md: '4.5rem',
+                lg: '5.5rem',
+              }}
             >
               I&apos;ve worked on
             </Typography>
@@ -33,11 +43,14 @@ export default function ProjectsTitle() {
           <FadeIn delay={0.5}>
             <Typography
               fontFamily={oswald.style.fontFamily}
-              variant="body1"
               textTransform="uppercase"
               color="secondary"
+              fontSize={{
+                xs: '0.7rem',
+                md: '1.15rem',
+              }}
             >
-              Let&apos;s see what I&apos;ve been up to <br />
+              See what I&apos;ve been up to <br />
               My latest projects <br />
               What I usually do
             </Typography>
