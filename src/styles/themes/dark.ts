@@ -24,6 +24,10 @@ const theme = createTheme(commonTheme, {
       primary: '#ffffff',
       main: '#ffffff',
     },
+    action: {
+      disabled: 'grey',
+      disabledBackground: 'darkgrey',
+    },
   },
   typography: {
     subtitle1: {
@@ -35,6 +39,10 @@ const theme = createTheme(commonTheme, {
       styleOverrides: {
         root: {
           color: 'white',
+          '&.Mui-disabled': {
+            // Override for disabled state
+            color: 'darkgrey', // Set your desired color for disabled labels
+          },
         },
       },
     },

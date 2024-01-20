@@ -10,6 +10,7 @@ import { useState } from 'react';
 import Typography from '@mui/material/Typography';
 import oswald from '@/styles/fonts/oswald';
 import MarkEmailReadIcon from '@mui/icons-material/MarkEmailRead';
+import CircularProgress from '@mui/material/CircularProgress';
 
 export default function ContactForm({ sx }: { sx?: SxProps }) {
   const [submitted, setSubmitted] = useState(false);
@@ -81,7 +82,14 @@ export default function ContactForm({ sx }: { sx?: SxProps }) {
   }
 
   return (
-    <Stack sx={sx}>
+    <Stack sx={sx} position="relative">
+      {pending && (
+        <CircularProgress
+          size="10vh"
+          sx={{ position: 'absolute', top: '45%', left: '45%' }}
+        />
+      )}
+
       {!submitted ? (
         <form
           style={{
@@ -132,24 +140,26 @@ export default function ContactForm({ sx }: { sx?: SxProps }) {
           </RoundedButton>
         </form>
       ) : (
-        <Stack justifyContent='center' alignItems='center' height='100%' spacing={2}>
-          <MarkEmailReadIcon sx={{ fontSize: '10rem' }} color='primary' />
+        <Stack
+          justifyContent="center"
+          alignItems="center"
+          height="100%"
+          spacing={2}
+        >
+          <MarkEmailReadIcon sx={{ fontSize: '10rem' }} color="primary" />
           <Typography
             variant="h3"
             fontFamily={oswald.style.fontFamily}
-            fontWeight='bold'
-            color='primary'
-            textTransform='uppercase'
-            >
-              Thank you for you message!
-            </Typography>
+            fontWeight="bold"
+            color="primary"
+            textTransform="uppercase"
+          >
+            Thank you for you message!
+          </Typography>
 
-          <Typography
-            variant="h5"
-            fontWeight='lighter'
-            >
-              I will get back to you as soon as possible.
-            </Typography>
+          <Typography variant="h5" fontWeight="lighter">
+            I will get back to you as soon as possible.
+          </Typography>
         </Stack>
       )}
     </Stack>
