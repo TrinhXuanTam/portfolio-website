@@ -9,7 +9,6 @@ import GppGoodOutlinedIcon from '@mui/icons-material/GppGoodOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import HandshakeOutlinedIcon from '@mui/icons-material/HandshakeOutlined';
-import FullScreenContainer from '@/components/full-screen-container';
 import ScrollIn from '@/components/transitions/scroll-in';
 import FadeIn from '@/components/transitions/fade-in';
 import Box from '@mui/material/Box';
@@ -62,52 +61,59 @@ const values: Value[] = [
 export default function Philosophy() {
   return (
     <Stack width="100%">
-      <FullScreenContainer className="snap-y">
-        <Container maxWidth="xl">
-          <FadeIn delay={1}>
-            <Typography
-              fontFamily={oswald.style.fontFamily}
-              variant="h6"
-              color="primary"
-              textTransform="uppercase"
-            >
-              My values
-            </Typography>
-          </FadeIn>
-          <Stack
-            direction="row"
-            justifyContent="space-between"
-            alignItems="end"
+      <Container maxWidth="xl">
+        <FadeIn delay={1}>
+          <Typography
+            fontFamily={oswald.style.fontFamily}
+            variant="h6"
+            color="primary"
+            textTransform="uppercase"
+            fontSize={{
+              xs: '1rem',
+              sm: '1.3rem',
+              md: '1.5em',
+            }}
           >
-            <ScrollIn>
-              <FadeIn direction="up">
-                <Typography
-                  fontFamily={oswald.style.fontFamily}
-                  variant="h1"
-                  fontWeight="bold"
-                  textTransform="uppercase"
-                >
-                  Why <br /> should <br /> you consider
-                </Typography>
-              </FadeIn>
-            </ScrollIn>
+            My values
+          </Typography>
+        </FadeIn>
+        <Stack direction="row" justifyContent="space-between" alignItems="end">
+          <ScrollIn>
+            <FadeIn direction="up">
+              <Typography
+                fontFamily={oswald.style.fontFamily}
+                fontWeight="bold"
+                textTransform="uppercase"
+                fontSize={{
+                  xs: '2.5rem',
+                  sm: '4rem',
+                  md: '5rem',
+                }}
+              >
+                Why <br /> should <br /> you consider
+              </Typography>
+            </FadeIn>
+          </ScrollIn>
 
-            <ScrollIn direction="up">
-              <FadeIn direction="down">
-                <Typography
-                  fontFamily={oswald.style.fontFamily}
-                  variant="h1"
-                  fontWeight="bold"
-                  textTransform="uppercase"
-                  textAlign="right"
-                >
-                  working <br /> with <br /> me
-                </Typography>
-              </FadeIn>
-            </ScrollIn>
-          </Stack>
-        </Container>
-      </FullScreenContainer>
+          <ScrollIn direction="up">
+            <FadeIn direction="down">
+              <Typography
+                fontFamily={oswald.style.fontFamily}
+                fontWeight="bold"
+                textTransform="uppercase"
+                textAlign="right"
+                fontSize={{
+                  xs: '2.5rem',
+                  sm: '4rem',
+                  md: '5rem',
+                }}
+              >
+                working <br /> with <br /> me
+              </Typography>
+            </FadeIn>
+          </ScrollIn>
+        </Stack>
+      </Container>
 
       <Container maxWidth="lg">
         <Stack mt={10} className="snap-y" mb="30vh">
@@ -136,6 +142,11 @@ export default function Philosophy() {
                       textAlign={index % 2 === 0 ? 'left' : 'right'}
                       color="secondary"
                       textTransform="uppercase"
+                      fontSize={{
+                        xs: '1.5rem',
+                        sm: '2rem',
+                        md: '2.5rem',
+                      }}
                     >
                       {value.title}
                     </Typography>
@@ -148,9 +159,15 @@ export default function Philosophy() {
                     once={true}
                   >
                     <Typography
-                      variant="body1"
-                      textAlign="justify"
+                      textAlign={{
+                        xs: 'left',
+                        sm: 'justify',
+                      }}
                       fontWeight="lighter"
+                      fontSize={{
+                        xs: '0.7rem',
+                        sm: '1rem',
+                      }}
                     >
                       {value.description}
                     </Typography>
