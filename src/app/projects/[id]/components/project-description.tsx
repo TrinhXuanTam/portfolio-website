@@ -3,13 +3,27 @@ import FullScreenContainer from '@/components/full-screen-container';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import FadeIn from '@/components/transitions/fade-in';
+import { SxProps } from '@mui/material';
 
-export default function ProjectDescription({ data }: { data: ProjectDetail }) {
+export default function ProjectDescription({
+  data,
+  sx,
+}: {
+  data: ProjectDetail;
+  sx?: SxProps;
+}) {
   return (
-    <FullScreenContainer>
+    <FullScreenContainer sx={sx}>
       <Container maxWidth="xl">
         <FadeIn direction="right">
-          <Typography variant="h6" textAlign="justify" fontWeight="lighter">
+          <Typography
+            textAlign="justify"
+            fontWeight="lighter"
+            fontSize={{
+              xs: '0.8rem',
+              sm: '1.1rem',
+            }}
+          >
             {data.description}
           </Typography>
         </FadeIn>

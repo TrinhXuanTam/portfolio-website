@@ -11,9 +11,9 @@ export default async function ProjectDetail({
 }) {
   const data = await getProjectDetail(params.id);
   return (
-    <Stack>
-      <ProjectIntro data={data} />
-      <ProjectDescription data={data} />
+    <Stack overflow="hidden">
+      <ProjectIntro data={data} sx={{ mt: '25vh' }} />
+      <ProjectDescription data={data} sx={{ my: '5vh' }} />
       <ProjectImages data={data} />
     </Stack>
   );
