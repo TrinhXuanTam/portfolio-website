@@ -70,8 +70,8 @@ export default function ContactForm({ sx }: { sx?: SxProps }) {
     try {
       setPending(true);
       await sendEmail(data);
-      resetErrors();
       setSubmitted(true);
+      resetErrors();
     } catch (error) {
       if (error instanceof Error) {
         setError(error.message);
@@ -87,6 +87,7 @@ export default function ContactForm({ sx }: { sx?: SxProps }) {
         <CircularProgress
           size="10vh"
           sx={{ position: 'absolute', top: '45%', left: '45%' }}
+          color="secondary"
         />
       )}
 

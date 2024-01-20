@@ -25,8 +25,8 @@ const theme = createTheme(commonTheme, {
       main: '#ffffff',
     },
     action: {
-      disabled: 'grey',
-      disabledBackground: 'darkgrey',
+      disabled: '#873d22',
+      disabledBackground: '#f55114',
     },
   },
   typography: {
@@ -40,8 +40,7 @@ const theme = createTheme(commonTheme, {
         root: {
           color: 'white',
           '&.Mui-disabled': {
-            // Override for disabled state
-            color: 'darkgrey', // Set your desired color for disabled labels
+            color: '#f55114 !important',
           },
         },
       },
