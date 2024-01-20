@@ -15,7 +15,9 @@ export default function LandingPage() {
     <Stack>
       <FullScreenContainer className="snap-y">
         <Container maxWidth="lg">
-          <Suspense><Intro /></Suspense>
+          <Suspense>
+            <Intro />
+          </Suspense>
         </Container>
       </FullScreenContainer>
 
@@ -35,7 +37,9 @@ export default function LandingPage() {
         <Philosophy />
       </FullScreenContainer>
 
-      <Suspense><LatestWork /></Suspense>
+      <Suspense>
+        <LatestWork />
+      </Suspense>
 
       <FullScreenContainer className="snap-y">
         <CallToAction />
