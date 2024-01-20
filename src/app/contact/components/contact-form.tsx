@@ -82,15 +82,7 @@ export default function ContactForm({ sx }: { sx?: SxProps }) {
   }
 
   return (
-    <Stack sx={sx} position="relative">
-      {pending && (
-        <CircularProgress
-          size="10vh"
-          sx={{ position: 'absolute', top: '45%', left: '45%' }}
-          color="secondary"
-        />
-      )}
-
+    <Stack sx={sx}>
       {!submitted ? (
         <form
           style={{
@@ -130,15 +122,18 @@ export default function ContactForm({ sx }: { sx?: SxProps }) {
               {error}
             </Alert>
           )}
-          <RoundedButton
-            variant="contained"
-            size="large"
-            color="primary"
-            type="submit"
-            disabled={pending}
-          >
-            Send message
-          </RoundedButton>
+          <Stack direction="row" spacing={2}>
+            <RoundedButton
+              variant="contained"
+              size="large"
+              color="primary"
+              type="submit"
+              disabled={pending}
+            >
+              Send message
+            </RoundedButton>
+            {pending && <CircularProgress color="secondary" />}
+          </Stack>
         </form>
       ) : (
         <Stack
@@ -147,18 +142,40 @@ export default function ContactForm({ sx }: { sx?: SxProps }) {
           height="100%"
           spacing={2}
         >
-          <MarkEmailReadIcon sx={{ fontSize: '10rem' }} color="primary" />
+          <MarkEmailReadIcon
+            sx={{
+              fontSize: {
+                xs: '5rem',
+                sm: '7rem',
+                md: '10rem',
+              },
+            }}
+            color="primary"
+          />
           <Typography
-            variant="h3"
             fontFamily={oswald.style.fontFamily}
             fontWeight="bold"
             color="primary"
             textTransform="uppercase"
+            fontSize={{
+              xs: '1rem',
+              sm: '1.25rem',
+              md: '1.5rem',
+              lg: '1.75rem',
+            }}
           >
             Thank you for you message!
           </Typography>
 
-          <Typography variant="h5" fontWeight="lighter">
+          <Typography
+            fontWeight="lighter"
+            fontSize={{
+              xs: '1rem',
+              sm: '1rem',
+              md: '1.25rem',
+              lg: '1.5rem',
+            }}
+          >
             I will get back to you as soon as possible.
           </Typography>
         </Stack>

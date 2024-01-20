@@ -1,21 +1,23 @@
-import FullScreenContainer from '@/components/full-screen-container';
-import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import ContactDetails from '@/app/contact/components/contact-details';
 import ContactForm from '@/app/contact/components/contact-form';
+import Grid from '@mui/material/Grid';
 import { Suspense } from 'react';
 
 export default function ContactPage() {
   return (
-    <FullScreenContainer>
-      <Container maxWidth="xl">
-        <Stack direction="row" justifyContent="space-between" height="60vh">
+    <Container maxWidth="xl" sx={{ my: '25vh' }}>
+      <Grid container rowSpacing="25vh" columnSpacing="5vw">
+        <Grid item xs={12} lg={7} xl={6}>
           <Suspense>
-            <ContactDetails sx={{ flex: 1 }} />
+            <ContactDetails />
           </Suspense>
-          <ContactForm sx={{ flex: 1, ml: 10, height: '100%' }} />
-        </Stack>
-      </Container>
-    </FullScreenContainer>
+        </Grid>
+
+        <Grid item xs={12} sm={12} lg={5} xl={6}>
+          <ContactForm sx={{ width: '100%' }} />
+        </Grid>
+      </Grid>
+    </Container>
   );
 }
