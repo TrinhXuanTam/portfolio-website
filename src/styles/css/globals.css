@@ -31,6 +31,8 @@ a:hover {
   scrollbar-width: none;  /* Firefox */
 }
 
-* {
-  cursor: none! important;
+@media (min-width: 768px) {
+  * {
+    cursor: none !important;
+  }
 }
