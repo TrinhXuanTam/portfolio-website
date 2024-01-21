@@ -19,7 +19,7 @@ export async function getProjectsOverview(): Promise<ProjectOverview[]> {
     id: project.id!,
     name: project.attributes!.name,
     briefDescription: project.attributes!.briefDescription,
-    thumbnailUrl: `${process.env.NEXT_PUBLIC_CRM_URL}${
+    thumbnailUrl: `${process.env.NEXT_PUBLIC_CMS_URL}${
       project.attributes!.thumbnail?.data?.attributes?.url
     }`,
   }));
@@ -51,9 +51,9 @@ export async function getProjectDetail(id: string): Promise<ProjectDetail> {
     technologies: projectData.technologies.map(
       (technology) => technology!.name
     ),
-    thumbnailUrl: `${process.env.NEXT_PUBLIC_CRM_URL}${projectData.thumbnail.data?.attributes?.url}`,
+    thumbnailUrl: `${process.env.NEXT_PUBLIC_CMS_URL}${projectData.thumbnail.data?.attributes?.url}`,
     imageUrls: projectData.images.data.map(
-      (image) => `${process.env.NEXT_PUBLIC_CRM_URL}${image!.attributes?.url}`
+      (image) => `${process.env.NEXT_PUBLIC_CMS_URL}${image!.attributes?.url}`
     ),
   };
 }

@@ -4,5 +4,5 @@ import { CvFileQuery } from '@/schemas/graphql/generated/graphql';
 
 export async function getCvUrl() {
   const { data } = await apolloClient.query<CvFileQuery>({ query: getCvFile });
-  return `${process.env.NEXT_PUBLIC_CRM_URL}${data?.about?.data?.attributes?.cv?.data?.attributes?.url}`;
+  return `${process.env.NEXT_PUBLIC_CMS_URL}${data?.about?.data?.attributes?.cv?.data?.attributes?.url}`;
 }
