@@ -7,7 +7,7 @@ import {
 
 export function createClient() {
   const httpLink = new HttpLink({
-    uri: `${process.env.NEXT_PUBLIC_CRM_URL}/graphql`,
+    uri: `${process.env.NEXT_PUBLIC_CMS_URL}/graphql`,
   });
   return new NextSSRApolloClient({
     cache: new NextSSRInMemoryCache(),

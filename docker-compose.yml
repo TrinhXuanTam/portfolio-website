@@ -2,12 +2,7 @@ version: '3.7'
 
 services:
   portfolio-website:
-    network_mode: host
-    env_file:
-      - .env
-    build:
-      context: .
-      dockerfile: Dockerfile
-    volumes:
-      - ./src:/portfolio-website/src
-    command: npm run dev
+    image: ghcr.io/trinhxuantam/portfolio-website:latest
+    env_file: .env
+    ports:
+      - "3000:3000"
