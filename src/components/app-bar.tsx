@@ -2,8 +2,6 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import RoundedButton from '@/components/buttons/rounded-button';
 import Container from '@mui/material/Container';
 import Logo from '@/components/logo';
@@ -47,17 +45,6 @@ function ResponsiveAppBar() {
                 Contact
               </RoundedButton>
             </AnimatedNavigationLink>
-          </Box>
-          <Box
-            sx={{
-              flexGrow: 1,
-              justifyContent: 'end',
-              display: { xs: 'flex', md: 'none' },
-            }}
-          >
-            <IconButton size="large" color="inherit">
-              <MenuIcon />
-            </IconButton>
           </Box>
         </Toolbar>
       </Container>
