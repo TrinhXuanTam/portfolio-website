@@ -12,14 +12,12 @@ import { Suspense } from 'react';
 
 export default function LandingPage() {
   return (
-    <Stack>
-      <FullScreenContainer className="snap-y">
-        <Container maxWidth="lg">
-          <Suspense>
-            <Intro />
-          </Suspense>
-        </Container>
-      </FullScreenContainer>
+    <Stack overflow="hidden">
+      <Container maxWidth="lg" sx={{ my: '25vh' }}>
+        <Suspense>
+          <Intro />
+        </Suspense>
+      </Container>
 
       <FullScreenContainer className="snap-y">
         <Services />

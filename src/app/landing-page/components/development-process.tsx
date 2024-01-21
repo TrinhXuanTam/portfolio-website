@@ -78,9 +78,14 @@ export default function DevelopmentProcess({ sx }: { sx?: SxProps }) {
       <FadeIn direction="left">
         <Typography
           fontFamily={oswald.style.fontFamily}
-          variant="h5"
           fontWeight="bold"
+          lineHeight={1.2}
           color="primary"
+          fontSize={{
+            xs: '1.5rem',
+            sm: '1.7rem',
+            md: '2rem',
+          }}
         >
           How I work
         </Typography>
@@ -89,9 +94,14 @@ export default function DevelopmentProcess({ sx }: { sx?: SxProps }) {
         <Stack>
           <Typography
             fontFamily={oswald.style.fontFamily}
-            variant="h3"
             fontWeight="bold"
+            lineHeight={1.2}
             textTransform="uppercase"
+            fontSize={{
+              xs: '2.8rem',
+              sm: '3rem',
+              md: '3.2rem',
+            }}
           >
             Better strategy, <br /> better experiences
           </Typography>
@@ -100,17 +110,19 @@ export default function DevelopmentProcess({ sx }: { sx?: SxProps }) {
 
       <Grid container mt={1} spacing={5}>
         {services.map((service, index) => (
-          <Grid item key={index} xs={4}>
+          <Grid item key={index} xs={6} md={4}>
             <FadeIn delay={index * 0.2} once={true}>
               <Box position="relative">
                 <Typography
                   fontFamily={oswald.style.fontFamily}
-                  variant="h1"
                   fontWeight="bold"
                   textTransform="uppercase"
                   color="secondary.light"
                   sx={{
                     opacity: 0.2,
+                  }}
+                  fontSize={{
+                    xs: '5rem',
                   }}
                 >
                   0{index + 1}
@@ -122,17 +134,46 @@ export default function DevelopmentProcess({ sx }: { sx?: SxProps }) {
                   position="absolute"
                   sx={{
                     top: '50%',
-                    left: '4rem',
+                    left: {
+                      xs: '2rem',
+                      sm: '3.5rem',
+                    },
                     transform: 'translateY(-50%)',
+                  }}
+                  fontSize={{
+                    xs: '1.8rem',
+                    sm: '2.3rem',
                   }}
                 >
                   {service.title}
                 </Typography>
               </Box>
-              <List sx={{ pl: '4rem', py: 0 }}>
+              <List
+                sx={{
+                  pl: {
+                    xs: 0,
+                    sm: '3.5rem',
+                  },
+                  py: 0,
+                }}
+              >
                 {service.activites.map((activity, index) => (
                   <ListItem key={index} sx={{ pl: 0 }}>
-                    <Typography fontWeight="lighter">{activity}</Typography>
+                    <Typography
+                      fontWeight="lighter"
+                      lineHeight={{
+                        xs: 1.2,
+                        sx: 1.3,
+                        md: 1.5,
+                      }}
+                      fontSize={{
+                        xs: '0.9rem',
+                        sm: '1rem',
+                        md: '1.1rem',
+                      }}
+                    >
+                      {activity}
+                    </Typography>
                   </ListItem>
                 ))}
               </List>

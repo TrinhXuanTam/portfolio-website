@@ -81,42 +81,83 @@ export default function Technologies({
   return (
     <FadeIn>
       <Stack sx={sx} spacing={5} alignItems="center" className={className}>
-        <Stack direction="row" spacing={2}>
-          <Typography
-            fontFamily={oswald.style.fontFamily}
-            variant="h2"
-            fontWeight="medium"
-          >
-            I
-          </Typography>
+        <Stack
+          direction={{
+            xs: 'column',
+            md: 'row',
+          }}
+          spacing={{
+            xs: 0,
+            md: 2,
+          }}
+        >
+          <Stack direction="row" spacing={2}>
+            <Typography
+              fontFamily={oswald.style.fontFamily}
+              fontWeight="medium"
+              fontSize={{
+                xs: '1.8rem',
+                sm: '2.5rem',
+                lg: '3.5rem',
+              }}
+            >
+              I
+            </Typography>
 
-          <Typography
-            fontFamily={oswald.style.fontFamily}
-            variant="h2"
-            fontWeight="bold"
-            color="secondary"
-            textTransform="uppercase"
-          >
-            love
-          </Typography>
+            <Typography
+              fontFamily={oswald.style.fontFamily}
+              fontWeight="bold"
+              color="secondary"
+              textTransform="uppercase"
+              fontSize={{
+                xs: '1.8rem',
+                sm: '2.5rem',
+                lg: '3.5rem',
+              }}
+            >
+              love
+            </Typography>
 
-          <Typography
-            fontFamily={oswald.style.fontFamily}
-            variant="h2"
-            fontWeight="medium"
-          >
-            to work with a wide range of
-          </Typography>
+            <Typography
+              fontFamily={oswald.style.fontFamily}
+              fontWeight="medium"
+              fontSize={{
+                xs: '1.8rem',
+                sm: '2.5rem',
+                lg: '3.5rem',
+              }}
+            >
+              to work
+            </Typography>
+          </Stack>
 
-          <Typography
-            fontFamily={oswald.style.fontFamily}
-            variant="h2"
-            fontWeight="bold"
-            color="primary"
-            textTransform="uppercase"
-          >
-            Technologies
-          </Typography>
+          <Stack direction="row" spacing={2}>
+            <Typography
+              fontFamily={oswald.style.fontFamily}
+              fontWeight="bold"
+              fontSize={{
+                xs: '1.8rem',
+                sm: '2.5rem',
+                lg: '3.5rem',
+              }}
+            >
+              with a wide range of
+            </Typography>
+
+            <Typography
+              fontFamily={oswald.style.fontFamily}
+              fontWeight="bold"
+              color="primary"
+              textTransform="uppercase"
+              fontSize={{
+                xs: '1.8rem',
+                sm: '2.5rem',
+                lg: '3.5rem',
+              }}
+            >
+              Technologies
+            </Typography>
+          </Stack>
         </Stack>
 
         <Marquee

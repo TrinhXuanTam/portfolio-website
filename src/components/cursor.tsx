@@ -3,8 +3,11 @@
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { useEffect } from 'react';
 import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 export default function CustomCursor() {
+  const isMobile = useMediaQuery('(max-width: 600px)');
+
   const theme = useTheme();
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
@@ -38,6 +41,7 @@ export default function CustomCursor() {
         mixBlendMode: 'difference',
         pointerEvents: 'none',
         zIndex: 9999,
+        display: isMobile ? 'none' : 'block',
       }}
     />
   );

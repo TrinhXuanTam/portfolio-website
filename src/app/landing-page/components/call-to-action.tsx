@@ -16,25 +16,41 @@ export default function CallToAction({ sx }: { sx?: SxProps }) {
           <Stack justifyContent="center" alignItems="center">
             <Typography
               fontFamily={oswald.style.fontFamily}
-              variant="h1"
               fontWeight="bold"
               textTransform="uppercase"
-              sx={{ mr: 2 }}
+              fontSize={{
+                xs: '1.7rem',
+                sm: '2.8rem',
+                md: '4rem',
+                lg: '5.5rem',
+              }}
             >
               Let&apos;s build
             </Typography>
             <Typography
               fontFamily={oswald.style.fontFamily}
-              variant="h1"
               fontWeight="bold"
               textTransform="uppercase"
               color="primary"
+              fontSize={{
+                xs: '1.7rem',
+                sm: '2.8rem',
+                md: '4rem',
+                lg: '5.5rem',
+              }}
             >
               something together
             </Typography>
           </Stack>
 
-          <Typography variant="h6" fontWeight="lighter">
+          <Typography
+            fontWeight="lighter"
+            fontSize={{
+              xs: '1rem',
+              sm: '1.25rem',
+              md: '1.5rem',
+            }}
+          >
             If you have a project that you want to get started, think you need
             my help with something or just fancy saying hey, then get in touch.
           </Typography>

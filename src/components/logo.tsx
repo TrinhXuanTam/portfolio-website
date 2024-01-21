@@ -3,14 +3,21 @@
 import Typography from '@mui/material/Typography';
 import pacifico from '@/styles/fonts/pacifico';
 import Stack from '@mui/material/Stack';
-import { motion } from 'framer-motion';
+import { motion, AnimationProps } from 'framer-motion';
 import { useTheme } from '@mui/material/styles';
+import { SxProps } from '@mui/material';
 
-export default function Logo() {
+export default function Logo({
+  sx,
+  transition,
+}: {
+  sx?: SxProps;
+  transition?: AnimationProps['transition'];
+}) {
   const theme = useTheme();
 
   return (
-    <Stack direction="row">
+    <Stack direction="row" sx={sx}>
       <Typography
         fontFamily={pacifico.style.fontFamily}
         variant="h4"
@@ -30,6 +37,7 @@ export default function Logo() {
           repeat: Infinity,
           repeatDelay: 5,
           repeatType: 'reverse',
+          ...transition,
         }}
       >
         <Stack direction="row">

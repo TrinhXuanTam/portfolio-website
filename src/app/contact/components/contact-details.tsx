@@ -16,44 +16,72 @@ export default async function ContactDetails({ sx }: { sx?: SxProps }) {
       <Stack spacing={3}>
         <Stack>
           <Typography
-            variant="h3"
             fontFamily={oswald.style.fontFamily}
             fontWeight="bold"
             textTransform="uppercase"
+            lineHeight={1.2}
+            fontSize={{
+              xs: '2rem',
+              sm: '3rem',
+              md: '3.5rem',
+            }}
           >
             Anything on your mind?
           </Typography>
 
           <Stack direction="row" spacing={1}>
             <Typography
-              variant="h3"
               fontFamily={oswald.style.fontFamily}
               fontWeight="bold"
               textTransform="uppercase"
+              lineHeight={1.2}
+              noWrap={true}
+              fontSize={{
+                xs: '2rem',
+                sm: '3rem',
+                md: '3.5rem',
+              }}
             >
               I&apos;d love to hear from
             </Typography>
             <Typography
-              variant="h3"
               fontFamily={oswald.style.fontFamily}
               fontWeight="bold"
+              lineHeight={1.2}
               textTransform="uppercase"
               color="secondary"
+              fontSize={{
+                xs: '2rem',
+                sm: '3rem',
+                md: '3.5rem',
+              }}
             >
               you
             </Typography>
             <Typography
-              variant="h3"
               fontFamily={oswald.style.fontFamily}
+              lineHeight={1.2}
               fontWeight="bold"
               textTransform="uppercase"
+              fontSize={{
+                xs: '2rem',
+                sm: '3rem',
+                md: '3.5rem',
+              }}
             >
               !
             </Typography>
           </Stack>
         </Stack>
 
-        <Typography variant="h6" fontWeight="lighter">
+        <Typography
+          fontWeight="lighter"
+          fontSize={{
+            xs: '1rem',
+            sm: '1.25rem',
+            md: '1.5rem',
+          }}
+        >
           I&apos;m always open to discussing work, partnership opportunities or
           just chatting about tech.
         </Typography>
@@ -64,23 +92,27 @@ export default async function ContactDetails({ sx }: { sx?: SxProps }) {
           <Stack>
             <Typography
               fontFamily={oswald.style.fontFamily}
-              variant="h6"
               fontWeight="bold"
               color="secondary"
               textTransform="uppercase"
+              fontSize={{
+                xs: '1.15rem',
+                md: '1.5rem',
+              }}
             >
               Email
             </Typography>
 
-            <Typography variant="body1" fontWeight="lighter">
-              {contact.email}
-            </Typography>
+            <Typography fontWeight="lighter">{contact.email}</Typography>
           </Stack>
 
           <Stack>
             <Typography
               fontFamily={oswald.style.fontFamily}
-              variant="h6"
+              fontSize={{
+                xs: '1.15rem',
+                md: '1.5rem',
+              }}
               fontWeight="bold"
               color="secondary"
               textTransform="uppercase"
@@ -88,19 +120,20 @@ export default async function ContactDetails({ sx }: { sx?: SxProps }) {
               Phone
             </Typography>
 
-            <Typography variant="body1" fontWeight="lighter">
-              {contact.phone}
-            </Typography>
+            <Typography fontWeight="lighter">{contact.phone}</Typography>
           </Stack>
         </Stack>
 
         <Stack>
           <Typography
             fontFamily={oswald.style.fontFamily}
-            variant="h6"
             fontWeight="bold"
             color="secondary"
             textTransform="uppercase"
+            fontSize={{
+              xs: '1.15rem',
+              md: '1.5rem',
+            }}
           >
             Check me out also on
           </Typography>

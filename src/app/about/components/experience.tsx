@@ -20,16 +20,25 @@ export default async function Experience() {
           <Typography
             fontFamily={oswald.style.fontFamily}
             fontWeight="bold"
-            variant="h6"
+            fontSize={{
+              xs: '1.5rem',
+              sm: '2rem',
+              md: '2.5rem',
+            }}
           >
             Work Experience
           </Typography>
           <Typography
             fontFamily={oswald.style.fontFamily}
             fontWeight="bold"
-            variant="h2"
             textTransform="uppercase"
             color="primary"
+            lineHeight={1.2}
+            fontSize={{
+              xs: '2rem',
+              sm: '3rem',
+              md: '3.5rem',
+            }}
           >
             I colaborated <br />
             with these companies
@@ -60,38 +69,61 @@ export default async function Experience() {
                   <Typography
                     fontFamily={oswald.style.fontFamily}
                     fontWeight="bold"
-                    variant="h4"
                     textTransform="uppercase"
+                    fontSize={{
+                      xs: '1rem',
+                      sm: '2rem',
+                      md: '2.3rem',
+                    }}
                   >
                     {experience.to ? shortFormat(experience.to) : 'Present'}
                   </Typography>
                   <Typography
                     fontFamily={oswald.style.fontFamily}
                     fontWeight="bold"
-                    variant="h4"
                     textTransform="uppercase"
+                    fontSize={{
+                      xs: '1rem',
+                      sm: '2rem',
+                      md: '2.3rem',
+                    }}
                   >
                     {shortFormat(experience.from)}
                   </Typography>
                 </Stack>
 
                 <Stack flex={2}>
-                  <Typography fontWeight="lighter" variant="subtitle1">
+                  <Typography
+                    fontWeight="lighter"
+                    variant="subtitle1"
+                    fontSize={{
+                      xs: '0.8rem',
+                      sm: '1rem',
+                    }}
+                  >
                     {experience.location}
                   </Typography>
                   <Typography
                     fontFamily={oswald.style.fontFamily}
                     fontWeight="bold"
-                    variant="h5"
                     color="secondary"
+                    fontSize={{
+                      xs: '1rem',
+                      sm: '1.2rem',
+                      md: '1.5rem',
+                    }}
                   >
                     {experience.company}
                   </Typography>
                   <Typography
                     fontFamily={oswald.style.fontFamily}
                     fontWeight="bold"
-                    variant="h4"
                     textTransform="uppercase"
+                    fontSize={{
+                      xs: '1rem',
+                      sm: '2rem',
+                      md: '2.3rem',
+                    }}
                   >
                     {experience.title}
                   </Typography>

@@ -8,13 +8,12 @@ import { Suspense } from 'react';
 
 export default function About() {
   return (
-    <Stack pb={30}>
+    <Stack pb={30} overflow="hidden">
       <Greeting />
       <Suspense>
         <Experience />
         <Education />
         <DetailedIntroduction />
-
         <CallToAction />
       </Suspense>
     </Stack>

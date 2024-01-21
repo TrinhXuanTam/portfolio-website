@@ -21,17 +21,29 @@ export default async function LatestWork({ sx }: { sx?: SxProps }) {
           <Stack justifyContent="center">
             <Typography
               fontFamily={oswald.style.fontFamily}
-              variant="h3"
+              lineHeight={1.2}
               fontWeight="bold"
+              fontSize={{
+                xs: '1.5rem',
+                sm: '2.4rem',
+                md: '3rem',
+                lg: '3.3rem',
+              }}
             >
               Check out some of my
             </Typography>
             <Typography
               fontFamily={oswald.style.fontFamily}
-              variant="h2"
+              lineHeight={1.2}
               fontWeight="bold"
               textTransform="uppercase"
               color="primary"
+              fontSize={{
+                xs: '1.5rem',
+                sm: '2.8rem',
+                md: '3.6rem',
+                lg: '4rem',
+              }}
             >
               latest projects
             </Typography>
@@ -49,7 +61,16 @@ export default async function LatestWork({ sx }: { sx?: SxProps }) {
 
       {projects.map((project, index) => (
         <FadeIn key={index} once={true} direction="down">
-          <ProjectCard project={project} sx={{ height: '40vh', my: 5 }} />
+          <ProjectCard
+            project={project}
+            sx={{
+              height: {
+                xs: '25vh',
+                sm: '40vh',
+              },
+              my: 5,
+            }}
+          />
         </FadeIn>
       ))}
     </Container>

@@ -9,6 +9,7 @@ import AppBar from '@/components/app-bar';
 import Cursor from '@/components/cursor';
 import ScrollIndicator from '@/components/scroll-indicator';
 import AnimatedNavigation from '@/components/transitions/animated-navigation';
+import AnimatedMenu from '@/components/animated-menu/animated-menu';
 
 export const metadata: Metadata = {
   title: 'Trinh Xuan Tam - Full Stack Software Engineer',
@@ -27,6 +28,11 @@ export default function RootLayout({
           <AnimatedNavigation>
             <header>
               <AppBar />
+              <AnimatedMenu
+                sx={{
+                  display: { xs: 'block', md: 'none' },
+                }}
+              />
             </header>
 
             <main style={{ minHeight: '100vh' }}>

@@ -14,29 +14,51 @@ export default async function CallToAction({ sx }: { sx?: SxProps }) {
     <FullScreenContainer className="snap-y">
       <Container sx={sx} maxWidth="xl">
         <FadeIn>
-          <Stack alignItems="center" spacing={7}>
+          <Stack
+            alignItems="center"
+            spacing={{
+              xs: 5,
+              sm: 7,
+            }}
+          >
             <Stack justifyContent="center" alignItems="center">
               <Typography
                 fontFamily={oswald.style.fontFamily}
-                variant="h1"
                 fontWeight="bold"
                 textTransform="uppercase"
-                sx={{ mr: 2 }}
+                fontSize={{
+                  xs: '1.7rem',
+                  sm: '2.8rem',
+                  md: '4rem',
+                  lg: '5.5rem',
+                }}
               >
                 Did anything catch your eye?
               </Typography>
               <Typography
                 fontFamily={oswald.style.fontFamily}
-                variant="h1"
                 fontWeight="bold"
                 textTransform="uppercase"
                 color="primary"
+                fontSize={{
+                  xs: '1.7rem',
+                  sm: '2.8rem',
+                  md: '4rem',
+                  lg: '5.5rem',
+                }}
               >
                 Let&apos;s have a discussion
               </Typography>
             </Stack>
 
-            <Typography variant="h6" fontWeight="lighter">
+            <Typography
+              fontWeight="lighter"
+              fontSize={{
+                xs: '1rem',
+                sm: '1.25rem',
+                md: '1.5rem',
+              }}
+            >
               If you have something in mind or just want to say hi, feel free to
               send me a message.
             </Typography>

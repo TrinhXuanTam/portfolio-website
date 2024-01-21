@@ -2,8 +2,11 @@
 
 import { motion, useSpring, useScroll } from 'framer-motion';
 import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 export default function ScrollIndicator() {
+  const isMobile = useMediaQuery('(max-width: 600px)');
+
   const theme = useTheme();
   const { scrollYProgress } = useScroll();
   const scaleY = useSpring(scrollYProgress, {
@@ -23,6 +26,7 @@ export default function ScrollIndicator() {
         height: '10vh',
         width: '5px',
         backgroundColor: theme.palette.background.paper,
+        display: isMobile ? 'none' : 'block',
       }}
     >
       <motion.div

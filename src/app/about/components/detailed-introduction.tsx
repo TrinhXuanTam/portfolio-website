@@ -5,6 +5,7 @@ import Stack from '@mui/material/Stack';
 import FullScreenContainer from '@/components/full-screen-container';
 import FadeIn from '@/components/transitions/fade-in';
 import { getExtras } from '@/app/about/api/extras';
+import Grid from '@mui/material/Grid';
 
 export default async function DetailedIntroduction() {
   const extras = await getExtras();
@@ -17,35 +18,48 @@ export default async function DetailedIntroduction() {
             <Stack>
               <Typography
                 fontFamily={oswald.style.fontFamily}
-                variant="h5"
                 color="primary"
                 fontWeight="bold"
+                fontSize={{
+                  xs: '1.5rem',
+                  sm: '2rem',
+                  md: '2.5rem',
+                }}
               >
                 Extras
               </Typography>
               <Typography
                 fontFamily={oswald.style.fontFamily}
                 fontWeight="bold"
-                variant="h2"
                 color="secondary"
                 textTransform="uppercase"
+                lineHeight={1.2}
+                fontSize={{
+                  xs: '2rem',
+                  sm: '3rem',
+                  md: '3.5rem',
+                }}
               >
                 Get to know me better
               </Typography>
             </Stack>
           </FadeIn>
 
-          <Stack direction="row" spacing={10}>
+          <Grid container rowSpacing={5}>
             {extras.map((story, index) => (
-              <Stack key={index} flex={1}>
+              <Grid key={index} item xs={12} md={4} pr={{ md: 5 }}>
                 <FadeIn direction="down" delay={index * 0.15}>
                   <Typography
                     fontFamily={oswald.style.fontFamily}
                     fontWeight="bold"
-                    variant="h4"
                     textTransform="uppercase"
                     whiteSpace="pre-line"
                     mb={2}
+                    fontSize={{
+                      xs: '1.5rem',
+                      sm: '2rem',
+                      md: '2.5rem',
+                    }}
                   >
                     {story.title}
                   </Typography>
@@ -54,13 +68,17 @@ export default async function DetailedIntroduction() {
                     textAlign="justify"
                     fontWeight="lighter"
                     whiteSpace="pre-line"
+                    fontSize={{
+                      xs: '0.8rem',
+                      sm: '1rem',
+                    }}
                   >
                     {story.text}
                   </Typography>
                 </FadeIn>
-              </Stack>
+              </Grid>
             ))}
-          </Stack>
+          </Grid>
         </Stack>
       </FullScreenContainer>
     </Container>
