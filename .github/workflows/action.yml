@@ -43,6 +43,16 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - name: create .env file
+      run: |
+        cat << EOF > .env
+        SMTP_HOST=${{ secrets.SMTP_HOST }}
+        SMTP_PASSWORD=${{ secrets.SMTP_PASSWORD }}
+        SMTP_PORT=${{ secrets.SMTP_PORT }}
+        SMTP_USERNAME=${{ secrets.SMTP_USERNAME }}
+        NEXT_PUBLIC_CMS_URL=${{ secrets.CMS_URL }}
+        EOF
+
     - name: install ssh keys
       run: |
         install -m 600 -D /dev/null ~/.ssh/id_rsa
