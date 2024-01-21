@@ -56,9 +56,11 @@ export default function CallToAction({ sx }: { sx?: SxProps }) {
           </Typography>
 
           <Stack direction="row" spacing={3}>
-            <RoundedButton variant="contained" color="secondary" size="large">
-              Get started
-            </RoundedButton>
+            <AnimatedNavigationLink href={Routes.Contact}>
+              <RoundedButton variant="contained" color="secondary" size="large">
+                Get started
+              </RoundedButton>
+            </AnimatedNavigationLink>
 
             <AnimatedNavigationLink href={Routes.About}>
               <RoundedButton variant="outlined" color="primary" size="large">

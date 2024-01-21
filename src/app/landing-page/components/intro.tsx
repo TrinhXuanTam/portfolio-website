@@ -14,6 +14,8 @@ import FadeIn from '@/components/transitions/fade-in';
 import { getCvUrl } from '@/app/about/api/cv';
 import { getProfiles } from '@/app/about/api/contact';
 import Grid from '@mui/material/Grid';
+import AnimatedNavigationLink from '@/components/transitions/animated-navigation-link';
+import Routes from '@/utils/routes';
 
 export default async function Intro({ sx }: { sx?: SxProps }) {
   const cvUrl = await getCvUrl();
@@ -94,9 +96,15 @@ export default async function Intro({ sx }: { sx?: SxProps }) {
 
           <FadeIn direction="down" delay={0.5}>
             <Stack direction="row" spacing={2} sx={{ mt: 4 }}>
-              <RoundedButton color="secondary" variant="contained" size="large">
-                Get in touch
-              </RoundedButton>
+              <AnimatedNavigationLink href={Routes.Contact}>
+                <RoundedButton
+                  color="secondary"
+                  variant="contained"
+                  size="large"
+                >
+                  Get in touch
+                </RoundedButton>
+              </AnimatedNavigationLink>
               <RoundedButton
                 component="a"
                 variant="outlined"

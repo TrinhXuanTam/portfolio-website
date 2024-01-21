@@ -23,13 +23,7 @@ export async function getProjectsOverview(): Promise<ProjectOverview[]> {
       project.attributes!.thumbnail?.data?.attributes?.url
     }`,
   }));
-
-  // TODO: Remove this part, testing only
-  const res = [];
-  for (let i = 0; i < 10; i += 1) {
-    res.push(...projects);
-  }
-  return res;
+  return projects;
 }
 
 export async function getProjectDetail(id: string): Promise<ProjectDetail> {

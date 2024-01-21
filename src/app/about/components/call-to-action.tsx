@@ -62,9 +62,15 @@ export default async function CallToAction({ sx }: { sx?: SxProps }) {
             </Typography>
 
             <Stack direction="row" spacing={3}>
-              <RoundedButton variant="contained" color="secondary" size="large">
-                Send me a message
-              </RoundedButton>
+              <AnimatedNavigationLink href={Routes.Contact}>
+                <RoundedButton
+                  variant="contained"
+                  color="secondary"
+                  size="large"
+                >
+                  Send me a message
+                </RoundedButton>
+              </AnimatedNavigationLink>
 
               <RoundedButton
                 component="a"
