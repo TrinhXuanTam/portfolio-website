@@ -2,7 +2,6 @@ version: '3.7'
 
 services:
   portfolio-website:
-    network_mode: host
     env_file:
       - .env
     build:
@@ -11,3 +10,5 @@ services:
     volumes:
       - ./src:/portfolio-website/src
     command: npm run dev
+    ports:
+      - "3000:3000"
