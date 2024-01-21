@@ -1,10 +1,11 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React from 'react';
 
-import { useRouter, usePathname, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { motion, Spring, AnimatePresence } from 'framer-motion';
 import { useTheme } from '@mui/material/styles';
+import Logo from '@/components/logo';
 
 export const AnimatedNavigationContext = React.createContext({
   navigate: (href: string) => {
@@ -22,17 +23,14 @@ export default function AnimatedNavigation({
 }) {
   const theme = useTheme();
   const router = useRouter();
-  const pathName = usePathname();
-  const searchParams = useSearchParams();
   const [isAnimating, setIsAnimating] = React.useState(false);
   const navigate = (href: string) => {
     setIsAnimating(true);
     router.push(href);
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 1000);
   };
-
-  useEffect(() => {
-    setIsAnimating(false);
-  }, [pathName, searchParams]);
 
   const transitionSpringPhysics: Spring = {
     type: 'spring',
@@ -42,9 +40,9 @@ export default function AnimatedNavigation({
   };
 
   const animationVariants = {
-    hidden: { y: '-100%' }, // Start from above the screen
-    visible: { y: 0 }, // Slide down to cover the screen
-    exit: { y: '100%' }, // Slide down out of the screen
+    hidden: { clipPath: 'circle(0vw)' }, // Start from above the screen
+    visible: { clipPath: 'circle(100vw)', transition: { duration: 0.7 } }, // Slide down to cover the screen
+    exit: { opacity: 0, backgroundColor: theme.palette.background.default }, // Slide down out of the screen
   };
 
   return (
@@ -64,12 +62,25 @@ export default function AnimatedNavigation({
               width: '100%',
               height: '100%',
               zIndex: 10000,
-              backgroundColor: theme.palette.primary.main,
+              backgroundColor: theme.palette.background.paper,
             }}
-          />
+          >
+            <Logo
+              sx={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+              }}
+              transition={{
+                duration: 0.5,
+                repeatDelay: 0,
+              }}
+            />
+          </motion.div>
         )}
       </AnimatePresence>
-      {children}
+      {!isAnimating && children}
     </AnimatedNavigationContext.Provider>
   );
 }
