@@ -91,10 +91,13 @@ export default function Technologies({
             md: 2,
           }}
         >
-          <Stack direction="row" spacing={{
-            xs: 1,
-            md: 2
-          }}>
+          <Stack
+            direction="row"
+            spacing={{
+              xs: 1,
+              md: 2,
+            }}
+          >
             <Typography
               fontFamily={oswald.style.fontFamily}
               fontWeight="medium"
@@ -134,10 +137,13 @@ export default function Technologies({
             </Typography>
           </Stack>
 
-          <Stack direction="row" spacing={{
-            xs: 1,
-            md: 2
-          }}>
+          <Stack
+            direction="row"
+            spacing={{
+              xs: 1,
+              md: 2,
+            }}
+          >
             <Typography
               fontFamily={oswald.style.fontFamily}
               fontWeight="bold"

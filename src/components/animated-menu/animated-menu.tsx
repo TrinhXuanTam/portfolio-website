@@ -107,7 +107,7 @@ export default function AnimatedMenu({ sx }: { sx?: SxProps }) {
                     fontWeight="bold"
                     fontSize={{
                       xs: '2.5rem',
-                      md: '4.rem'
+                      md: '4.rem',
                     }}
                   >
                     {route.name}

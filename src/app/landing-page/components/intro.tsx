@@ -141,7 +141,7 @@ export default async function Intro({ sx }: { sx?: SxProps }) {
           </FadeIn>
         </Stack>
       </Grid>
-      <Grid item xs={12} sm={6} display='flex' justifyContent='center'>
+      <Grid item xs={12} sm={6} display="flex" justifyContent="center">
         <FadeIn direction="right">
           <RhombusBox
             position="relative"

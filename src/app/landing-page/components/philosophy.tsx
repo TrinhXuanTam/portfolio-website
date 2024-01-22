@@ -116,10 +116,14 @@ export default function Philosophy() {
       </Container>
 
       <Container maxWidth="lg">
-        <Stack mt={{
-          xs: 0,
-          sm: 10,
-        }} className="snap-y" mb="30vh">
+        <Stack
+          mt={{
+            xs: 0,
+            sm: 10,
+          }}
+          className="snap-y"
+          mb="30vh"
+        >
           {values.map((value, index) => (
             <Stack key={index}>
               <Divider

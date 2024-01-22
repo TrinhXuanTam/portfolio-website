@@ -19,7 +19,7 @@ export async function getProjectsOverview(): Promise<ProjectOverview[]> {
     id: project.id!,
     name: project.attributes!.name,
     briefDescription: project.attributes!.briefDescription,
-    thumbnailUrl: project.attributes?.thumbnail?.data?.attributes!.url,
+    thumbnailUrl: project.attributes!.thumbnail!.data!.attributes!.url,
   }));
   return projects;
 }
@@ -50,8 +50,6 @@ export async function getProjectDetail(id: string): Promise<ProjectDetail> {
       (technology) => technology!.name
     ),
     thumbnailUrl: projectData!.thumbnail!.data!.attributes!.url,
-    imageUrls: projectData.images.data.map(
-      (image) => image?.attributes!.url
-    ),
+    imageUrls: projectData.images.data.map((image) => image?.attributes!.url),
   };
 }
