@@ -108,7 +108,7 @@ export default async function Experience() {
                     fontWeight="bold"
                     color="secondary"
                     fontSize={{
-                      xs: '1rem',
+                      xs: '0.9rem',
                       sm: '1.2rem',
                       md: '1.5rem',
                     }}

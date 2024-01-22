@@ -11,7 +11,7 @@ import Routes from '@/utils/routes';
 
 export default async function CallToAction({ sx }: { sx?: SxProps }) {
   return (
-    <FullScreenContainer className="snap-y">
+    <FullScreenContainer>
       <Container sx={sx} maxWidth="xl">
         <FadeIn>
           <Stack

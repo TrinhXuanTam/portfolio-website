@@ -15,7 +15,7 @@ export default async function CallToAction({ sx }: { sx?: SxProps }) {
   const cvUrl = await getCvUrl();
 
   return (
-    <FullScreenContainer className="snap-y">
+    <FullScreenContainer>
       <Container sx={sx} maxWidth="xl">
         <FadeIn>
           <Stack alignItems="center" spacing={7}>

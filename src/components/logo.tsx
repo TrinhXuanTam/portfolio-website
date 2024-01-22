@@ -23,8 +23,11 @@ export default function Logo({
         variant="h4"
         noWrap
         sx={{
-          fontWeight: 'bold',
           userSelect: 'none',
+        }}
+        fontWeight={{
+          xs: 'normal',
+          sm: 'bold',
         }}
       >
         Trinh
@@ -45,8 +48,11 @@ export default function Logo({
             fontFamily={pacifico.style.fontFamily}
             variant="h4"
             noWrap
+            fontWeight={{
+              xs: 'normal',
+              sm: 'bold',
+            }}
             sx={{
-              fontWeight: 'bold',
               userSelect: 'none',
             }}
           >
@@ -57,8 +63,11 @@ export default function Logo({
             variant="h4"
             noWrap
             sx={{
-              fontWeight: 'bold',
               userSelect: 'none',
+            }}
+            fontWeight={{
+              xs: 'normal',
+              sm: 'bold',
             }}
           >
             xt

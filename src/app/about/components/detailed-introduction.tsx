@@ -12,7 +12,7 @@ export default async function DetailedIntroduction() {
 
   return (
     <Container maxWidth="xl">
-      <FullScreenContainer className="snap-y">
+      <FullScreenContainer>
         <Stack spacing={5}>
           <FadeIn direction="left">
             <Stack>

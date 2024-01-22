@@ -19,15 +19,15 @@ export default function LandingPage() {
         </Suspense>
       </Container>
 
-      <FullScreenContainer className="snap-y">
+      <FullScreenContainer>
         <Services />
       </FullScreenContainer>
 
-      <FullScreenContainer className="snap-y">
+      <FullScreenContainer>
         <DevelopmentProcess />
       </FullScreenContainer>
 
-      <FullScreenContainer className="snap-y">
+      <FullScreenContainer>
         <Technologies sx={{ width: '100vw' }} />
       </FullScreenContainer>
 
@@ -39,7 +39,7 @@ export default function LandingPage() {
         <LatestWork />
       </Suspense>
 
-      <FullScreenContainer className="snap-y">
+      <FullScreenContainer>
         <CallToAction />
       </FullScreenContainer>
     </Stack>

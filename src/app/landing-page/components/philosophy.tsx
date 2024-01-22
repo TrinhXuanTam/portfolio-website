@@ -121,7 +121,6 @@ export default function Philosophy() {
             xs: 0,
             sm: 10,
           }}
-          className="snap-y"
           mb="30vh"
         >
           {values.map((value, index) => (
