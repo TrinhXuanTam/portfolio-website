@@ -35,7 +35,8 @@ export default function Greeting() {
             borderEndStartRadius: '10rem',
             borderStartEndRadius: '10rem',
             height: {
-              xs: '40vh',
+              xs: '30vh',
+              sm: '40vh',
               md: '60vh',
             },
           }}

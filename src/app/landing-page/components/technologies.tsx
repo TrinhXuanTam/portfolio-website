@@ -91,12 +91,15 @@ export default function Technologies({
             md: 2,
           }}
         >
-          <Stack direction="row" spacing={2}>
+          <Stack direction="row" spacing={{
+            xs: 1,
+            md: 2
+          }}>
             <Typography
               fontFamily={oswald.style.fontFamily}
               fontWeight="medium"
               fontSize={{
-                xs: '1.8rem',
+                xs: '1.3rem',
                 sm: '2.5rem',
                 lg: '3.5rem',
               }}
@@ -110,7 +113,7 @@ export default function Technologies({
               color="secondary"
               textTransform="uppercase"
               fontSize={{
-                xs: '1.8rem',
+                xs: '1.3rem',
                 sm: '2.5rem',
                 lg: '3.5rem',
               }}
@@ -122,7 +125,7 @@ export default function Technologies({
               fontFamily={oswald.style.fontFamily}
               fontWeight="medium"
               fontSize={{
-                xs: '1.8rem',
+                xs: '1.3rem',
                 sm: '2.5rem',
                 lg: '3.5rem',
               }}
@@ -131,12 +134,15 @@ export default function Technologies({
             </Typography>
           </Stack>
 
-          <Stack direction="row" spacing={2}>
+          <Stack direction="row" spacing={{
+            xs: 1,
+            md: 2
+          }}>
             <Typography
               fontFamily={oswald.style.fontFamily}
               fontWeight="bold"
               fontSize={{
-                xs: '1.8rem',
+                xs: '1.3rem',
                 sm: '2.5rem',
                 lg: '3.5rem',
               }}
@@ -150,7 +156,7 @@ export default function Technologies({
               color="primary"
               textTransform="uppercase"
               fontSize={{
-                xs: '1.8rem',
+                xs: '1.3rem',
                 sm: '2.5rem',
                 lg: '3.5rem',
               }}

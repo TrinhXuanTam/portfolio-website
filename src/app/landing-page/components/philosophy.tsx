@@ -85,7 +85,7 @@ export default function Philosophy() {
                 fontWeight="bold"
                 textTransform="uppercase"
                 fontSize={{
-                  xs: '2.5rem',
+                  xs: '2rem',
                   sm: '4rem',
                   md: '5rem',
                 }}
@@ -103,7 +103,7 @@ export default function Philosophy() {
                 textTransform="uppercase"
                 textAlign="right"
                 fontSize={{
-                  xs: '2.5rem',
+                  xs: '2rem',
                   sm: '4rem',
                   md: '5rem',
                 }}
@@ -116,7 +116,10 @@ export default function Philosophy() {
       </Container>
 
       <Container maxWidth="lg">
-        <Stack mt={10} className="snap-y" mb="30vh">
+        <Stack mt={{
+          xs: 0,
+          sm: 10,
+        }} className="snap-y" mb="30vh">
           {values.map((value, index) => (
             <Stack key={index}>
               <Divider

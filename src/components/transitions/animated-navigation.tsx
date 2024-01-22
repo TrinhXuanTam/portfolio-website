@@ -41,7 +41,7 @@ export default function AnimatedNavigation({
 
   const animationVariants = {
     hidden: { clipPath: 'circle(0vw)' }, // Start from above the screen
-    visible: { clipPath: 'circle(100vw)', transition: { duration: 0.7 } }, // Slide down to cover the screen
+    visible: { clipPath: 'circle(200vw)', transition: { duration: 0.7 } }, // Slide down to cover the screen
     exit: { opacity: 0, backgroundColor: theme.palette.background.default }, // Slide down out of the screen
   };
 

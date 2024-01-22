@@ -14,7 +14,7 @@ export default function ProjectsTitle() {
             fontWeight="bold"
             textTransform="uppercase"
             fontSize={{
-              xs: '2.5rem',
+              xs: '2rem',
               sm: '3.5rem',
               md: '4.5rem',
               lg: '5.5rem',
@@ -30,7 +30,7 @@ export default function ProjectsTitle() {
               fontWeight="bold"
               textTransform="uppercase"
               fontSize={{
-                xs: '2.5rem',
+                xs: '2rem',
                 sm: '3.5rem',
                 md: '4.5rem',
                 lg: '5.5rem',
@@ -46,7 +46,7 @@ export default function ProjectsTitle() {
               textTransform="uppercase"
               color="secondary"
               fontSize={{
-                xs: '0.7rem',
+                xs: '0.5rem',
                 md: '1.15rem',
               }}
             >

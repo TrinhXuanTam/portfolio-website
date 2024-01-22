@@ -24,7 +24,7 @@ export default async function LatestWork({ sx }: { sx?: SxProps }) {
               lineHeight={1.2}
               fontWeight="bold"
               fontSize={{
-                xs: '1.5rem',
+                xs: '1.2rem',
                 sm: '2.4rem',
                 md: '3rem',
                 lg: '3.3rem',

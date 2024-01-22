@@ -21,7 +21,7 @@ export default async function ContactDetails({ sx }: { sx?: SxProps }) {
             textTransform="uppercase"
             lineHeight={1.2}
             fontSize={{
-              xs: '2rem',
+              xs: '1.7rem',
               sm: '3rem',
               md: '3.5rem',
             }}
@@ -37,7 +37,7 @@ export default async function ContactDetails({ sx }: { sx?: SxProps }) {
               lineHeight={1.2}
               noWrap={true}
               fontSize={{
-                xs: '2rem',
+                xs: '1.7rem',
                 sm: '3rem',
                 md: '3.5rem',
               }}
@@ -51,7 +51,7 @@ export default async function ContactDetails({ sx }: { sx?: SxProps }) {
               textTransform="uppercase"
               color="secondary"
               fontSize={{
-                xs: '2rem',
+                xs: '1.7rem',
                 sm: '3rem',
                 md: '3.5rem',
               }}
@@ -64,7 +64,7 @@ export default async function ContactDetails({ sx }: { sx?: SxProps }) {
               fontWeight="bold"
               textTransform="uppercase"
               fontSize={{
-                xs: '2rem',
+                xs: '1.7rem',
                 sm: '3rem',
                 md: '3.5rem',
               }}
@@ -96,7 +96,7 @@ export default async function ContactDetails({ sx }: { sx?: SxProps }) {
               color="secondary"
               textTransform="uppercase"
               fontSize={{
-                xs: '1.15rem',
+                xs: '1rem',
                 md: '1.5rem',
               }}
             >
@@ -110,7 +110,7 @@ export default async function ContactDetails({ sx }: { sx?: SxProps }) {
             <Typography
               fontFamily={oswald.style.fontFamily}
               fontSize={{
-                xs: '1.15rem',
+                xs: '1.rem',
                 md: '1.5rem',
               }}
               fontWeight="bold"
@@ -131,7 +131,7 @@ export default async function ContactDetails({ sx }: { sx?: SxProps }) {
             color="secondary"
             textTransform="uppercase"
             fontSize={{
-              xs: '1.15rem',
+              xs: '1.rem',
               md: '1.5rem',
             }}
           >

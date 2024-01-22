@@ -27,7 +27,7 @@ export default async function CallToAction({ sx }: { sx?: SxProps }) {
                 fontWeight="bold"
                 textTransform="uppercase"
                 fontSize={{
-                  xs: '1.7rem',
+                  xs: '1.5rem',
                   sm: '2.8rem',
                   md: '4rem',
                   lg: '5.5rem',

@@ -98,7 +98,7 @@ export default function DevelopmentProcess({ sx }: { sx?: SxProps }) {
             lineHeight={1.2}
             textTransform="uppercase"
             fontSize={{
-              xs: '2.8rem',
+              xs: '2.3rem',
               sm: '3rem',
               md: '3.2rem',
             }}
@@ -135,13 +135,13 @@ export default function DevelopmentProcess({ sx }: { sx?: SxProps }) {
                   sx={{
                     top: '50%',
                     left: {
-                      xs: '2rem',
+                      xs: '1.7rem',
                       sm: '3.5rem',
                     },
                     transform: 'translateY(-50%)',
                   }}
                   fontSize={{
-                    xs: '1.8rem',
+                    xs: '1.5rem',
                     sm: '2.3rem',
                   }}
                 >
@@ -167,7 +167,7 @@ export default function DevelopmentProcess({ sx }: { sx?: SxProps }) {
                         md: 1.5,
                       }}
                       fontSize={{
-                        xs: '0.9rem',
+                        xs: '0.7rem',
                         sm: '1rem',
                         md: '1.1rem',
                       }}

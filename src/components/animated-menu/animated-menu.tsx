@@ -106,7 +106,8 @@ export default function AnimatedMenu({ sx }: { sx?: SxProps }) {
                     fontFamily={oswald.style.fontFamily}
                     fontWeight="bold"
                     fontSize={{
-                      xs: '4rem',
+                      xs: '2.5rem',
+                      md: '4.rem'
                     }}
                   >
                     {route.name}

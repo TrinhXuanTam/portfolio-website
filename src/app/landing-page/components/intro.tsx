@@ -22,7 +22,7 @@ export default async function Intro({ sx }: { sx?: SxProps }) {
   const profiles = await getProfiles();
 
   return (
-    <Grid container sx={sx} rowSpacing="15vh">
+    <Grid container sx={sx} rowSpacing="10vh">
       <Grid item xs={12} sm={6}>
         <Stack>
           <FadeIn direction="down">
@@ -141,17 +141,17 @@ export default async function Intro({ sx }: { sx?: SxProps }) {
           </FadeIn>
         </Stack>
       </Grid>
-      <Grid item xs={12} sm={6}>
+      <Grid item xs={12} sm={6} display='flex' justifyContent='center'>
         <FadeIn direction="right">
           <RhombusBox
             position="relative"
             sx={{
               width: {
-                xs: '25rem',
+                xs: '20rem',
                 md: '32rem',
               },
               height: {
-                xs: '25rem',
+                xs: '20rem',
                 md: '32rem',
               },
               borderTopLeftRadius: '50%',

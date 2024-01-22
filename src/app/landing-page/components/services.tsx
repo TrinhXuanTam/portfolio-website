@@ -57,7 +57,7 @@ export default function Services({ sx }: { sx?: SxProps }) {
               fontWeight="bold"
               textTransform="uppercase"
               fontSize={{
-                xs: '2.5rem',
+                xs: '2rem',
                 sm: '1.8rem',
                 md: '2.2rem',
                 lg: '3.6rem',
@@ -72,7 +72,7 @@ export default function Services({ sx }: { sx?: SxProps }) {
                 textTransform="uppercase"
                 color="primary"
                 fontSize={{
-                  xs: '2.5rem',
+                  xs: '2rem',
                   sm: '1.8rem',
                   md: '2.2rem',
                   lg: '3.6rem',
@@ -85,7 +85,7 @@ export default function Services({ sx }: { sx?: SxProps }) {
                 fontWeight="bold"
                 textTransform="uppercase"
                 fontSize={{
-                  xs: '2.5rem',
+                  xs: '2rem',
                   sm: '1.8rem',
                   md: '2.2rem',
                   lg: '3.6rem',
@@ -104,11 +104,13 @@ export default function Services({ sx }: { sx?: SxProps }) {
                   <Avatar
                     sx={{
                       height: {
-                        xs: '12rem',
+                        xs: '10rem',
+                        sm: '12rem',
                         lg: '15rem',
                       },
                       width: {
-                        xs: '12rem',
+                        xs: '10rem',
+                        sm: '12rem',
                         lg: '15rem',
                       },
                     }}
@@ -130,6 +132,11 @@ export default function Services({ sx }: { sx?: SxProps }) {
                     textAlign="center"
                     fontWeight="lighter"
                     px={5}
+                    fontSize={{
+                      xs: '0.9rem',
+                      sm: '1rem',
+                      md: '1.1rem',
+                    }}
                   >
                     {service.description}
                   </Typography>
