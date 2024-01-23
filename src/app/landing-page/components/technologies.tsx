@@ -36,6 +36,7 @@ import gitlab from '@/assets/images/logos/gitlab.svg';
 import github from '@/assets/images/logos/github.svg';
 import jira from '@/assets/images/logos/jira.svg';
 import FadeIn from '@/components/transitions/fade-in';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 export default function Technologies({
   sx,
@@ -45,6 +46,7 @@ export default function Technologies({
   className?: string;
 }) {
   const theme = useTheme();
+  const isMobile = useMediaQuery('(max-width: 600px)');
 
   const images = [
     css,
@@ -102,7 +104,7 @@ export default function Technologies({
               fontFamily={oswald.style.fontFamily}
               fontWeight="medium"
               fontSize={{
-                xs: '1.3rem',
+                xs: '2rem',
                 sm: '2.5rem',
                 lg: '3.5rem',
               }}
@@ -116,7 +118,7 @@ export default function Technologies({
               color="secondary"
               textTransform="uppercase"
               fontSize={{
-                xs: '1.3rem',
+                xs: '2rem',
                 sm: '2.5rem',
                 lg: '3.5rem',
               }}
@@ -128,7 +130,7 @@ export default function Technologies({
               fontFamily={oswald.style.fontFamily}
               fontWeight="medium"
               fontSize={{
-                xs: '1.3rem',
+                xs: '2rem',
                 sm: '2.5rem',
                 lg: '3.5rem',
               }}
@@ -138,7 +140,12 @@ export default function Technologies({
           </Stack>
 
           <Stack
-            direction="row"
+            direction={
+              {
+                xs: 'column',
+                md: 'row',
+              }
+            }
             spacing={{
               xs: 1,
               md: 2,
@@ -148,7 +155,7 @@ export default function Technologies({
               fontFamily={oswald.style.fontFamily}
               fontWeight="bold"
               fontSize={{
-                xs: '1.3rem',
+                xs: '2rem',
                 sm: '2.5rem',
                 lg: '3.5rem',
               }}
@@ -162,7 +169,7 @@ export default function Technologies({
               color="primary"
               textTransform="uppercase"
               fontSize={{
-                xs: '1.3rem',
+                xs: '2rem',
                 sm: '2.5rem',
                 lg: '3.5rem',
               }}
@@ -181,7 +188,9 @@ export default function Technologies({
         >
           <Stack direction="row" spacing={8} sx={{ ml: 8 }}>
             {images.map((image, index) => (
-              <Image key={index} src={image} alt="javascript" height={70} />
+              <Image key={index} src={image} alt="javascript" height={
+                isMobile ? 50 : 70
+              }/>
             ))}
           </Stack>
         </Marquee>
