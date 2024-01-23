@@ -140,12 +140,10 @@ export default function Technologies({
           </Stack>
 
           <Stack
-            direction={
-              {
-                xs: 'column',
-                md: 'row',
-              }
-            }
+            direction={{
+              xs: 'column',
+              md: 'row',
+            }}
             spacing={{
               xs: 1,
               md: 2,
@@ -188,9 +186,12 @@ export default function Technologies({
         >
           <Stack direction="row" spacing={8} sx={{ ml: 8 }}>
             {images.map((image, index) => (
-              <Image key={index} src={image} alt="javascript" height={
-                isMobile ? 50 : 70
-              }/>
+              <Image
+                key={index}
+                src={image}
+                alt="javascript"
+                height={isMobile ? 50 : 70}
+              />
             ))}
           </Stack>
         </Marquee>

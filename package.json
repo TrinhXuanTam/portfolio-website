@@ -20,6 +20,7 @@
     "@mui/material": "^5.15.2",
     "@mui/material-nextjs": "^5.15.0",
     "@types/nodemailer": "^6.4.14",
+    "firebase": "^10.7.2",
     "framer-motion": "^10.17.9",
     "next": "14.0.4",
     "nodemailer": "^6.9.8",

@@ -1,3 +1,4 @@
+import '@/config/firebase';
 import '@/styles/css/globals.css';
 import type { Metadata } from 'next';
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v14-appRouter';

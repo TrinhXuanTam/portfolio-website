@@ -33,6 +33,7 @@ export default function ProjectIntro({
               <Typography
                 sx={{ fontFamily: oswald }}
                 fontWeight="bold"
+                lineHeight={1.2}
                 textTransform="uppercase"
                 fontSize={{
                   xs: '1.7rem',
@@ -181,125 +182,6 @@ export default function ProjectIntro({
           </FadeIn>
         </Grid>
       </Grid>
-      {/* <Stack direction="row" width="100%" spacing={10}>
-          <Stack flex={1} justifyContent="space-between">
-            <Stack>
-              <FadeIn direction="left">
-                <Typography
-                  sx={{ fontFamily: oswald }}
-                  fontWeight="bold"
-                  textTransform="uppercase"
-                  fontSize={{
-                    xs: '1.7rem',
-                    sm: '2.8rem',
-                    md: '4rem',
-                    lg: '5.5rem',
-                  }}
-                >
-                  {data.name}
-                </Typography>
-              </FadeIn>
-
-              <FadeIn direction="left" delay={0.2}>
-                <Typography
-                  variant="subtitle1"
-                  fontWeight="lighter"
-                  textAlign="justify"
-                >
-                  {data.briefDescription}
-                </Typography>
-              </FadeIn>
-            </Stack>
-
-            <FadeIn direction="down" delay={0.6}>
-              <Stack direction="row" justifyContent="space-between">
-                <Stack>
-                  <Typography
-                    sx={{ fontFamily: oswald }}
-                    color="primary"
-                    variant="h6"
-                    fontWeight="bold"
-                    textTransform="uppercase"
-                  >
-                    Roles
-                  </Typography>
-
-                  <List sx={{ py: 0 }}>
-                    {data.roles.map((role, index) => (
-                      <ListItem key={index} sx={{ pl: 0 }}>
-                        <Typography fontWeight="lighter">{role}</Typography>
-                      </ListItem>
-                    ))}
-                  </List>
-                </Stack>
-
-                <Stack>
-                  <Typography
-                    sx={{ fontFamily: oswald }}
-                    color="primary"
-                    variant="h6"
-                    fontWeight="bold"
-                    textTransform="uppercase"
-                  >
-                    Responsibilities
-                  </Typography>
-
-                  <List sx={{ py: 0 }}>
-                    {data.responsibilities.map((responsibility, index) => (
-                      <ListItem key={index} sx={{ pl: 0 }}>
-                        <Typography fontWeight="lighter">
-                          {responsibility}
-                        </Typography>
-                      </ListItem>
-                    ))}
-                  </List>
-                </Stack>
-
-                <Stack>
-                  <Typography
-                    sx={{ fontFamily: oswald }}
-                    color="primary"
-                    variant="h6"
-                    fontWeight="bold"
-                    textTransform="uppercase"
-                  >
-                    Technologies
-                  </Typography>
-
-                  <List sx={{ py: 0 }}>
-                    {data.technologies.map((technology, index) => (
-                      <ListItem key={index} sx={{ pl: 0 }}>
-                        <Typography fontWeight="lighter">
-                          {technology}
-                        </Typography>
-                      </ListItem>
-                    ))}
-                  </List>
-                </Stack>
-              </Stack>
-            </FadeIn>
-          </Stack>
-          <Box flex={1}>
-            <FadeIn direction="right" delay={0.4}>
-              <Box
-                height="70vh"
-                position="relative"
-                sx={{
-                  overflow: 'hidden',
-                  borderEndEndRadius: '30%',
-                  borderStartStartRadius: '30%',
-                }}
-              >
-                <Image
-                  src={data.thumbnailUrl}
-                  alt={data.name}
-                  fill={true}
-                  objectFit="cover"
-                />
-              </Box>
-            </FadeIn>
-          </Box>
-        </Stack> */}
     </Container>
   );
 }

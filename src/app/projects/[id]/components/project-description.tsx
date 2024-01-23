@@ -17,6 +17,7 @@ export default function ProjectDescription({
       <Container maxWidth="xl">
         <FadeIn direction="right">
           <Typography
+            whiteSpace="pre-line"
             textAlign="justify"
             fontWeight="lighter"
             fontSize={{

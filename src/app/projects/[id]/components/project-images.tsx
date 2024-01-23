@@ -5,17 +5,12 @@ import Image from 'next/image';
 import Box from '@mui/material/Box';
 
 export default function ProjectImages({ data }: { data: ProjectDetail }) {
-  const getGridSize = (index: number) => {
-    const pattern = [12, 6, 6, 12];
-    return pattern[index % pattern.length];
-  };
-
   return (
     <Grid>
       <FullScreenContainer>
         <Grid container spacing={2}>
           {data.imageUrls.map((image, index) => (
-            <Grid key={index} item xs={12} md={getGridSize(index)}>
+            <Grid key={index} item xs={12}>
               <Box
                 sx={{
                   position: 'relative',
