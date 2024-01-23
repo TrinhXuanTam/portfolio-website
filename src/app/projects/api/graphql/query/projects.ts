@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 export const projectsOverview = gql`
   query projectsOverview {
-    projects {
+    projects(sort: "id:desc") {
       data {
         id
         attributes {
