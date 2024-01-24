@@ -13,8 +13,29 @@ import AnimatedNavigation from '@/components/transitions/animated-navigation';
 import AnimatedMenu from '@/components/animated-menu/animated-menu';
 
 export const metadata: Metadata = {
-  title: 'Trinh Xuan Tam - Full Stack Software Engineer',
-  description: 'Work portfolio of Trinh Xuan Tam',
+  title:
+    'Trinh Xuan Tam | Full-Stack Software Engineer | IT solutions and consulting',
+  description:
+    "Trinh Xuan Tam, an experienced and passionate full-stack software engineer based in Prague, Czech Republic. Specializing in developing innovative software solutions, I have a proven track record of building high-quality applications across various platforms. With a strong focus on user experience and efficient functionality, I am dedicated to creating software that not only meets but exceeds client expectations. Whether it's web development, mobile app creation, or system integration, I bring a dynamic and creative approach to every project.'",
+  keywords: [
+    'Trinh Xuan Tam',
+    'Full-Stack Developer',
+    'Software Engineer',
+    'Web Development',
+    'Mobile App Development',
+    'Programming',
+    'Technology Solutions',
+    'Frontend Development',
+    'Backend Development',
+    'Prague Software Engineer',
+    'Czech Republic Software Engineer',
+    'Software Engineer in Prague',
+    'Software Engineer in Czech Republic',
+    'Software Engineer in Europe',
+    'Software Engineer in EU',
+    'Software Engineer in Czechia',
+    'Software Engineer in Czech',
+  ],
 };
 
 export default function RootLayout({

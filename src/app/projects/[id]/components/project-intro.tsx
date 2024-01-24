@@ -176,7 +176,7 @@ export default function ProjectIntro({
                 src={data.thumbnailUrl}
                 alt={data.name}
                 fill={true}
-                objectFit="cover"
+                style={{ objectFit: 'cover' }}
               />
             </Box>
           </FadeIn>
