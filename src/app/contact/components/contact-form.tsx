@@ -82,59 +82,81 @@ export default function ContactForm({ sx }: { sx?: SxProps }) {
   }
 
   return (
-    <Stack sx={sx}>
+    <Stack
+      sx={sx}
+      spacing={{
+        xs: 1,
+        sm: 2,
+        md: 3,
+      }}
+    >
       {!submitted ? (
-        <form
-          style={{
-            height: '100%',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'start',
-            gap: '1rem',
-          }}
-          onSubmit={handleSubmit}
-        >
-          <TextField
-            fullWidth
-            label="Email"
-            name="email"
-            disabled={pending}
-            error={formErrors.email}
-          />
-          <TextField
-            fullWidth
-            label="Subject"
-            name="subject"
-            disabled={pending}
-            error={formErrors.subject}
-          />
-          <TextField
-            fullWidth
-            label="Message"
-            name="message"
-            multiline
-            minRows={15}
-            disabled={pending}
-            error={formErrors.message}
-          />
-          {error && (
-            <Alert sx={{ width: '100%' }} severity="error">
-              {error}
-            </Alert>
-          )}
-          <Stack direction="row" spacing={2}>
-            <RoundedButton
-              variant="contained"
-              size="large"
-              color="primary"
-              type="submit"
+        <>
+          <Typography
+            fontFamily={oswald.style.fontFamily}
+            fontWeight="bold"
+            color="primary"
+            textTransform="uppercase"
+            fontSize={{
+              xs: '1.7rem',
+              md: '2rem',
+            }}
+          >
+            Contact form
+          </Typography>
+
+          <form
+            style={{
+              height: '100%',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'start',
+              gap: '1rem',
+            }}
+            onSubmit={handleSubmit}
+          >
+            <TextField
+              fullWidth
+              label="Email"
+              name="email"
               disabled={pending}
-            >
-              Send message
-            </RoundedButton>
-            {pending && <CircularProgress color="secondary" />}
-          </Stack>
-        </form>
+              error={formErrors.email}
+            />
+            <TextField
+              fullWidth
+              label="Subject"
+              name="subject"
+              disabled={pending}
+              error={formErrors.subject}
+            />
+            <TextField
+              fullWidth
+              label="Message"
+              name="message"
+              multiline
+              minRows={10}
+              disabled={pending}
+              error={formErrors.message}
+            />
+            {error && (
+              <Alert sx={{ width: '100%' }} severity="error">
+                {error}
+              </Alert>
+            )}
+            <Stack direction="row" spacing={2}>
+              <RoundedButton
+                variant="contained"
+                size="large"
+                color="primary"
+                type="submit"
+                disabled={pending}
+              >
+                Send message
+              </RoundedButton>
+              {pending && <CircularProgress color="secondary" />}
+            </Stack>
+          </form>
+        </>
       ) : (
         <Stack
           justifyContent="center"

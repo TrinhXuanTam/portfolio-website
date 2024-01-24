@@ -103,7 +103,15 @@ export default async function ContactDetails({ sx }: { sx?: SxProps }) {
               Email
             </Typography>
 
-            <Typography fontWeight="lighter">{contact.email}</Typography>
+            <Typography
+              fontWeight="lighter"
+              fontSize={{
+                xs: '0.8rem',
+                md: '1rem',
+              }}
+            >
+              {contact.email}
+            </Typography>
           </Stack>
 
           <Stack>
@@ -120,7 +128,15 @@ export default async function ContactDetails({ sx }: { sx?: SxProps }) {
               Phone
             </Typography>
 
-            <Typography fontWeight="lighter">{contact.phone}</Typography>
+            <Typography
+              fontWeight="lighter"
+              fontSize={{
+                xs: '0.8rem',
+                md: '1rem',
+              }}
+            >
+              {contact.phone}
+            </Typography>
           </Stack>
         </Stack>
 

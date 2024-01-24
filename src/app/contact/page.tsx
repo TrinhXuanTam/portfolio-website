@@ -7,7 +7,7 @@ import FadeIn from '@/components/transitions/fade-in';
 
 export default function ContactPage() {
   return (
-    <Container maxWidth="xl" sx={{ my: '25vh' }}>
+    <Container maxWidth="xl" sx={{ my: '25vh', overflow: 'hidden' }}>
       <Grid container rowSpacing="25vh" columnSpacing="5vw">
         <Grid item xs={12} lg={7} xl={6}>
           <FadeIn direction="left">
