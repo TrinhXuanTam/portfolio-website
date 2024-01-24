@@ -25,7 +25,7 @@ export default function ProjectImages({ data }: { data: ProjectDetail }) {
                   src={image}
                   alt={data.name}
                   fill={true}
-                  style={{ objectFit: 'cover' }}
+                  style={{ objectFit: 'contain' }}
                 />
               </Box>
             </Grid>

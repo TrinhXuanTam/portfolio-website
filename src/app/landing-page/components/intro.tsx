@@ -168,7 +168,7 @@ export default async function Intro({ sx }: { sx?: SxProps }) {
               src={introImage}
               alt="Intro image"
               fill={true}
-              style={{ objectFit: 'cover' }}
+              style={{ objectFit: 'contain' }}
             />
           </RhombusBox>
         </FadeIn>
