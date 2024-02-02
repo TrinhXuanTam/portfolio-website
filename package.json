@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint --fix",
     "format": "prettier --write \"**/*.{js,jsx,tsx,ts,vue,scss,html,md,json}\" --ignore-path .gitignore",
-    "codegen": "graphql-codegen --config codegen.yml --watch src/**/api/graphql/**/*.ts"
+    "codegen": "graphql-codegen --config codegen.yml --watch src/**/api/graphql/**/*.ts",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "@apollo/client": "^3.9.0-alpha.5",
@@ -23,6 +24,7 @@
     "firebase": "^10.7.2",
     "framer-motion": "^10.17.9",
     "next": "14.0.4",
+    "next-sitemap": "^4.2.3",
     "nodemailer": "^6.9.8",
     "react": "^18",
     "react-dom": "^18",

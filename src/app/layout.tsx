@@ -19,6 +19,7 @@ export const metadata: Metadata = {
     "Trinh Xuan Tam, an experienced and passionate full-stack software engineer based in Prague, Czech Republic. Specializing in developing innovative software solutions, I have a proven track record of building high-quality applications across various platforms. With a strong focus on user experience and efficient functionality, I am dedicated to creating software that not only meets but exceeds client expectations. Whether it's web development, mobile app creation, or system integration, I bring a dynamic and creative approach to every project.'",
   keywords: [
     'Trinh Xuan Tam',
+    'David Trinh',
     'Full-Stack Developer',
     'Software Engineer',
     'Web Development',
