@@ -8,6 +8,9 @@ import {
 export function createClient() {
   const httpLink = new HttpLink({
     uri: `${process.env.NEXT_PUBLIC_CMS_URL}/graphql`,
+    fetchOptions: {
+      next: { revalidate: 600 },
+    },
   });
   return new NextSSRApolloClient({
     cache: new NextSSRInMemoryCache(),
