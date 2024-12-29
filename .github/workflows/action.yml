@@ -27,7 +27,7 @@ jobs:
         SMTP_PASSWORD=${{ secrets.SMTP_PASSWORD }}
         SMTP_PORT=${{ secrets.SMTP_PORT }}
         SMTP_USERNAME=${{ secrets.SMTP_USERNAME }}
-        NEXT_PUBLIC_CMS_URL=${{ secrets.CMS_URL }}
+        NEXT_PUBLIC_CMS_URL=${{ secrets.NEXT_PUBLIC_CMS_URL }}
         EOF
 
     - name: Login to GitHub Container Registry
@@ -54,7 +54,7 @@ jobs:
         SMTP_PASSWORD=${{ secrets.SMTP_PASSWORD }}
         SMTP_PORT=${{ secrets.SMTP_PORT }}
         SMTP_USERNAME=${{ secrets.SMTP_USERNAME }}
-        NEXT_PUBLIC_CMS_URL=${{ secrets.CMS_URL }}
+        NEXT_PUBLIC_CMS_URL=${{ secrets.NEXT_PUBLIC_CMS_URL }}
         EOF
 
     - name: install ssh keys

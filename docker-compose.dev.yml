@@ -12,3 +12,9 @@ services:
     command: npm run dev
     ports:
       - "3000:3000"
+    networks:
+      - portfolio-network-dev
+
+networks:
+  portfolio-network-dev:
+    name: portfolio-network-dev

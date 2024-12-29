@@ -27,7 +27,7 @@ export async function sendEmail(formData: FormData) {
   await transporter.sendMail({
     from: process.env.SMTP_USERNAME,
     to: contact.email,
-    subject: `[Portfolio contact form] ${subject}`,
+    subject: `[Portfolio contact form][${email}] ${subject}`,
     replyTo: email,
     text: message,
   } as NodeMailer.SendMailOptions);

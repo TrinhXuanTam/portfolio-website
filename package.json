@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"next dev\" \"npm run codegen\"",
+    "dev": "concurrently \"npm run codegen:watch\" \"next dev\"",
     "build": "next build",
     "start": "next start",
     "lint": "next lint --fix",
     "format": "prettier --write \"**/*.{js,jsx,tsx,ts,vue,scss,html,md,json}\" --ignore-path .gitignore",
-    "codegen": "graphql-codegen --config codegen.yml --watch src/**/api/graphql/**/*.ts"
+    "codegen": "graphql-codegen --config codegen.yml",
+    "codegen:watch": "graphql-codegen --config codegen.yml --watch"
   },
   "dependencies": {
     "@apollo/client": "^3.9.0-alpha.5",
