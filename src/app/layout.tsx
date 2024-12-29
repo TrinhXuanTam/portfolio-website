@@ -28,6 +28,9 @@ export const metadata: Metadata = {
     'Technology Solutions',
     'Frontend Development',
     'Backend Development',
+    'Trinh Xuan Tam Amazon',
+    'David Trinh Amazon',
+    'Amazon Software Engineer',
     'Prague Software Engineer',
     'Czech Republic Software Engineer',
     'Software Engineer in Prague',
@@ -36,6 +39,10 @@ export const metadata: Metadata = {
     'Software Engineer in EU',
     'Software Engineer in Czechia',
     'Software Engineer in Czech',
+    'Software Engineer in Paris',
+    'Software Engineer in France',
+    'Software Engineer in Brussels',
+    'Software Engineer in Belgium',
   ],
 };
 
