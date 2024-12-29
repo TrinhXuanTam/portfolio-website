@@ -4,4 +4,5 @@ export interface Education {
   location: string;
   from: Date;
   to?: Date;
+  iconUrl?: string;
 }

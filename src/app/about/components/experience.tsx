@@ -1,4 +1,5 @@
 import Stack from '@mui/material/Stack';
+import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import oswald from '@/styles/fonts/oswald';
 import Container from '@mui/material/Container';
@@ -65,7 +66,7 @@ export default async function Experience() {
             />
             <Container maxWidth="xl">
               <Stack direction="row" alignItems="end">
-                <Stack flex={1}>
+                <Stack flex={2}>
                   <Typography
                     fontFamily={oswald.style.fontFamily}
                     fontWeight="bold"
@@ -92,7 +93,38 @@ export default async function Experience() {
                   </Typography>
                 </Stack>
 
-                <Stack flex={2}>
+                <Stack
+                  sx={{
+                    flex: 0.5,
+                    alignItems: 'end',
+                    justifyContent: 'center',
+                  }}
+                  mx={{
+                    xs: 2,
+                    sm: 4,
+                    md: 6,
+                  }}
+                >
+                  {experience.iconUrl && (
+                    <Avatar
+                      sx={{
+                        height: {
+                          xs: '2.5rem',
+                          sm: '4.5rem',
+                          lg: '6.5rem',
+                        },
+                        width: {
+                          xs: '2.5rem',
+                          sm: '4.5rem',
+                          lg: '6.5rem',
+                        },
+                      }}
+                      src={experience.iconUrl}
+                    />
+                  )}
+                </Stack>
+
+                <Stack flex={4}>
                   <Typography
                     fontWeight="lighter"
                     variant="subtitle1"

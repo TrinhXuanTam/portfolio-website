@@ -4,4 +4,5 @@ export interface WorkExperience {
   location: string;
   from: Date;
   to?: Date;
+  iconUrl?: string;
 }

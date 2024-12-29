@@ -14,5 +14,6 @@ export async function getWorkExperience(): Promise<WorkExperience[]> {
     location: e!.location,
     from: new Date(e!.from),
     to: e!.to ? new Date(e!.to) : undefined,
+    iconUrl: e!.icon?.data?.attributes?.url,
   }));
 }

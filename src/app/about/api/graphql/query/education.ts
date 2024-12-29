@@ -11,6 +11,13 @@ export const getEducation = gql`
             location
             from
             to
+            icon {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
           }
         }
       }

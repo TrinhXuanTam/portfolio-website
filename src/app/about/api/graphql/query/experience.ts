@@ -11,6 +11,13 @@ export const getWorkExperience = gql`
             location
             from
             to
+            icon {
+              data {
+                attributes {
+                  url
+                }
+              }
+            }
           }
         }
       }
