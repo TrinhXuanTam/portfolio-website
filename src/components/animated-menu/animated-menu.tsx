@@ -68,7 +68,7 @@ export default function AnimatedMenu({ sx }: { sx?: SxProps }) {
           width: '100vw',
           height: '100vh',
           zIndex: '9998',
-          backgroundColor: theme.palette.secondary.main,
+          backgroundColor: theme.palette.background.default,
         }}
       />
       <MenuIcon
