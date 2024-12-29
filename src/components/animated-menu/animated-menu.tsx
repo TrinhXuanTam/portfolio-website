@@ -11,6 +11,7 @@ import Typography from '@mui/material/Typography';
 import oswald from '@/styles/fonts/oswald';
 import FadeIn from '@/components/transitions/fade-in';
 import { SxProps } from '@mui/material';
+import Logo from '@/components/logo';
 
 export default function AnimatedMenu({ sx }: { sx?: SxProps }) {
   const iconPosition = { top: '1rem', right: '1rem' };
@@ -92,9 +93,14 @@ export default function AnimatedMenu({ sx }: { sx?: SxProps }) {
           display: isOpen ? 'flex' : 'none',
         }}
       >
+        <Grid item xs={12}>
+          <FadeIn delay={0.2}>
+            <Logo sx={{ mx: 2, mt: 1, mb: 5 }} />
+          </FadeIn>
+        </Grid>
         {getRouteObjects().map((route, index) => (
-          <Grid item key={index} xs={12}>
-            <FadeIn direction="down" delay={index * 0.2}>
+          <Grid item key={index} xs={12} my={2}>
+            <FadeIn direction="down" delay={index * 0.2 + 1}>
               <AnimatedNavigationLink key={index} href={route.path}>
                 <Button
                   variant="text"
