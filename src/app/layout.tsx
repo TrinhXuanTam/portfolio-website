@@ -11,6 +11,8 @@ import Cursor from '@/components/cursor';
 import ScrollIndicator from '@/components/scroll-indicator';
 import AnimatedNavigation from '@/components/transitions/animated-navigation';
 import AnimatedMenu from '@/components/animated-menu/animated-menu';
+import ThemeToggleIconButton from '@/components/buttons/toggle-theme-icon-button';
+import Box from '@mui/material/Box';
 
 export const metadata: Metadata = {
   title:
@@ -58,11 +60,22 @@ export default function RootLayout({
           <AnimatedNavigation>
             <header>
               <AppBar />
-              <AnimatedMenu
+              <Box
                 sx={{
                   display: { xs: 'block', md: 'none' },
                 }}
-              />
+              >
+                <AnimatedMenu />
+                <ThemeToggleIconButton
+                  sx={{
+                    mx: 2,
+                    position: 'fixed',
+                    top: '0.75rem',
+                    right: '4rem',
+                    zIndex: 9999,
+                  }}
+                />
+              </Box>
             </header>
 
             <main style={{ minHeight: '100vh' }}>

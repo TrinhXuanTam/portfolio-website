@@ -5,35 +5,35 @@ const theme = createTheme(commonTheme, {
   palette: {
     mode: 'light',
     primary: {
-      main: '#16b573',
-      light: '#10e08a',
-      dark: '#00663c',
-      contrastText: 'white',
+      main: '#3347c8', // Your primary “main” color
+      light: '#3347c8', // Lighter variation of primary
+      dark: '#3347c8', // Darker variation of primary
+      contrastText: '#ffffff',
     },
     secondary: {
-      main: '#f3632d',
-      light: '#f55114',
-      dark: '#873d22',
-      contrastText: 'white',
+      main: '#FFC947', // Your secondary “main” color
+      light: '#FFE49C', // Lighter variation of secondary
+      dark: '#CC9F37', // Darker variation of secondary
+      contrastText: '#015a63',
     },
     background: {
-      default: 'white',
-      paper: '#0e1a24',
+      default: '#f8fffe', // Page background
+      paper: '#e9e9eb', // Container background (Paper components)
     },
     text: {
-      primary: '#ffffff',
-      main: '#ffffff',
+      primary: '#000000',
+      secondary: '#5d5d5f', // You can add a “secondary” if you’d like
     },
   },
   typography: {
     subtitle1: {
-      color: '#959ca3',
+      color: '#5d5d5f',
     },
   },
   components: {
     MuiTypography: {
       defaultProps: {
-        color: 'text',
+        color: 'text', // Could also use 'textPrimary' or 'textSecondary'
       },
     },
   },

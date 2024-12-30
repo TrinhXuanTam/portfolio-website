@@ -7,6 +7,7 @@ import Container from '@mui/material/Container';
 import Logo from '@/components/logo';
 import AnimatedNavigationLink from '@/components/transitions/animated-navigation-link';
 import Routes, { getRouteObjects } from '@/utils/routes';
+import ThemeToggleIconButton from '@/components/buttons/toggle-theme-icon-button';
 
 function ResponsiveAppBar() {
   return (
@@ -45,6 +46,11 @@ function ResponsiveAppBar() {
                 Contact
               </RoundedButton>
             </AnimatedNavigationLink>
+            <ThemeToggleIconButton
+              sx={{
+                mx: 2,
+              }}
+            />
           </Box>
         </Toolbar>
       </Container>

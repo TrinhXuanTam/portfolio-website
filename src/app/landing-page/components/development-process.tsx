@@ -119,7 +119,7 @@ export default function DevelopmentProcess({ sx }: { sx?: SxProps }) {
                   textTransform="uppercase"
                   color="secondary.light"
                   sx={{
-                    opacity: 0.2,
+                    opacity: 0.5,
                   }}
                   fontSize={{
                     xs: '5rem',

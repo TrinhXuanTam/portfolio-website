@@ -28,6 +28,7 @@ export default async function ProjectsGrid() {
                 md: '60vh',
                 lg: '70vh',
               },
+              boxShadow: 0,
             }}
             scale={1.01}
           />

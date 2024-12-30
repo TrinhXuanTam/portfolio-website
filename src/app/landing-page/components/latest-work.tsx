@@ -69,6 +69,7 @@ export default async function LatestWork({ sx }: { sx?: SxProps }) {
                 sm: '40vh',
               },
               my: 5,
+              boxShadow: 0,
             }}
           />
         </FadeIn>

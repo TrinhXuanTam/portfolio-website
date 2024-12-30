@@ -38,17 +38,17 @@ export default function CustomCursor() {
   }, [isOverClickable, clickableExtraValue]);
 
   // Combine base + extra
-  const finalCursorSize = useTransform(
+  const finalCursorSize = useTransform<number, number>(
     [baseSize, clickableExtraSpring],
+    // The second argument must accept an array (e.g. `[number, number]`)
     ([base, extra]) => base + extra
   );
-
   // 3) Offset by half the current size so the circle stays centered
-  const finalCursorX = useTransform(
+  const finalCursorX = useTransform<number, number>(
     [pointerX, finalCursorSize],
     ([x, size]) => x - size / 2
   );
-  const finalCursorY = useTransform(
+  const finalCursorY = useTransform<number, number>(
     [pointerY, finalCursorSize],
     ([y, size]) => y - size / 2
   );

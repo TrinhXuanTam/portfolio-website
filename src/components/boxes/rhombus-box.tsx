@@ -10,7 +10,6 @@ export default function RhombusBox(props: BoxProps) {
     <Box
       {...props}
       sx={{
-        ...props.sx,
         backgroundColor: 'primary.dark',
         backgroundImage: `
           linear-gradient(135deg, ${theme.palette.primary.main} 25%, transparent 25%),
@@ -18,10 +17,11 @@ export default function RhombusBox(props: BoxProps) {
           linear-gradient(45deg,  ${theme.palette.primary.main} 25%, transparent 25%),
           linear-gradient(315deg,  ${theme.palette.primary.main} 25%,  ${theme.palette.background.default}  25%)
         `,
-        opacity: 0.8,
+        opacity: theme.palette.mode === 'dark' ? 0.8 : 1,
         backgroundPosition: '10px 0, 10px 0, 0 0, 0 0',
         backgroundSize: '10px 10px',
         backgroundRepeat: 'repeat',
+        ...props.sx,
       }}
     >
       {props.children}

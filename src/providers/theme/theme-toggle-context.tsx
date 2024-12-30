@@ -1,7 +1,27 @@
-import * as React from 'react';
+import React from 'react';
 
-export const ThemeToggleContext = React.createContext({
+/**
+ * The two modes we support
+ */
+export enum ColorMode {
+  Light = 'light',
+  Dark = 'dark',
+}
+
+/**
+ * Structure of the data our context will provide
+ */
+interface ThemeToggleContextProps {
+  mode: ColorMode;
+  toggleColorMode: () => void;
+}
+
+/**
+ * Create the context with default values
+ */
+export const ThemeToggleContext = React.createContext<ThemeToggleContextProps>({
+  mode: ColorMode.Dark, // default mode
   toggleColorMode: () => {
-    return;
+    // default no-op
   },
 });
