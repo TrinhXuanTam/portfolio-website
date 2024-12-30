@@ -13,7 +13,13 @@ export default function ThemeProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [mode, setMode] = React.useState<ColorMode>(ColorMode.Dark);
+  function getTimeBasedMode(): ColorMode {
+    const hour = new Date().getHours();
+    // Example: Dark between 6pm (18) and 6am (6), otherwise Light
+    return hour >= 18 || hour < 6 ? ColorMode.Dark : ColorMode.Light;
+  }
+
+  const [mode, setMode] = React.useState<ColorMode>(getTimeBasedMode());
 
   // Function to switch modes
   const toggleColorMode = React.useCallback(() => {
