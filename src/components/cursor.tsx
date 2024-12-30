@@ -22,7 +22,7 @@ export default function CustomCursor() {
 
   // Base size from speed
   const baseSize = useTransform(speed, (s) => {
-    return Math.min(16 + s * 0.2, 50);
+    return Math.min(16 + s * 0.3, 50);
   });
 
   // Extra size if hovering clickable
@@ -109,11 +109,14 @@ export default function CustomCursor() {
         position: 'fixed',
         left: 0,
         top: 0,
+        borderWidth: 4,
+        borderStyle: 'solid',
+        borderColor: isOverClickable ? theme.palette.secondary.main : theme.palette.primary.main,
         borderRadius: '50%',
         pointerEvents: 'none',
         zIndex: 9999,
         backgroundColor: isOverClickable
-          ? theme.palette.secondary.main
+          ? `${theme.palette.secondary.main}99`
           : theme.palette.primary.main,
         display: isMobile ? 'none' : 'block',
       }}
