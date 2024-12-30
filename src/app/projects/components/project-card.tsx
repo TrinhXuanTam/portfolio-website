@@ -88,6 +88,7 @@ export default function ProjectCard({
                 >
                   <Typography
                     fontFamily={oswald.style.fontFamily}
+                    color={theme.palette.secondary.contrastText}
                     gutterBottom
                     fontWeight="medium"
                     textAlign="center"
@@ -104,6 +105,7 @@ export default function ProjectCard({
                   <Typography
                     fontWeight="lighter"
                     textAlign="center"
+                    color={theme.palette.secondary.contrastText}
                     display={{
                       xs: 'none',
                       xl: 'block',

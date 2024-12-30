@@ -5,16 +5,16 @@ const theme = createTheme(commonTheme, {
   palette: {
     mode: 'light',
     primary: {
-      main: '#3347c8', // Your primary “main” color
-      light: '#3347c8', // Lighter variation of primary
-      dark: '#3347c8', // Darker variation of primary
+      main: '#e64c45', // Your primary “main” color
+      light: '#ff7a70', // Lighter variation of primary
+      dark: '#b32d2b', // Darker variation of primary
       contrastText: '#ffffff',
     },
     secondary: {
-      main: '#FFC947', // Your secondary “main” color
-      light: '#FFE49C', // Lighter variation of secondary
-      dark: '#CC9F37', // Darker variation of secondary
-      contrastText: '#015a63',
+      main: '#6600ff', // Your secondary “main” color
+      light: '#a066ff', // Lighter variation of secondary
+      dark: '#3d00b2', // Darker variation of secondary
+      contrastText: '#f8fffe',
     },
     background: {
       default: '#f8fffe', // Page background
@@ -22,7 +22,7 @@ const theme = createTheme(commonTheme, {
     },
     text: {
       primary: '#000000',
-      secondary: '#5d5d5f', // You can add a “secondary” if you’d like
+      secondary: '#5d5d5f',
     },
   },
   typography: {
@@ -33,7 +33,7 @@ const theme = createTheme(commonTheme, {
   components: {
     MuiTypography: {
       defaultProps: {
-        color: 'text', // Could also use 'textPrimary' or 'textSecondary'
+        color: 'text',
       },
     },
   },

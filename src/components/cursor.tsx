@@ -112,7 +112,6 @@ export default function CustomCursor() {
         borderRadius: '50%',
         pointerEvents: 'none',
         zIndex: 9999,
-        mixBlendMode: 'difference',
         backgroundColor: isOverClickable
           ? theme.palette.secondary.main
           : theme.palette.primary.main,
