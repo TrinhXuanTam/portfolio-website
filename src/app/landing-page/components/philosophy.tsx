@@ -61,7 +61,7 @@ const values: Value[] = [
 export default function Philosophy() {
   return (
     <Stack width="100%">
-      <Container maxWidth="xl">
+      <Container maxWidth="lg">
         <FadeIn delay={1}>
           <Typography
             fontFamily={oswald.style.fontFamily}
