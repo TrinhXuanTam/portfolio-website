@@ -67,6 +67,11 @@ export default function RootLayout({
               var mode=(s==='dark'||s==='light')?s:((h>=19||h<7)?'dark':'light');
               window.__COLOR_MODE__=mode;
               document.documentElement.style.backgroundColor=(mode==='dark'?'#07111a':'#f8fffe');
+              // Hide body until the client resolves the theme, so no mis-themed
+              // content paints. ThemeProvider re-shows it after mount.
+              document.addEventListener('DOMContentLoaded',function(){
+                document.body.style.visibility='hidden';
+              });
             }catch(e){}})();`,
           }}
         />
