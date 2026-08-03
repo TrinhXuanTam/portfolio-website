@@ -12,6 +12,7 @@ import { useRef } from 'react';
 import { ProjectOverview } from '@/app/projects/schemas/projects';
 import AnimatedNavigationLink from '@/components/transitions/animated-navigation-link';
 import Routes from '@/utils/routes';
+import Tilt from '@/components/interactive/tilt';
 
 export default function ProjectCard({
   sx,
@@ -34,8 +35,10 @@ export default function ProjectCard({
 
   return (
     <AnimatedNavigationLink href={`${Routes.Projects}/${project.id}`}>
+      <Tilt max={7}>
       <motion.div
         ref={ref}
+        data-cursor="View"
         whileHover={{ scale: scale }}
         transition={{ type: 'spring', stiffness: 400, damping: damping }}
       >
@@ -122,6 +125,7 @@ export default function ProjectCard({
           </CardActionArea>
         </Card>
       </motion.div>
+      </Tilt>
     </AnimatedNavigationLink>
   );
 }

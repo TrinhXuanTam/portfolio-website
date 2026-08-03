@@ -3,37 +3,48 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import oswald from '@/styles/fonts/oswald';
 import Container from '@mui/material/Container';
-import developerForHire from '@/assets/images/developer-for-hire.png';
-import developer from '@/assets/images/developer.png';
-import consultant from '@/assets/images/consultant.png';
-import Avatar from '@mui/material/Avatar';
+import Box from '@mui/material/Box';
 import FadeIn from '@/components/transitions/fade-in';
 import Grid from '@mui/material/Grid';
+import Tilt from '@/components/interactive/tilt';
+import GradientText from '@/components/transitions/gradient-text';
+import CodeOutlinedIcon from '@mui/icons-material/CodeOutlined';
+import RocketLaunchOutlinedIcon from '@mui/icons-material/RocketLaunchOutlined';
+import LightbulbOutlinedIcon from '@mui/icons-material/LightbulbOutlined';
 
 type Service = {
-  image: string;
+  icon: React.ReactNode;
   title: string;
   description: string;
+  // Per-service accent so the row reads as multi-color, not mono.
+  color: string;
+  glow: string;
 };
 
 const services: Service[] = [
   {
-    image: developerForHire.src,
+    icon: <CodeOutlinedIcon sx={{ fontSize: 'inherit' }} />,
     title: 'Developer for Hire',
     description:
       'Lend a seasoned touch to your team with my expertise in coding and agile development. I integrate seamlessly to push your project forward.',
+    color: '#16b573', // emerald
+    glow: 'rgba(22,181,115,0.25)',
   },
   {
-    image: developer.src,
+    icon: <RocketLaunchOutlinedIcon sx={{ fontSize: 'inherit' }} />,
     title: 'Custom Software Solutions',
     description:
       'Transforming your business challenges into innovative tech solutions with custom software tailored to your specific needs.',
+    color: '#f3632d', // orange
+    glow: 'rgba(243,99,45,0.25)',
   },
   {
-    image: consultant.src,
+    icon: <LightbulbOutlinedIcon sx={{ fontSize: 'inherit' }} />,
     title: 'IT Consulting',
     description:
       'Offering personalized consulting to help you leverage the latest technologies and optimize your IT strategy for maximum impact.',
+    color: '#3b82f6', // blue
+    glow: 'rgba(59,130,246,0.25)',
   },
 ];
 
@@ -70,7 +81,6 @@ export default function Services({ sx }: { sx?: SxProps }) {
                 fontFamily={oswald.style.fontFamily}
                 fontWeight="bold"
                 textTransform="uppercase"
-                color="primary"
                 fontSize={{
                   xs: '2rem',
                   sm: '1.8rem',
@@ -78,7 +88,7 @@ export default function Services({ sx }: { sx?: SxProps }) {
                   lg: '3.6rem',
                 }}
               >
-                grow your business
+                <GradientText>grow your business</GradientText>
               </Typography>
               <Typography
                 fontFamily={oswald.style.fontFamily}
@@ -100,28 +110,24 @@ export default function Services({ sx }: { sx?: SxProps }) {
           {services.map((service, index) => (
             <Grid item xs={12} md={4} key={index} mb={{ xs: '15vh', md: 0 }}>
               <FadeIn direction="down">
+                <Tilt max={8}>
                 <Stack flex={1} alignItems="center">
-                  <Avatar
+                  <Box
                     sx={{
-                      height: {
-                        xs: '10rem',
-                        sm: '12rem',
-                        lg: '15rem',
-                      },
-                      width: {
-                        xs: '10rem',
-                        sm: '12rem',
-                        lg: '15rem',
-                      },
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: { xs: '4rem', sm: '5rem', lg: '6rem' },
+                      color: service.color,
                     }}
-                    src={service.image}
-                  />
+                  >
+                    {service.icon}
+                  </Box>
                   <Typography
                     fontFamily={oswald.style.fontFamily}
                     variant="h5"
                     fontWeight="bold"
-                    color="secondary"
-                    sx={{ mt: 2 }}
+                    sx={{ mt: 2, color: service.color }}
                   >
                     {service.title}
                   </Typography>
@@ -141,6 +147,7 @@ export default function Services({ sx }: { sx?: SxProps }) {
                     {service.description}
                   </Typography>
                 </Stack>
+                </Tilt>
               </FadeIn>
             </Grid>
           ))}

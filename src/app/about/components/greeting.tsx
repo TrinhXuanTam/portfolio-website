@@ -9,7 +9,7 @@ import ParalaxImage from '@/app/about/components/paralax-image';
 
 export default function Greeting() {
   return (
-    <Container maxWidth="xl" sx={{ mt: '10vh' }}>
+    <Container maxWidth="lg" sx={{ mt: '10vh' }}>
       <VerticalScrollTransition>
         <FadeIn direction="up" once={true}>
           <Typography

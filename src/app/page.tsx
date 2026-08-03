@@ -13,7 +13,16 @@ import { Suspense } from 'react';
 export default function LandingPage() {
   return (
     <Stack overflow="hidden">
-      <Container maxWidth="lg" sx={{ my: '25vh' }}>
+      <Container
+        maxWidth="lg"
+        sx={{
+          minHeight: '100vh',
+          display: 'flex',
+          alignItems: 'center',
+          pt: { xs: '12vh', md: '8vh' },
+          pb: '8vh',
+        }}
+      >
         <Suspense>
           <Intro />
         </Suspense>

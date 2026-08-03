@@ -8,10 +8,11 @@ import DottedBox from '@/components/boxes/dotted-box';
 import PageFooter from '@/components/page-footer';
 import AppBar from '@/components/app-bar';
 import Cursor from '@/components/cursor';
-import ScrollIndicator from '@/components/scroll-indicator';
 import AnimatedNavigation from '@/components/transitions/animated-navigation';
 import AnimatedMenu from '@/components/animated-menu/animated-menu';
 import ThemeToggleIconButton from '@/components/buttons/toggle-theme-icon-button';
+import ScrollProgressBar from '@/components/interactive/scroll-progress-bar';
+import ScrollMoments from '@/components/interactive/scroll-moments';
 import Box from '@mui/material/Box';
 
 export const metadata: Metadata = {
@@ -55,8 +56,25 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        {/* Resolve + paint the theme before first paint to avoid a
+            flash-of-light-mode. Mirrors the logic in ThemeProvider. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{
+              var s=localStorage.getItem('color-mode');
+              var h=new Date().getHours();
+              var mode=(s==='dark'||s==='light')?s:((h>=19||h<7)?'dark':'light');
+              window.__COLOR_MODE__=mode;
+              document.documentElement.style.backgroundColor=(mode==='dark'?'#07111a':'#f8fffe');
+            }catch(e){}})();`,
+          }}
+        />
+      </head>
       <ThemeProvider>
         <body>
+          <ScrollProgressBar />
+          <ScrollMoments />
           <AnimatedNavigation>
             <header>
               <AppBar />
@@ -90,7 +108,6 @@ export default function RootLayout({
               <PageFooter />
             </footer>
           </AnimatedNavigation>
-          <ScrollIndicator />
           <Cursor />
         </body>
       </ThemeProvider>
