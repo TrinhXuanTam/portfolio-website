@@ -16,24 +16,30 @@ function modeForCurrentTime(): ColorMode {
   return hour >= 19 || hour < 7 ? ColorMode.Dark : ColorMode.Light;
 }
 
+/** Resolve the mode from storage (manual choice) or time-of-day. Client only. */
+function resolveMode(): ColorMode {
+  const pre = (window as { __COLOR_MODE__?: ColorMode }).__COLOR_MODE__;
+  if (pre === ColorMode.Dark || pre === ColorMode.Light) return pre;
+  const stored = window.localStorage.getItem(STORAGE_KEY) as ColorMode | null;
+  if (stored === ColorMode.Dark || stored === ColorMode.Light) return stored;
+  return modeForCurrentTime();
+}
+
 export default function ThemeProvider({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  // Initialize from the value the pre-paint inline script already resolved
-  // (window.__COLOR_MODE__), so the first client render matches what's painted
-  // and there's no flash. Falls back to time-of-day if the script didn't run.
-  const [mode, setMode] = React.useState<ColorMode>(() => {
-    if (typeof window !== 'undefined') {
-      const pre = (window as { __COLOR_MODE__?: ColorMode }).__COLOR_MODE__;
-      if (pre === ColorMode.Dark || pre === ColorMode.Light) return pre;
-      const stored = window.localStorage.getItem(STORAGE_KEY) as ColorMode | null;
-      if (stored === ColorMode.Dark || stored === ColorMode.Light) return stored;
-      return modeForCurrentTime();
-    }
-    return ColorMode.Light;
-  });
+  // The correct mode is only knowable on the client (localStorage / clock), so
+  // SSR can't render it. We resolve it after mount and reveal the body then —
+  // the pre-paint inline script already painted the correct background.
+  const [mode, setMode] = React.useState<ColorMode>(ColorMode.Light);
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMode(resolveMode());
+    setMounted(true);
+  }, []);
 
   const toggleColorMode = React.useCallback(() => {
     setMode((prevMode) => {
@@ -45,14 +51,16 @@ export default function ThemeProvider({
   }, []);
 
   const contextValue = React.useMemo(
-    () => ({
-      mode,
-      toggleColorMode,
-    }),
+    () => ({ mode, toggleColorMode }),
     [mode, toggleColorMode]
   );
 
   const theme = mode === ColorMode.Dark ? darkTheme : lightTheme;
+
+  // Reveal the body (hidden by the pre-paint script) once the theme resolves.
+  React.useEffect(() => {
+    document.body.style.visibility = 'visible';
+  }, [mounted]);
 
   return (
     <ThemeToggleContext.Provider value={contextValue}>
