@@ -19,6 +19,8 @@ export default function CustomCursor() {
 
   // Whether we are over a clickable element
   const [isOverClickable, setIsOverClickable] = useState(false);
+  // Optional label surfaced from an element's data-cursor attribute.
+  const [label, setLabel] = useState('');
 
   // Base size from speed
   const baseSize = useTransform(speed, (s) => {
@@ -90,6 +92,12 @@ export default function CustomCursor() {
       const elements = document.elementsFromPoint(clientX, clientY);
       const foundClickable = elements.some(isElementClickable);
       setIsOverClickable(foundClickable);
+
+      // Surface a label if any element under the cursor declares one.
+      const labelled = elements.find(
+        (el) => el instanceof HTMLElement && el.dataset.cursor
+      ) as HTMLElement | undefined;
+      setLabel(labelled?.dataset.cursor ?? '');
     };
 
     window.addEventListener('mousemove', moveCursor);
@@ -97,6 +105,8 @@ export default function CustomCursor() {
       window.removeEventListener('mousemove', moveCursor);
     };
   }, [pointerX, pointerY, speed]);
+
+  if (isMobile) return null;
 
   return (
     <motion.div
@@ -115,11 +125,28 @@ export default function CustomCursor() {
         borderRadius: '50%',
         pointerEvents: 'none',
         zIndex: 9999,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
         backgroundColor: isOverClickable
           ? `${theme.palette.secondary.main}99`
           : theme.palette.primary.main,
-        display: isMobile ? 'none' : 'block',
       }}
-    />
+    >
+      {label && (
+        <span
+          style={{
+            fontSize: '0.6rem',
+            fontWeight: 700,
+            textTransform: 'uppercase',
+            letterSpacing: '0.05em',
+            color: theme.palette.secondary.contrastText,
+            whiteSpace: 'nowrap',
+          }}
+        >
+          {label}
+        </span>
+      )}
+    </motion.div>
   );
 }

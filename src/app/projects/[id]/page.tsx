@@ -2,7 +2,7 @@ import Stack from '@mui/material/Stack';
 import { getProjectDetail } from '@/app/projects/api/projects';
 import ProjectIntro from '@/app/projects/[id]/components/project-intro';
 import ProjectDescription from '@/app/projects/[id]/components/project-description';
-import ProjectImages from '@/app/projects/[id]/components/project-images';
+import ImageGallery from '@/app/projects/[id]/components/image-gallery';
 
 export default async function ProjectDetail({
   params,
@@ -12,9 +12,9 @@ export default async function ProjectDetail({
   const data = await getProjectDetail(params.id);
   return (
     <Stack overflow="hidden">
-      <ProjectIntro data={data} sx={{ mt: '25vh' }} />
+      <ProjectIntro data={data} sx={{ pt: { xs: '12vh', md: '14vh' } }} />
       <ProjectDescription data={data} sx={{ my: '5vh' }} />
-      <ProjectImages data={data} />
+      <ImageGallery images={data.imageUrls} alt={data.name} />
     </Stack>
   );
 }

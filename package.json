@@ -4,12 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "concurrently \"npm run codegen:watch\" \"next dev\"",
+    "dev:app": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint --fix",
     "format": "prettier --write \"**/*.{js,jsx,tsx,ts,vue,scss,html,md,json}\" --ignore-path .prettierignore",
-    "codegen": "graphql-codegen --config codegen.yml",
-    "codegen:watch": "graphql-codegen --config codegen.yml --watch"
+    "codegen": "graphql-codegen --require dotenv/config --config codegen.yml",
+    "codegen:watch": "graphql-codegen --require dotenv/config --config codegen.yml --watch"
   },
   "dependencies": {
     "@apollo/client": "^3.9.0-alpha.5",

@@ -7,9 +7,19 @@ import FadeIn from '@/components/transitions/fade-in';
 
 export default function ContactPage() {
   return (
-    <Container maxWidth="xl" sx={{ my: '25vh', overflow: 'hidden' }}>
-      <Grid container rowSpacing="25vh" columnSpacing="5vw">
-        <Grid item xs={12} lg={7} xl={6}>
+    <Container
+      maxWidth="lg"
+      sx={{
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        overflow: 'hidden',
+        pt: { xs: '14vh', md: '10vh' },
+        pb: '8vh',
+      }}
+    >
+      <Grid container rowSpacing="8vh" columnSpacing="5vw" alignItems="center">
+        <Grid item xs={12} md={6}>
           <FadeIn direction="left">
             <Suspense>
               <ContactDetails />
@@ -17,7 +27,7 @@ export default function ContactPage() {
           </FadeIn>
         </Grid>
 
-        <Grid item xs={12} sm={12} lg={5} xl={6}>
+        <Grid item xs={12} md={6}>
           <FadeIn direction="right">
             <ContactForm sx={{ width: '100%' }} />
           </FadeIn>

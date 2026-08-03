@@ -16,13 +16,16 @@ import { getProfiles } from '@/app/about/api/contact';
 import Grid from '@mui/material/Grid';
 import AnimatedNavigationLink from '@/components/transitions/animated-navigation-link';
 import Routes from '@/utils/routes';
+import Magnetic from '@/components/interactive/magnetic';
+import PointerParallax from '@/components/interactive/pointer-parallax';
+import GradientText from '@/components/transitions/gradient-text';
 
 export default async function Intro({ sx }: { sx?: SxProps }) {
   const cvUrl = await getCvUrl();
   const profiles = await getProfiles();
 
   return (
-    <Grid container sx={sx} rowSpacing="10vh">
+    <Grid container sx={{ width: '100%', ...sx }} rowSpacing="10vh">
       <Grid item xs={12} sm={6}>
         <Stack>
           <FadeIn direction="down">
@@ -50,7 +53,7 @@ export default async function Intro({ sx }: { sx?: SxProps }) {
                 md: '4rem',
               }}
             >
-              Trinh Xuan Tam
+              <GradientText>Trinh Xuan Tam</GradientText>
             </Typography>
           </FadeIn>
           <FadeIn direction="down" delay={0.3}>
@@ -96,23 +99,27 @@ export default async function Intro({ sx }: { sx?: SxProps }) {
 
           <FadeIn direction="down" delay={0.5}>
             <Stack direction="row" spacing={2} sx={{ mt: 4 }}>
-              <AnimatedNavigationLink href={Routes.Contact}>
+              <Magnetic>
+                <AnimatedNavigationLink href={Routes.Contact}>
+                  <RoundedButton
+                    color="secondary"
+                    variant="contained"
+                    size="large"
+                  >
+                    Get in touch
+                  </RoundedButton>
+                </AnimatedNavigationLink>
+              </Magnetic>
+              <Magnetic>
                 <RoundedButton
-                  color="secondary"
-                  variant="contained"
+                  component="a"
+                  variant="outlined"
                   size="large"
+                  href={cvUrl}
                 >
-                  Get in touch
+                  See my CV
                 </RoundedButton>
-              </AnimatedNavigationLink>
-              <RoundedButton
-                component="a"
-                variant="outlined"
-                size="large"
-                href={cvUrl}
-              >
-                See my CV
-              </RoundedButton>
+              </Magnetic>
             </Stack>
             <Stack direction="row" spacing={2} sx={{ mt: 4 }}>
               <IconButton
@@ -143,6 +150,7 @@ export default async function Intro({ sx }: { sx?: SxProps }) {
       </Grid>
       <Grid item xs={12} sm={6} display="flex" justifyContent="center">
         <FadeIn direction="right">
+          <PointerParallax intensity={18}>
           <RhombusBox
             position="relative"
             sx={{
@@ -171,6 +179,7 @@ export default async function Intro({ sx }: { sx?: SxProps }) {
               style={{ objectFit: 'contain' }}
             />
           </RhombusBox>
+          </PointerParallax>
         </FadeIn>
       </Grid>
     </Grid>

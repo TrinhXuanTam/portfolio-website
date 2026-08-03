@@ -9,6 +9,7 @@ import ProjectCard from '@/app/projects/components/project-card';
 import { getProjectsOverview } from '@/app/projects/api/projects';
 import AnimatedNavigationLink from '@/components/transitions/animated-navigation-link';
 import Routes from '@/utils/routes';
+import GradientText from '@/components/transitions/gradient-text';
 
 export default async function LatestWork({ sx }: { sx?: SxProps }) {
   const allProjects = await getProjectsOverview();
@@ -37,7 +38,6 @@ export default async function LatestWork({ sx }: { sx?: SxProps }) {
               lineHeight={1.2}
               fontWeight="bold"
               textTransform="uppercase"
-              color="primary"
               fontSize={{
                 xs: '1.5rem',
                 sm: '2.8rem',
@@ -45,7 +45,7 @@ export default async function LatestWork({ sx }: { sx?: SxProps }) {
                 lg: '4rem',
               }}
             >
-              latest projects
+              <GradientText>latest projects</GradientText>
             </Typography>
           </Stack>
         </FadeIn>

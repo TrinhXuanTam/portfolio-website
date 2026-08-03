@@ -13,7 +13,7 @@ export default async function Experience() {
   return (
     <Stack my={15}>
       <FadeIn direction="left">
-        <Container maxWidth="xl">
+        <Container maxWidth="lg">
           <Typography
             fontFamily={oswald.style.fontFamily}
             fontWeight="bold"
@@ -49,7 +49,7 @@ export default async function Experience() {
               variant="fullWidth"
               sx={{ bgcolor: 'background.paper', my: 5 }}
             />
-            <Container maxWidth="xl">
+            <Container maxWidth="lg">
               <Stack direction="row" alignItems="end">
                 <Stack flex={2}>
                   <Typography

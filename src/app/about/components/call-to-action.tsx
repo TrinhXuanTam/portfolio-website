@@ -16,7 +16,7 @@ export default async function CallToAction({ sx }: { sx?: SxProps }) {
 
   return (
     <FullScreenContainer>
-      <Container sx={sx} maxWidth="xl">
+      <Container sx={sx} maxWidth="lg">
         <FadeIn>
           <Stack alignItems="center" spacing={7}>
             <Stack justifyContent="center" alignItems="center">
