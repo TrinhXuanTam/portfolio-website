@@ -31,9 +31,8 @@ export default function ThemeProvider({
   children: React.ReactNode;
 }) {
   // The correct mode is only knowable on the client (localStorage / clock), so
-  // SSR can't render it. We resolve it after mount and gate rendering until
-  // then — the pre-paint inline script has already painted the correct
-  // background, so the gate shows that background (no wrong-themed flash).
+  // SSR can't render it. We resolve it after mount and reveal the body then —
+  // the pre-paint inline script already painted the correct background.
   const [mode, setMode] = React.useState<ColorMode>(ColorMode.Light);
   const [mounted, setMounted] = React.useState(false);
 
@@ -58,8 +57,7 @@ export default function ThemeProvider({
 
   const theme = mode === ColorMode.Dark ? darkTheme : lightTheme;
 
-  // Expose readiness so consumers (e.g. body) can gate visibility without
-  // introducing an extra wrapping element that would break HTML nesting.
+  // Reveal the body (hidden by the pre-paint script) once the theme resolves.
   React.useEffect(() => {
     document.body.style.visibility = 'visible';
   }, [mounted]);
