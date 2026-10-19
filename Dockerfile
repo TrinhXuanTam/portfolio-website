@@ -21,13 +21,15 @@ FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+ARG NEXT_PUBLIC_CMS_URL=https://cms.trinhxuantam.com
+ENV NEXT_PUBLIC_CMS_URL=${NEXT_PUBLIC_CMS_URL}
 
 # Next.js collects completely anonymous telemetry data about general usage.
 # Learn more here: https://nextjs.org/telemetry
 # Uncomment the following line in case you want to disable telemetry during the build.
 # ENV NEXT_TELEMETRY_DISABLED 1
 
-RUN yarn build
+RUN npm run build
 
 # If using npm comment out above and use below instead
 # RUN npm run build
@@ -65,3 +67,5 @@ ENV HOSTNAME "0.0.0.0"
 # server.js is created by next build from the standalone output
 # https://nextjs.org/docs/pages/api-reference/next-config-js/output
 CMD ["node", "server.js"]
+
+HEALTHCHECK --interval=10s --timeout=5s --start-period=60s --retries=6 CMD node -e "require('http').get('http://127.0.0.1:3000/',r=>process.exit(r.statusCode>=200&&r.statusCode<400?0:1)).on('error',()=>process.exit(1))"
